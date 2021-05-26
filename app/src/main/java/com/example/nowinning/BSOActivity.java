@@ -242,12 +242,15 @@ public class BSOActivity extends AppCompatActivity {
             }
         });
 
-        mImgView.setOnLongClickListener(new View.OnLongClickListener() {
+        mImgView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Batplay batplay_fragment = new Batplay();
+                transaction.replace(R.id.frame, batplay_fragment);
+                transaction.commit();
+                btn_SBO.setVisibility(View.INVISIBLE);
 
-                return false;
             }
         });
 
