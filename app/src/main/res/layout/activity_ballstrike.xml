@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@drawable/sizefield"
+
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="328dp">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/LL_board"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical"
+                android:weightSum="9">
+
+                <EditText
+                    android:id="@+id/et_strike"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="S" />
+
+                <EditText
+                    android:id="@+id/et_ball"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="B" />
+
+                <EditText
+                    android:id="@+id/et_out"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="O" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sc_board"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:weightSum="9">
+
+                <EditText
+                    android:id="@+id/et_ascore"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="AWAY 0" />
+
+                <EditText
+                    android:id="@+id/et_hscore"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="HOME 0" />
+
+
+                <EditText
+                    android:id="@+id/et_ini"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="1 이닝" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/btn_SBO"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/LL_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/btn_place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="9dp"
+                        android:weightSum="2">
+
+                        <Button
+                            android:id="@+id/strike_button"
+                            android:layout_width="180dp"
+                            android:layout_height="90dp"
+                            android:layout_weight="1"
+                            android:text="Strike"
+                            android:textStyle="bold"
+                            app:backgroundTint="#F47D30"
+                            android:textColor="#1C315E"/>
+
+                        <Button
+                            android:id="@+id/ball_button"
+                            android:layout_width="180dp"
+                            android:layout_height="90dp"
+                            android:layout_weight="1"
+                            android:text="Ball"
+                            android:textStyle="bold"
+                            app:backgroundTint="#F47D30"
+                            android:textColor="#1C315E"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/hit_button"
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="9dp"
+                        android:text="hit"
+                        android:textStyle="bold"
+                        app:backgroundTint="#F47D30"
+                        android:textColor="#1C315E"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/other_button"
+                    android:layout_width="369dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Others"
+                    android:textStyle="bold"
+                    app:backgroundTint="#F47D30"
+                    android:textColor="#1C315E"/>
+
+                <Button
+                    android:id="@+id/out_button"
+                    android:layout_width="369dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="OUT"
+                    android:textStyle="bold"
+                    app:backgroundTint="#F47D30"
+                    android:textColor="#1C315E"/>
+
+               <!-- <Button
+                    android:id="@+id/cnt_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Run cnt" /> // 누르면 특정 카운트 확인할 수 있게
+               -->
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
