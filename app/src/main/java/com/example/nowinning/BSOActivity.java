@@ -207,7 +207,7 @@ public class BSOActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                         @Override
                         public void run() {
-                           // et_out.setText("O ");
+                           et_out.setText("O ");
                             outCnt = 0;
                             Toast.makeText(BSOActivity.this,"이닝 변경", Toast.LENGTH_SHORT).show();
                         }
