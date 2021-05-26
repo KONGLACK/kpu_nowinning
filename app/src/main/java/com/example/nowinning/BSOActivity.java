@@ -242,6 +242,15 @@ public class BSOActivity extends AppCompatActivity {
             }
         });
 
+        mImgView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                return false;
+            }
+        });
+
        /* oCnt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
