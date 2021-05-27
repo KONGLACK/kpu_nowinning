@@ -246,10 +246,14 @@ public class BSOActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Batplay batplay_fragment = new Batplay();
-                transaction.replace(R.id.frame, batplay_fragment);
+                Inplay inplay_fragment = new Inplay();
+                transaction.replace(R.id.frame, inplay_fragment);
                 transaction.commit();
                 btn_SBO.setVisibility(View.INVISIBLE);
+                /*Batplay batplay_fragment = new Batplay();
+                transaction.replace(R.id.frame, batplay_fragment);
+                transaction.commit();
+                btn_SBO.setVisibility(View.INVISIBLE);*/
 
             }
         });
