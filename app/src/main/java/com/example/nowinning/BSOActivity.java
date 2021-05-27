@@ -41,7 +41,7 @@ import static com.example.nowinning.start.choice_home;
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
-    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, oCnt;
+    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, oCnt, btn_away, btn_home;
     public static LinearLayout btn_SBO;
 
     public int i,j;
@@ -68,6 +68,8 @@ public class BSOActivity extends AppCompatActivity {
         et_hscore = (EditText)findViewById(R.id.et_hscore);
         et_ascore = (EditText)findViewById(R.id.et_ascore);
         et_ini = (EditText)findViewById(R.id.et_ini);
+        btn_away = (Button)findViewById(R.id.awaybutton);
+        btn_home = (Button)findViewById(R.id.homebutton);
 
         btn_s = (Button)findViewById(R.id.strike_button);
         btn_b = (Button)findViewById(R.id.ball_button);
@@ -92,8 +94,24 @@ public class BSOActivity extends AppCompatActivity {
         final Animation translateTD = AnimationUtils.loadAnimation(this,R.anim.translate_t2d);
         final Animation translateTH = AnimationUtils.loadAnimation(this,R.anim.translate_t2h);
 
+
         et_hscore.setText("홈      "+choice_home +" 0");
         et_ascore.setText("원정   "+choice_away +" 0");
+        btn_away.setText(choice_away);
+        btn_home.setText(choice_home);
+
+        btn_away.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), choice_away+" 공격 시작", Toast.LENGTH_LONG).show();
+            }
+        });
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), choice_home+" 공격 시작", Toast.LENGTH_LONG).show();
+            }
+        });
 
         Handler handler = new Handler();
 
