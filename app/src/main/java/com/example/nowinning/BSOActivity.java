@@ -250,6 +250,7 @@ public class BSOActivity extends AppCompatActivity {
                 transaction.replace(R.id.frame, batplay_fragment);
                 transaction.commit();
                 btn_SBO.setVisibility(View.INVISIBLE);
+                //hi
 
             }
         });
