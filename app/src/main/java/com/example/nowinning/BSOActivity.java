@@ -5,16 +5,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -32,6 +35,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import static com.example.nowinning.SDT_select.layout_SDT;
+import static com.example.nowinning.start.choice_away;
+import static com.example.nowinning.start.choice_home;
 
 public class BSOActivity extends AppCompatActivity {
 
@@ -87,9 +92,10 @@ public class BSOActivity extends AppCompatActivity {
         final Animation translateTD = AnimationUtils.loadAnimation(this,R.anim.translate_t2d);
         final Animation translateTH = AnimationUtils.loadAnimation(this,R.anim.translate_t2h);
 
+        et_hscore.setText("홈      "+choice_home +" 0");
+        et_ascore.setText("원정   "+choice_away +" 0");
 
         Handler handler = new Handler();
-
 
         btn_s.setOnClickListener(new View.OnClickListener() {
             int strike = 0;

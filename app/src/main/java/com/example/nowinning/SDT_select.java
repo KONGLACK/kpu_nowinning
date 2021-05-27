@@ -1,7 +1,10 @@
 package com.example.nowinning;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +30,8 @@ import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.hscore;
 import static com.example.nowinning.BSOActivity.ascore;
 import static com.example.nowinning.BSOActivity.stkCnt;
+import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.choice_away;
 
 public class SDT_select extends Fragment {
 
@@ -34,12 +39,15 @@ public class SDT_select extends Fragment {
     private int i;
     public static LinearLayout layout_SDT;
 
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.sdt, container, false);
-
         btn_Single = (Button) v.findViewById(R.id.btn_Single);
         btn_Double = (Button) v.findViewById(R.id.btn_Double);
         btn_Triple = (Button) v.findViewById(R.id.btn_Triple);
@@ -59,6 +67,7 @@ public class SDT_select extends Fragment {
 
         final Animation translateTD = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_t2d);
         final Animation translateTH = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_t2h);
+
 
 
 
@@ -88,7 +97,7 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_hscore.setText("HOME "+Integer.toString(hscore));
+                                et_hscore.setText("홈      "+choice_home+Integer.toString(hscore));
                                 mImgView.setVisibility(View.INVISIBLE);
                             }
                         }, 500);
@@ -102,7 +111,7 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 ascore++;
-                                et_ascore.setText("AWAY "+Integer.toString(ascore));
+                                et_ascore.setText("원정   "+choice_away+Integer.toString(ascore));
                                 mImgView.setVisibility(View.INVISIBLE);
                             }
                         }, 500);
@@ -146,7 +155,7 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_hscore.setText("HOME "+Integer.toString(hscore));
+                                et_hscore.setText("홈      "+choice_home + Integer.toString(hscore));
                                 runCnt = 0; // 무조건 친 루타만 진루한다고 가정하고 임시로 설정(에러 등 변수 제외)
                             }
                         }, 500);
@@ -160,7 +169,7 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 ascore++;
-                                et_ascore.setText("AWAY "+Integer.toString(ascore));
+                                et_ascore.setText("원정   "+choice_away + Integer.toString(ascore));
                                 runCnt = 0; // 무조건 친 루타만 진루한다고 가정하고 임시로 설정(에러 등 변수 제외)
                             }
                         }, 500);
