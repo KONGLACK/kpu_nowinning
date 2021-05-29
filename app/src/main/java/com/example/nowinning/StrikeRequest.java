@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class StrikeRequest extends StringRequest {
 
-    final static private String URL = "http://shun8800.dothome.co.kr/strikecount.php";
+    final static private String URL = "http://shun8800.dothome.co.kr/away.php";
     private Map<String, String> parameters;
 
     public StrikeRequest(int strike, Response.Listener<String> listener) {
