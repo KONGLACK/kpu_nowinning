@@ -10,8 +10,22 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static com.example.nowinning.BSOActivity.et_ascore;
 import static com.example.nowinning.BSOActivity.et_hscore;
+import static com.example.nowinning.BSOActivity.home_ball;
+import static com.example.nowinning.BSOActivity.home_outout;
+import static com.example.nowinning.BSOActivity.home_strike;
+import static com.example.nowinning.BSOActivity.away_ball;
+import static com.example.nowinning.BSOActivity.away_strike;
+import static com.example.nowinning.BSOActivity.away_outout;
+
 
 public class start extends AppCompatActivity {
 
@@ -77,6 +91,32 @@ public class start extends AppCompatActivity {
                 Intent intent = new Intent(start.this, BSOActivity.class);
                 startActivity(intent);
                 finish();
+
+                away_ball = 0;
+                away_outout = 0;
+                away_strike = 0;
+                home_ball = 0;
+                home_strike = 0;
+                home_outout =0;
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+                TeamRequest teamRequest1 = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
+                TeamRequest teamRequest2 = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+
+                RequestQueue queue = Volley.newRequestQueue(start.this);
+                queue.add(teamRequest1);
+                queue.add(teamRequest2);
 
 
 

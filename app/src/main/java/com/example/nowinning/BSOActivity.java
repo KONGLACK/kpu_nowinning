@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -37,9 +38,14 @@ public class BSOActivity extends AppCompatActivity {
     public static int runCnt = 0; // 진루 카운트를 통해 진루 컨트롤
     public static int iniCnt = 1; // 이닝 카운트를 통해 현재 이닝 표시
 
-    private int ball=0;
-    private int strike=0;
-    private int outout=0;
+    public static int away_ball=0;
+    public static int away_strike=0;
+    public static int away_outout=0;
+
+    public static int home_ball=0;
+    public static int home_strike=0;
+    public static int home_outout=0;
+
     public static ImageView mImgView;
 
     FrameLayout frame;
@@ -91,6 +97,7 @@ public class BSOActivity extends AppCompatActivity {
         btn_home.setText(choice_home);
 
 
+
                 Handler handler = new Handler();
 
                 btn_s.setOnClickListener(new View.OnClickListener() {
@@ -98,17 +105,16 @@ public class BSOActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(iniCnt%2==1) {
+                            away_strike++;
+                            Log.d("어웨이스트라이크값", away_strike+"");
 
-                            strike++;
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Strike strike_fragment = new Strike();
                             transaction.replace(R.id.frame, strike_fragment);
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
-                            }
+
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -121,22 +127,22 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
+
                         }
                         if(iniCnt%2==0) {
+                            home_strike++;
+                            Log.d("홈스트라이크값", home_strike+"");
 
-                            strike++;
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Strike strike_fragment = new Strike();
                             transaction.replace(R.id.frame, strike_fragment);
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
-                            }
+
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -149,7 +155,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
@@ -162,7 +168,7 @@ public class BSOActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (iniCnt % 2 == 1) {
-                            ball++;
+                            away_ball++;
 
                             et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
                             ballCnt++; //스트라이크 카운트 세기 위해
@@ -199,21 +205,35 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
                         if(iniCnt%2==0) {
+                            home_ball++;
 
-                            strike++;
+                            et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
+                            ballCnt++; //스트라이크 카운트 세기 위해
+                            if (ballCnt == 4) {
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        et_ball.setText("B ");
+                                        ballCnt = 0;
+                                    }
+                                }, 500);
 
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
+                                if (runCnt == 0) {
+                                    mImgView.startAnimation(translateHS);
+                                } else if (runCnt == 1) {
+                                    mImgView.startAnimation(translateSD);
+                                } else if (runCnt == 2) {
+                                    mImgView.startAnimation(translateDT);
+                                } else if (runCnt == 3) {
+                                    mImgView.startAnimation(translateTH);
+                                }
+
+                                runCnt++; // 주루 카운트 ++
                             }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
@@ -227,7 +247,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
@@ -239,7 +259,9 @@ public class BSOActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (iniCnt % 2 == 1) {
-                            outout++;
+                            away_outout++;
+                            Log.d("어웨이아웃값", away_outout+"");
+
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
                             outCnt++; //스트라이크 카운트 세기 위해
@@ -274,21 +296,35 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
                         if(iniCnt%2==0) {
+                            home_outout++;
+                            Log.d("홈아웃값", home_outout+"");
 
-                            strike++;
 
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
+                            et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
+                            outCnt++; //스트라이크 카운트 세기 위해
+                            et_strike.setText("S ");
+                            stkCnt = 0;
+                            et_ball.setText("B ");
+                            ballCnt = 0;
+                            if (outCnt == 3) {
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        et_out.setText("O ");
+                                        outCnt = 0;
+                                        Toast.makeText(BSOActivity.this, "이닝 변경", Toast.LENGTH_SHORT).show();
+                                    }
+                                }, 500);
+
+
+                                iniCnt++; // 주루 카운트 ++
+
+                                et_ini.setText(Integer.toString(iniCnt) + "이닝");
                             }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
@@ -302,7 +338,8 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, ball, strike, outout, responseListener);
+
+                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
@@ -331,22 +368,18 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
                         if(iniCnt%2==0) {
 
-                            strike++;
-
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
+                            Others others_fragment = new Others();
+                            transaction.replace(R.id.frame, others_fragment);
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
-                            }
+
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -359,7 +392,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
@@ -388,22 +421,18 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
                         if(iniCnt%2==0) {
 
-                            strike++;
-
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
+                            Inplay inplay_fragment = new Inplay();
+                            transaction.replace(R.id.frame, inplay_fragment);
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
-                            }
+
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -416,7 +445,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
@@ -445,23 +474,18 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                             //hi
                         }
                         if(iniCnt%2==0) {
 
-                            strike++;
-
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Strike strike_fragment = new Strike();
                             transaction.replace(R.id.frame, strike_fragment);
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
-                            if (strike % 3 == 0) {
-                                outout++;
-                            }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -474,12 +498,13 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, ball, strike, outout, responseListener);
+                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
                     }
                 });
+
 
        /* oCnt.setOnClickListener(new View.OnClickListener() {
             @Override
