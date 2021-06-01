@@ -36,7 +36,7 @@ import static com.example.nowinning.SDT_select.layout_SDT;
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
-    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, oCnt;
+    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, btn_bat ,oCnt;
     public static LinearLayout btn_SBO;
 
     public int i,j;
@@ -54,8 +54,8 @@ public class BSOActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ballstrike);
 
-        mImgView = (ImageView) findViewById(R.id.img1);
-
+        //mImgView = (ImageView) findViewById(R.id.img1);
+        btn_bat = (Button) findViewById(R.id.btn_bat);
 
         et_strike = (EditText)findViewById(R.id.et_strike);
         et_ball = (EditText)findViewById(R.id.et_ball);
@@ -157,16 +157,16 @@ public class BSOActivity extends AppCompatActivity {
                     }, 500);
 
                     if(runCnt==0){
-                        mImgView.startAnimation(translateHS);
+                        btn_bat.startAnimation(translateHS);
                     }
                     else if(runCnt==1){
-                        mImgView.startAnimation(translateSD);
+                        btn_bat.startAnimation(translateSD);
                     }
                     else if(runCnt==2){
-                        mImgView.startAnimation(translateDT);
+                        btn_bat.startAnimation(translateDT);
                     }
                     else if(runCnt==3){
-                        mImgView.startAnimation(translateTH);
+                        btn_bat.startAnimation(translateTH);
                     }
 
                     runCnt++; // 주루 카운트 ++
@@ -242,7 +242,7 @@ public class BSOActivity extends AppCompatActivity {
             }
         });
 
-        mImgView.setOnClickListener(new View.OnClickListener() {
+        btn_bat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -257,15 +257,6 @@ public class BSOActivity extends AppCompatActivity {
 
             }
         });
-
-       /* oCnt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(BSOActivity.this,Integer.toString(runCnt), Toast.LENGTH_SHORT).show();
-                //replaceSDT();
-            }
-        });
-    */
 
 
     }

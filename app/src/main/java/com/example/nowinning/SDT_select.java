@@ -1,7 +1,10 @@
 package com.example.nowinning;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.ballCnt;
+import static com.example.nowinning.BSOActivity.btn_bat;
 import static com.example.nowinning.BSOActivity.mImgView;
 import static com.example.nowinning.Others.btn_OutOthers;
 import static com.example.nowinning.BSOActivity.btn_SBO;
@@ -27,6 +31,8 @@ import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.hscore;
 import static com.example.nowinning.BSOActivity.ascore;
 import static com.example.nowinning.BSOActivity.stkCnt;
+import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.choice_away;
 
 public class SDT_select extends Fragment {
 
@@ -34,12 +40,15 @@ public class SDT_select extends Fragment {
     private int i;
     public static LinearLayout layout_SDT;
 
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.sdt, container, false);
-
         btn_Single = (Button) v.findViewById(R.id.btn_Single);
         btn_Double = (Button) v.findViewById(R.id.btn_Double);
         btn_Triple = (Button) v.findViewById(R.id.btn_Triple);
@@ -62,24 +71,25 @@ public class SDT_select extends Fragment {
 
 
 
+
         btn_Single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  // 추후 1루타 정보로 수정
 
-                mImgView.setVisibility(View.VISIBLE);
+                btn_bat.setVisibility(View.VISIBLE);
 
                 if(runCnt==0){
-                    mImgView.startAnimation(translateHS);
+                    btn_bat.startAnimation(translateHS);
                 }
                 else if(runCnt==1){
-                    mImgView.startAnimation(translateSD);
+                    btn_bat.startAnimation(translateSD);
                 }
                 else if(runCnt==2){
-                    mImgView.startAnimation(translateDT);
+                    btn_bat.startAnimation(translateDT);
                 }
                 else if(runCnt==3){
-                    mImgView.startAnimation(translateTH);
+                    btn_bat.startAnimation(translateTH);
                 }
                 runCnt++;
                 if(iniCnt%2 == 0){ // 이닝이 짝수 = 말에 홈팀의 공격
@@ -88,8 +98,8 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_hscore.setText("HOME "+Integer.toString(hscore));
-                                mImgView.setVisibility(View.INVISIBLE);
+                                et_hscore.setText("홈      "+choice_home+Integer.toString(hscore));
+                                btn_bat.setVisibility(View.INVISIBLE);
                             }
                         }, 500);
                         runCnt = 0; // 무조건 친 루타만 진루한다고 가정하고 임시로 설정(에러 등 변수 제외)
@@ -102,8 +112,8 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 ascore++;
-                                et_ascore.setText("AWAY "+Integer.toString(ascore));
-                                mImgView.setVisibility(View.INVISIBLE);
+                                et_ascore.setText("원정   "+choice_away+Integer.toString(ascore));
+                                btn_bat.setVisibility(View.INVISIBLE);
                             }
                         }, 500);
                         runCnt = 0; // 주루 카운트 ++
@@ -124,14 +134,14 @@ public class SDT_select extends Fragment {
             public void onClick(View v) {
 
                 if(runCnt==0){
-                    mImgView.startAnimation(translateHD);
+                    btn_bat.startAnimation(translateHD);
                 }
                 else if(runCnt==1){
-                    mImgView.startAnimation(translateST);
+                    btn_bat.startAnimation(translateST);
 
                 }
                 else if(runCnt==2){
-                    mImgView.startAnimation(translateDT);
+                    btn_bat.startAnimation(translateDT);
                 }
                 /*else if(runCnt==3){
                     mImgView.startAnimation(translateDH);
@@ -146,7 +156,7 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_hscore.setText("HOME "+Integer.toString(hscore));
+                                et_hscore.setText("홈      "+choice_home + Integer.toString(hscore));
                                 runCnt = 0; // 무조건 친 루타만 진루한다고 가정하고 임시로 설정(에러 등 변수 제외)
                             }
                         }, 500);
@@ -160,7 +170,7 @@ public class SDT_select extends Fragment {
                             @Override
                             public void run() {
                                 ascore++;
-                                et_ascore.setText("AWAY "+Integer.toString(ascore));
+                                et_ascore.setText("원정   "+choice_away + Integer.toString(ascore));
                                 runCnt = 0; // 무조건 친 루타만 진루한다고 가정하고 임시로 설정(에러 등 변수 제외)
                             }
                         }, 500);
@@ -180,7 +190,7 @@ public class SDT_select extends Fragment {
             @Override
             public void onClick(View v) {
                 if(runCnt==0){
-                    mImgView.startAnimation(translateHT);
+                    btn_bat.startAnimation(translateHT);
                 }
                 /*else if(runCnt==1){
                     mImgView.startAnimation(translateST);
