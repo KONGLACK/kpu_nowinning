@@ -25,7 +25,7 @@ import org.json.JSONObject;
 
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
-
+//이승헌 바보
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
