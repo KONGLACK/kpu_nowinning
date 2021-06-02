@@ -25,7 +25,6 @@ import org.json.JSONObject;
 
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
-//이승헌 바보
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
@@ -261,7 +260,7 @@ public class BSOActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        if (iniCnt % 2 == 1) {
+                        if (iniCnt%2==1) {
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
 
@@ -287,6 +286,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                 et_ini.setText(Integer.toString(iniCnt) + "이닝");
                             }
+
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {

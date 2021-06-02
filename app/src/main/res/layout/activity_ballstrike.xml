@@ -175,9 +175,9 @@
                 android:id="@+id/btn_SBO"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/LL_btn"
@@ -189,8 +189,8 @@
                         android:id="@+id/btn_place"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_marginLeft="9dp"
+                        android:orientation="vertical"
                         android:weightSum="2">
 
                         <Button
@@ -199,9 +199,9 @@
                             android:layout_height="90dp"
                             android:layout_weight="1"
                             android:text="Strike"
+                            android:textColor="#1C315E"
                             android:textStyle="bold"
-                            app:backgroundTint="#F47D30"
-                            android:textColor="#1C315E"/>
+                            app:backgroundTint="#F47D30" />
 
                         <Button
                             android:id="@+id/ball_button"
@@ -209,9 +209,9 @@
                             android:layout_height="90dp"
                             android:layout_weight="1"
                             android:text="Ball"
+                            android:textColor="#1C315E"
                             android:textStyle="bold"
-                            app:backgroundTint="#F47D30"
-                            android:textColor="#1C315E"/>
+                            app:backgroundTint="#F47D30" />
 
                     </LinearLayout>
 
@@ -222,9 +222,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="9dp"
                         android:text="hit"
+                        android:textColor="#1C315E"
                         android:textStyle="bold"
-                        app:backgroundTint="#F47D30"
-                        android:textColor="#1C315E"/>
+                        app:backgroundTint="#F47D30" />
 
                 </LinearLayout>
 
@@ -235,9 +235,9 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text="Others"
+                    android:textColor="#1C315E"
                     android:textStyle="bold"
-                    app:backgroundTint="#F47D30"
-                    android:textColor="#1C315E"/>
+                    app:backgroundTint="#F47D30" />
 
                 <Button
                     android:id="@+id/out_button"
@@ -246,11 +246,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text="OUT"
+                    android:textColor="#1C315E"
                     android:textStyle="bold"
-                    app:backgroundTint="#F47D30"
-                    android:textColor="#1C315E"/>
+                    app:backgroundTint="#F47D30" />
 
-               <!-- <Button
+                <!-- <Button
                     android:id="@+id/cnt_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
