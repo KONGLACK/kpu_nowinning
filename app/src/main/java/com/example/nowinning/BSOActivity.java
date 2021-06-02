@@ -30,6 +30,7 @@ public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
     public static Button btn_s, btn_b, btn_other, btn_h , btn_o, oCnt, btn_away, btn_home;
+    public static Button img1, img2, img3, img0;
     public static LinearLayout btn_SBO;
 
     public int i,j;
@@ -38,13 +39,13 @@ public class BSOActivity extends AppCompatActivity {
     public static int runCnt = 0; // 진루 카운트를 통해 진루 컨트롤
     public static int iniCnt = 1; // 이닝 카운트를 통해 현재 이닝 표시
 
-    public static int away_ball=0;
-    public static int away_strike=0;
-    public static int away_outout=0;
+    public static int away_ball = 0;
+    public static int away_strike = 0;
+    public static int away_outout = 0;
 
-    public static int home_ball=0;
-    public static int home_strike=0;
-    public static int home_outout=0;
+    public static int home_ball = 0;
+    public static int home_strike = 0;
+    public static int home_outout = 0;
 
     public static ImageView mImgView;
 
@@ -55,8 +56,10 @@ public class BSOActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ballstrike);
 
-        mImgView = (ImageView) findViewById(R.id.img1);
-
+        img0 = (Button) findViewById(R.id.img0);
+        img1 = (Button) findViewById(R.id.img1);
+        img2 = (Button) findViewById(R.id.img2);
+        img3 = (Button) findViewById(R.id.img3);
 
         et_strike = (EditText) findViewById(R.id.et_strike);
         et_ball = (EditText) findViewById(R.id.et_ball);
@@ -182,13 +185,13 @@ public class BSOActivity extends AppCompatActivity {
                                 }, 500);
 
                                 if (runCnt == 0) {
-                                    mImgView.startAnimation(translateHS);
+                                    img0.startAnimation(translateHS);
                                 } else if (runCnt == 1) {
-                                    mImgView.startAnimation(translateSD);
+                                    img0.startAnimation(translateSD);
                                 } else if (runCnt == 2) {
-                                    mImgView.startAnimation(translateDT);
+                                    img0.startAnimation(translateDT);
                                 } else if (runCnt == 3) {
-                                    mImgView.startAnimation(translateTH);
+                                    img0.startAnimation(translateTH);
                                 }
 
                                 runCnt++; // 주루 카운트 ++
@@ -224,13 +227,13 @@ public class BSOActivity extends AppCompatActivity {
                                 }, 500);
 
                                 if (runCnt == 0) {
-                                    mImgView.startAnimation(translateHS);
+                                    img0.startAnimation(translateHS);
                                 } else if (runCnt == 1) {
-                                    mImgView.startAnimation(translateSD);
+                                    img0.startAnimation(translateSD);
                                 } else if (runCnt == 2) {
-                                    mImgView.startAnimation(translateDT);
+                                    img0.startAnimation(translateDT);
                                 } else if (runCnt == 3) {
-                                    mImgView.startAnimation(translateTH);
+                                    img0.startAnimation(translateTH);
                                 }
 
                                 runCnt++; // 주루 카운트 ++
@@ -452,7 +455,7 @@ public class BSOActivity extends AppCompatActivity {
                     }
                 });
 
-                mImgView.setOnClickListener(new View.OnClickListener() {
+                img0.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if(iniCnt%2==1) {
