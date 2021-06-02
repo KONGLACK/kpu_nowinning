@@ -18,7 +18,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.ballCnt;
-import static com.example.nowinning.BSOActivity.mImgView;
+import static com.example.nowinning.BSOActivity.img0;
+import static com.example.nowinning.BSOActivity.img1;
+import static com.example.nowinning.BSOActivity.img2;
+import static com.example.nowinning.BSOActivity.img3;
 import static com.example.nowinning.Others.btn_OutOthers;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.et_ascore;
@@ -55,43 +58,213 @@ public class SDT_select extends Fragment {
         layout_SDT = (LinearLayout) v.findViewById(R.id.layout_SDT);
         Handler handler = new Handler();
 
-        final Animation translateHS = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_h2s);
-        final Animation translateHD = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_h2d);
-        final Animation translateHT = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_h2t);
-
-        final Animation translateSD = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_s2d);
-        final Animation translateST = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_s2t);
-
-        final Animation translateDS = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_d2s);
-        final Animation translateDT = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_d2t);
-
-        final Animation translateTD = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_t2d);
-        final Animation translateTH = AnimationUtils.loadAnimation(getActivity(),R.anim.translate_t2h);
-
-
-
-
         btn_Single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 // 추후 1루타 정보로 수정
+                // 추후 1루타 정보로 수정
 
-                mImgView.setVisibility(View.VISIBLE);
 
-                if(runCnt==0){
-                    mImgView.startAnimation(translateHS);
+                if (runCnt == 0) { // 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE); // 주자 1루로 이동
+
+                    runCnt = 1;
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
                 }
-                else if(runCnt==1){
-                    mImgView.startAnimation(translateSD);
+
+                else if (runCnt == 1) {// 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE); // 주자 1루로 이동
+                    img2.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+
+                    runCnt = 4; // 주자 1,2루
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
                 }
-                else if(runCnt==2){
-                    mImgView.startAnimation(translateDT);
+
+                else if (runCnt == 2) { // 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE); // 주자 1루로 이동
+                    img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
+
+                    runCnt = 5; //주자 2,3루
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
                 }
-                else if(runCnt==3){
-                    mImgView.startAnimation(translateTH);
+
+                else if (runCnt == 3) {// 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE); // 주자 홈으로 이동
+                    img1.setVisibility(View.VISIBLE); //주자 1루로 이동
+
+                    runCnt = 1; //주자 1루
+
+                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+
+                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+                    }
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
                 }
-                runCnt++;
-                if(iniCnt%2 == 0){ // 이닝이 짝수 = 말에 홈팀의 공격
+
+                else if (runCnt == 4) {// 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                    runCnt = 7;
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 5) {// 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                    runCnt = 6;
+
+                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+
+                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+                    }
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 6) {// 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                    runCnt = 4;
+
+                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+
+                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+                    }
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 7) {// 주자의 현재 위치
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                    runCnt = 7;
+
+                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+
+                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+                    }
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+
+
+                /*if(iniCnt%2 == 0){ // 이닝이 짝수 = 말에 홈팀의 공격
                     if(runCnt == 4){ // runcnt가 4가 될 경우 꼭 점수가 발생
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
@@ -124,27 +297,56 @@ public class SDT_select extends Fragment {
 
                 layout_SDT.setVisibility(View.INVISIBLE);
                 btn_SBO.setVisibility(View.VISIBLE);
+            }*/
             }
-
         });
 
         btn_Double.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(runCnt==0){
-                    mImgView.startAnimation(translateHD);
+                if(runCnt == 0){
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.INVISIBLE);
                 }
-                else if(runCnt==1){
-                    mImgView.startAnimation(translateST);
 
+                else if(runCnt == 1){
+                    img1.setVisibility(View.VISIBLE);
                 }
-                else if(runCnt==2){
-                    mImgView.startAnimation(translateDT);
+
+                else if(runCnt == 2){
+                    img2.setVisibility(View.VISIBLE);
                 }
-                /*else if(runCnt==3){
-                    mImgView.startAnimation(translateDH);
-                }*/
+
+                else if(runCnt == 3){
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 4){
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 5){
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 6){
+                    img1.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 7){
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 8){
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                }
 
                 for(i = 0; i < 2; i++){
                     runCnt++; // 추후 2루타 정보로 수정
@@ -188,18 +390,48 @@ public class SDT_select extends Fragment {
         btn_Triple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(runCnt==0){
-                    mImgView.startAnimation(translateHT);
+                if(runCnt == 0){
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.INVISIBLE);
                 }
-                /*else if(runCnt==1){
-                    mImgView.startAnimation(translateST);
+
+                else if(runCnt == 1){
+                    img1.setVisibility(View.VISIBLE);
                 }
-                else if(runCnt==2){
-                    mImgView.startAnimation(translateDT);
+
+                else if(runCnt == 2){
+                    img2.setVisibility(View.VISIBLE);
                 }
-                else if(runCnt==3){
-                    mImgView.startAnimation(translateTH);
-                }*/
+
+                else if(runCnt == 3){
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 4){
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 5){
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 6){
+                    img1.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 7){
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                }
+
+                else if(runCnt == 8){
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                }
 
                 for(i = 0; i < 3; i++){
                     runCnt++; // 추후 3루타 정보로 수정

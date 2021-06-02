@@ -46,7 +46,6 @@ public class BSOActivity extends AppCompatActivity {
     public static int home_strike = 0;
     public static int home_outout = 0;
 
-    public static ImageView mImgView;
 
     FrameLayout frame;
 
@@ -79,26 +78,16 @@ public class BSOActivity extends AppCompatActivity {
         btn_SBO = (LinearLayout) findViewById(R.id.btn_SBO);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 
-        final Animation translateHS = AnimationUtils.loadAnimation(this, R.anim.translate_h2s);
-        final Animation translateHD = AnimationUtils.loadAnimation(this, R.anim.translate_h2d);
-        final Animation translateHT = AnimationUtils.loadAnimation(this, R.anim.translate_h2t);
-
-        final Animation translateSD = AnimationUtils.loadAnimation(this, R.anim.translate_s2d);
-        final Animation translateST = AnimationUtils.loadAnimation(this, R.anim.translate_s2t);
-
-        final Animation translateDS = AnimationUtils.loadAnimation(this, R.anim.translate_d2s);
-        final Animation translateDT = AnimationUtils.loadAnimation(this, R.anim.translate_d2t);
-
-        final Animation translateTD = AnimationUtils.loadAnimation(this, R.anim.translate_t2d);
-        final Animation translateTH = AnimationUtils.loadAnimation(this, R.anim.translate_t2h);
-
-
         et_hscore.setText("홈      " + choice_home + " 0");
         et_ascore.setText("원정   " + choice_away + " 0");
         btn_away.setText(choice_away);
         btn_home.setText(choice_home);
 
-
+        runCnt = 0 ;
+        img0.setVisibility(View.VISIBLE);
+        img1.setVisibility(View.INVISIBLE);
+        img2.setVisibility(View.INVISIBLE);
+        img3.setVisibility(View.INVISIBLE);
 
                 Handler handler = new Handler();
 
@@ -183,17 +172,47 @@ public class BSOActivity extends AppCompatActivity {
                                     }
                                 }, 500);
 
-                                if (runCnt == 0) {
-                                    img0.startAnimation(translateHS);
-                                } else if (runCnt == 1) {
-                                    img0.startAnimation(translateSD);
-                                } else if (runCnt == 2) {
-                                    img0.startAnimation(translateDT);
-                                } else if (runCnt == 3) {
-                                    img0.startAnimation(translateTH);
+                                if(runCnt == 0){
+                                    img0.setVisibility(View.VISIBLE);
+                                    img1.setVisibility(View.INVISIBLE);
+                                    img2.setVisibility(View.INVISIBLE);
+                                    img3.setVisibility(View.INVISIBLE);
                                 }
 
-                                runCnt++; // 주루 카운트 ++
+                                else if(runCnt == 1){
+                                    img1.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 2){
+                                    img2.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 3){
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 4){
+                                    img1.setVisibility(View.VISIBLE);
+                                    img2.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 5){
+                                    img1.setVisibility(View.VISIBLE);
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 6){
+                                    img2.setVisibility(View.VISIBLE);
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 7){
+                                    img1.setVisibility(View.VISIBLE);
+                                    img2.setVisibility(View.VISIBLE);
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                runCnt++; // 주루 카운트 ++*/
                             }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
@@ -225,14 +244,44 @@ public class BSOActivity extends AppCompatActivity {
                                     }
                                 }, 500);
 
-                                if (runCnt == 0) {
-                                    img0.startAnimation(translateHS);
-                                } else if (runCnt == 1) {
-                                    img0.startAnimation(translateSD);
-                                } else if (runCnt == 2) {
-                                    img0.startAnimation(translateDT);
-                                } else if (runCnt == 3) {
-                                    img0.startAnimation(translateTH);
+                                if(runCnt == 0){
+                                    img0.setVisibility(View.VISIBLE);
+                                    img1.setVisibility(View.INVISIBLE);
+                                    img2.setVisibility(View.INVISIBLE);
+                                    img3.setVisibility(View.INVISIBLE);
+                                }
+
+                                else if(runCnt == 1){
+                                    img1.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 2){
+                                    img2.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 3){
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 4){
+                                    img1.setVisibility(View.VISIBLE);
+                                    img2.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 5){
+                                    img1.setVisibility(View.VISIBLE);
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 6){
+                                    img2.setVisibility(View.VISIBLE);
+                                    img3.setVisibility(View.VISIBLE);
+                                }
+
+                                else if(runCnt == 7){
+                                    img1.setVisibility(View.VISIBLE);
+                                    img2.setVisibility(View.VISIBLE);
+                                    img3.setVisibility(View.VISIBLE);
                                 }
 
                                 runCnt++; // 주루 카운트 ++
@@ -303,7 +352,8 @@ public class BSOActivity extends AppCompatActivity {
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
-                        if(iniCnt%2==0) {
+
+                        else if(iniCnt%2==0) {
                             home_outout++;
                             Log.d("홈아웃값", home_outout+"");
 
