@@ -43,9 +43,6 @@ public class SDT_select extends Fragment {
     public static LinearLayout layout_SDT;
 
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -533,7 +530,7 @@ public class SDT_select extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE); // 주자 2루로 이동
+                    img3.setVisibility(View.VISIBLE); // 주자 3루로 이동
 
                     runCnt = 3;
 
@@ -548,9 +545,29 @@ public class SDT_select extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+                    img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
 
-                    runCnt = 3; // 주자 1,2루
+                    runCnt = 3; // 주자 3루
+
+                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+
+                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+                    }
 
                     stkCnt = 0;
                     ballCnt = 0;
@@ -564,7 +581,7 @@ public class SDT_select extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 1루로 이동
+                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
 
                     runCnt = 3; //주자 2,3루
 
@@ -600,7 +617,7 @@ public class SDT_select extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE); //주자 1루로 이동
+                    img3.setVisibility(View.VISIBLE); //주자 3루로 이동
 
                     runCnt = 3; //주자 1루
 
@@ -634,7 +651,7 @@ public class SDT_select extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
 
                     runCnt = 3;
                     for(int i = 0; i<3; i++) {
