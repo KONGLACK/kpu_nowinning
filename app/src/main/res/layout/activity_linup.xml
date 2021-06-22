@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="144dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/teamchoice"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="174dp"
+        android:text="팀 선택"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/teamchoice_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <Spinner
+        android:id="@+id/teamchoice_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/teamchoice"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //1번째 줄
+
+    <TextView
+        android:id="@+id/hitter_1"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="214dp"
+        android:text="1번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_1_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_1_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/catcher"
+        app:layout_constraintStart_toEndOf="@+id/hitter_1"
+        app:layout_constraintTop_toBottomOf="@+id/teamchoice"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    <TextView
+        android:id="@+id/pitcher"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="투수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/pitcher_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_1_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/teamchoice_spinner"></TextView>
+
+    <Spinner
+        android:id="@+id/pitcher_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="214dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/catcher"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //2번째 줄
+
+    <TextView
+        android:id="@+id/hitter_2"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="2번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_2_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_1"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_2_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/catcher"
+        app:layout_constraintStart_toEndOf="@+id/hitter_2"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_1_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    <TextView
+        android:id="@+id/catcher"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="포수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/catcher_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_2_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/pitcher"></TextView>
+
+    <Spinner
+        android:id="@+id/catcher_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/catcher"
+        app:layout_constraintTop_toBottomOf="@+id/pitcher_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //3번째 줄
+
+    <TextView
+        android:id="@+id/hitter_3"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="3번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_3_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_2"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_3_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/firstbaseman"
+        app:layout_constraintStart_toEndOf="@+id/hitter_3"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_2_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/firstbaseman"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="1루수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/firstbaseman_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_3_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/catcher"></TextView>
+
+    <Spinner
+        android:id="@+id/firstbaseman_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/firstbaseman"
+        app:layout_constraintTop_toBottomOf="@+id/catcher_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //4번째 줄
+
+    <TextView
+        android:id="@+id/hitter_4"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="4번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_4_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_3"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_4_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/secondbaseman"
+        app:layout_constraintStart_toEndOf="@+id/hitter_4"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_3_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/secondbaseman"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="2루수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/secondbaseman_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_4_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/firstbaseman"></TextView>
+
+    <Spinner
+        android:id="@+id/secondbaseman_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/secondbaseman"
+        app:layout_constraintTop_toBottomOf="@+id/firstbaseman_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //5번째 줄
+
+    <TextView
+        android:id="@+id/hitter_5"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="5번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_5_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_4"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_5_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/thirdbaseman"
+        app:layout_constraintStart_toEndOf="@+id/hitter_5"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_4_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/thirdbaseman"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="3루수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/thirdbaseman_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_5_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/secondbaseman"></TextView>
+
+    <Spinner
+        android:id="@+id/thirdbaseman_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thirdbaseman"
+        app:layout_constraintTop_toBottomOf="@+id/secondbaseman_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //5번째 줄
+
+    <TextView
+        android:id="@+id/hitter_6"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="6번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_6_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_5"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_6_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/shortstop"
+        app:layout_constraintStart_toEndOf="@+id/hitter_6"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_5_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/shortstop"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="유격수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/shortstop_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_6_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/thirdbaseman"></TextView>
+
+    <Spinner
+        android:id="@+id/shortstop_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shortstop"
+        app:layout_constraintTop_toBottomOf="@+id/thirdbaseman_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //6번째 줄
+
+    <TextView
+        android:id="@+id/hitter_7"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="7번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_7_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_6"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_7_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/rightfielder"
+        app:layout_constraintStart_toEndOf="@+id/hitter_7"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_6_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/rightfielder"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="우익수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/rightfielder_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_7_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/shortstop"></TextView>
+
+    <Spinner
+        android:id="@+id/rightfielder_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rightfielder"
+        app:layout_constraintTop_toBottomOf="@+id/shortstop_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //7번째 줄
+
+    <TextView
+        android:id="@+id/hitter_8"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:text="8번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_8_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_7"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_8_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/centerfielder"
+        app:layout_constraintStart_toEndOf="@+id/hitter_8"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_7_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/centerfielder"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="중견수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/centerfielder_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_8_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/rightfielder"></TextView>
+
+    <Spinner
+        android:id="@+id/centerfielder_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/centerfielder"
+        app:layout_constraintTop_toBottomOf="@+id/rightfielder_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+    //8번째 줄
+
+    <TextView
+        android:id="@+id/hitter_9"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text="9번 타자"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/hitter_9_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_8"></TextView>
+
+    <Spinner
+        android:id="@+id/hitter_9_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/leftfielder"
+        app:layout_constraintStart_toEndOf="@+id/hitter_9"
+        app:layout_constraintTop_toBottomOf="@+id/hitter_8_spinner"></Spinner>
+
+    <TextView
+        android:id="@+id/leftfielder"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="좌익수"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/leftfielder_spinner"
+        app:layout_constraintStart_toEndOf="@+id/hitter_9_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/centerfielder"></TextView>
+
+    <Spinner
+        android:id="@+id/leftfielder_spinner"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/leftfielder"
+        app:layout_constraintTop_toBottomOf="@+id/centerfielder_spinner"
+        tools:ignore="MissingConstraints"></Spinner>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
