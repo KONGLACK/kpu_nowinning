@@ -7,12 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -824,6 +821,39 @@ public class BSOActivity extends AppCompatActivity {
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
+                    }
+                });
+
+                img1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        HitActivity1 Hitter1_fragment = new HitActivity1();
+                        transaction.replace(R.id.frame, Hitter1_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+                 img2.setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View v) {
+                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                         HitActivity2 Hitter2_fragment = new HitActivity2();
+                         transaction.replace(R.id.frame, Hitter2_fragment);
+                         transaction.commit();
+                         btn_SBO.setVisibility(View.INVISIBLE);
+                     }
+                 });
+
+                img3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        HitActivity3 Hitter3_fragment = new HitActivity3();
+                        transaction.replace(R.id.frame, Hitter3_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
                     }
                 });
 
