@@ -2,6 +2,7 @@ package com.example.nowinning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +26,14 @@ import static com.example.nowinning.BSOActivity.home_strike;
 import static com.example.nowinning.BSOActivity.away_ball;
 import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.away_outout;
+import static com.example.nowinning.nexenplayersel.nexen_one;
+import static com.example.nowinning.nexenplayersel.nexen_two;
+import static com.example.nowinning.nexenplayersel.nexen_three;
+import static com.example.nowinning.nexenplayersel.nexen_four;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_one;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_two;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_three;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_four;
 
 
 public class start extends AppCompatActivity {
@@ -32,12 +41,23 @@ public class start extends AppCompatActivity {
     Button st_btn;
     public static String choice_home="";
     public static String choice_away="";
+    public static String away_player1="";
+    public static String away_player2="";
+    public static String away_player3="";
+    public static String away_player4="";
+
+    public static String home_player1="";
+    public static String home_player2="";
+    public static String home_player3="";
+    public static String home_player4="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         ArrayAdapter<CharSequence> adhome, adaway;
+
+
 
         final Spinner hometeam = (Spinner)findViewById(R.id.hometeam);
         final Spinner awayteam = (Spinner)findViewById(R.id.awayteam);
@@ -51,29 +71,44 @@ public class start extends AppCompatActivity {
         hometeam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(adhome.getItem(i).equals("한화")) {
-                    choice_home="한화";
+                choice_home = hometeam.getSelectedItem().toString();
+                if(choice_home.equals("한화")) {
+                    home_player1 = hanhwa_one;
+                    home_player2 = hanhwa_two;
+                    home_player3 = hanhwa_three;
+                    home_player4 = hanhwa_four;
                 }
-                if(adhome.getItem(i).equals("넥센")) {
-                    choice_home="넥센";
-
+                if(choice_home.equals("넥센")) {
+                    home_player1 = nexen_one;
+                    home_player2 = nexen_two;
+                    home_player3 = nexen_three;
+                    home_player4 = nexen_four;
                 }
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+
 
         awayteam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(adaway.getItem(i).equals("한화")) {
-                    choice_away="한화";
+                choice_away = awayteam.getSelectedItem().toString();
+                if(choice_away.equals("한화")) {
+                    away_player1 = hanhwa_one;
+                    away_player2 = hanhwa_two;
+                    away_player3 = hanhwa_three;
+                    away_player4 = hanhwa_four;
                 }
-                if(adaway.getItem(i).equals("넥센")) {
-                    choice_away="넥센";
+                else if(choice_away.equals("넥센")) {
+                    away_player1 = nexen_one;
+                    away_player2 = nexen_two;
+                    away_player3 = nexen_three;
+                    away_player4 = nexen_four;
                 }
             }
 
@@ -82,15 +117,14 @@ public class start extends AppCompatActivity {
 
             }
         });
+
 
         st_btn = findViewById(R.id.st_button);
 
         st_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(start.this, BSOActivity.class);
-                startActivity(intent);
-                finish();
+
 
                 away_ball = 0;
                 away_outout = 0;
@@ -118,7 +152,9 @@ public class start extends AppCompatActivity {
                 queue.add(teamRequest1);
                 queue.add(teamRequest2);
 
-
+                Intent intent = new Intent(start.this, BSOActivity.class);
+                startActivity(intent);
+                finish();
 
 
 

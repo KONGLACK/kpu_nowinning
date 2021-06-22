@@ -30,6 +30,8 @@ import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.stkCnt;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.choice_home;
 
 public class HitActivity1 extends Fragment {
 

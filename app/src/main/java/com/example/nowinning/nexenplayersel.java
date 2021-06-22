@@ -2,6 +2,7 @@ package com.example.nowinning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,10 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class nexenplayersel extends AppCompatActivity {
 
     ArrayAdapter<CharSequence> adspin1, adspin2, adspin3, adspin4;
-    String nexen_one="";
-    String nexen_two="";
-    String nexen_three="";
-    String nexen_four="";
+    public static String nexen_one="";
+    public static String nexen_two="";
+    public static String nexen_three="";
+    public static String nexen_four="";
 
     Button sel_btn;
 
@@ -82,7 +83,6 @@ public class nexenplayersel extends AppCompatActivity {
 
             }
         });
-
 
 
         sel_btn = findViewById(R.id.sel_button);

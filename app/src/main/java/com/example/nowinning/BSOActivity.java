@@ -22,6 +22,16 @@ import org.json.JSONObject;
 
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.away_player1;
+import static com.example.nowinning.start.away_player2;
+import static com.example.nowinning.start.away_player3;
+import static com.example.nowinning.start.away_player4;
+
+import static com.example.nowinning.start.home_player1;
+import static com.example.nowinning.start.home_player2;
+import static com.example.nowinning.start.home_player3;
+import static com.example.nowinning.start.home_player4;
+
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
@@ -80,7 +90,12 @@ public class BSOActivity extends AppCompatActivity {
         btn_away.setText(choice_away);
         btn_home.setText(choice_home);
 
-        runCnt = 0 ;
+        runCnt = 0;
+        img0.setText(away_player1);
+        img1.setText(away_player2);
+        img2.setText(away_player3);
+        img3.setText(away_player4);
+
         img0.setVisibility(View.VISIBLE);
         img1.setVisibility(View.INVISIBLE);
         img2.setVisibility(View.INVISIBLE);
