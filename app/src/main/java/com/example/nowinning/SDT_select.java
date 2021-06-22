@@ -42,10 +42,6 @@ public class SDT_select extends Fragment {
     private int i;
     public static LinearLayout layout_SDT;
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,7 +67,6 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
 
                     runCnt = 1;
-
                     stkCnt = 0;
                     ballCnt = 0;
 
@@ -86,13 +81,11 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
 
                     runCnt = 4; // 주자 1,2루
-
                     stkCnt = 0;
                     ballCnt = 0;
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 2) { // 주자의 현재 위치
@@ -102,13 +95,11 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.VISIBLE);  // 주자 3루로 이동
 
                     runCnt = 5; //주자 2,3루
-
                     stkCnt = 0;
                     ballCnt = 0;
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 3) {// 주자의 현재 위치
@@ -153,13 +144,11 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
 
                     runCnt = 7;
-
                     stkCnt = 0;
                     ballCnt = 0;
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 5) {// 주자의 현재 위치
@@ -195,7 +184,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 6) {// 주자의 현재 위치
@@ -231,7 +219,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 7) {// 주자의 현재 위치
@@ -267,7 +254,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
             }
         });
@@ -277,7 +263,6 @@ public class SDT_select extends Fragment {
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
 
-
                 if (runCnt == 0) { // 주자의 현재 위치
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
@@ -285,7 +270,6 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.INVISIBLE); // 주자 2루로 이동
 
                     runCnt = 2;
-
                     stkCnt = 0;
                     ballCnt = 0;
 
@@ -300,13 +284,11 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
                     runCnt = 5; // 주자 1,2루
-
                     stkCnt = 0;
                     ballCnt = 0;
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 2) { // 주자의 현재 위치
@@ -342,7 +324,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 3) {// 주자의 현재 위치
@@ -413,7 +394,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 5) {// 주자의 현재 위치
@@ -449,7 +429,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 6) {// 주자의 현재 위치
@@ -485,7 +464,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 7) {// 주자의 현재 위치
@@ -521,7 +499,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
             }
         });
@@ -536,7 +513,6 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.VISIBLE); // 주자 2루로 이동
 
                     runCnt = 3;
-
                     stkCnt = 0;
                     ballCnt = 0;
 
@@ -551,13 +527,11 @@ public class SDT_select extends Fragment {
                     img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
                     runCnt = 3; // 주자 1,2루
-
                     stkCnt = 0;
                     ballCnt = 0;
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 2) { // 주자의 현재 위치
@@ -593,7 +567,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 3) {// 주자의 현재 위치
@@ -661,7 +634,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 5) {// 주자의 현재 위치
@@ -697,7 +669,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 6) {// 주자의 현재 위치
@@ -733,7 +704,6 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
 
                 else if (runCnt == 7) {// 주자의 현재 위치
@@ -769,12 +739,9 @@ public class SDT_select extends Fragment {
 
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
-
                 }
             }
         });
-
-
         return v;
     }
 }

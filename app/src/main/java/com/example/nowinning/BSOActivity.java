@@ -320,11 +320,8 @@ public class BSOActivity extends AppCompatActivity {
                                             }
                                         }, 500);
                                     }
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
 
                                 else if (runCnt == 7) {// 주자의 현재 위치
@@ -354,11 +351,8 @@ public class BSOActivity extends AppCompatActivity {
                                             }
                                         }, 500);
                                     }
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
                             }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -370,7 +364,6 @@ public class BSOActivity extends AppCompatActivity {
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
-
                                 }
                             };
                             TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
@@ -398,10 +391,8 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
 
                                     runCnt = 1;
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
                                 }
 
                                 else if (runCnt == 1) {// 주자의 현재 위치
@@ -411,11 +402,8 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
 
                                     runCnt = 4; // 주자 1,2루
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
 
                                 else if (runCnt == 2) { // 주자의 현재 위치
@@ -425,11 +413,8 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.VISIBLE);  // 주자 3루로 이동
 
                                     runCnt = 5; //주자 2,3루
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
 
                                 else if (runCnt == 3) {// 주자의 현재 위치
@@ -459,10 +444,8 @@ public class BSOActivity extends AppCompatActivity {
                                             }
                                         }, 500);
                                     }
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
                                 }
 
                                 else if (runCnt == 4) {// 주자의 현재 위치
@@ -472,11 +455,8 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
 
                                     runCnt = 7;
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
 
                                 else if (runCnt == 5) {// 주자의 현재 위치
@@ -506,10 +486,8 @@ public class BSOActivity extends AppCompatActivity {
                                             }
                                         }, 500);
                                     }
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
                                 }
 
                                 else if (runCnt == 6) {// 주자의 현재 위치
@@ -539,11 +517,8 @@ public class BSOActivity extends AppCompatActivity {
                                             }
                                         }, 500);
                                     }
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
 
                                 else if (runCnt == 7) {// 주자의 현재 위치
@@ -573,11 +548,8 @@ public class BSOActivity extends AppCompatActivity {
                                             }
                                         }, 500);
                                     }
-
                                     stkCnt = 0;
                                     ballCnt = 0;
-
-
                                 }
                             }
                             }
@@ -628,9 +600,7 @@ public class BSOActivity extends AppCompatActivity {
                                     }
                                 }, 500);
 
-
                                 iniCnt++; // 주루 카운트 ++
-
                                 et_ini.setText(Integer.toString(iniCnt) + "이닝");
                             }
 
@@ -653,8 +623,6 @@ public class BSOActivity extends AppCompatActivity {
 
                         else if(iniCnt%2==0) {
                             home_outout++;
-                            Log.d("홈아웃값", home_outout+"");
-
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
                             outCnt++; //스트라이크 카운트 세기 위해
@@ -678,7 +646,6 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 iniCnt++; // 주루 카운트 ++
-
                                 et_ini.setText(Integer.toString(iniCnt) + "이닝");
                             }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {

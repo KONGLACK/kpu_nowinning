@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 dialog.show();
 
-                                Intent intent = new Intent(LoginActivity.this, start.class);
+                                Intent intent = new Intent(LoginActivity.this, teamsel.class);
                                 startActivity(intent);
                             }
                             else {
