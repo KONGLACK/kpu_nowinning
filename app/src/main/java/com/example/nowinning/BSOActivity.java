@@ -570,6 +570,7 @@ public class BSOActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         btn_o.setVisibility(View.INVISIBLE);
                         if (iniCnt%2==1) {
+                            a++;
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
 
@@ -619,6 +620,7 @@ public class BSOActivity extends AppCompatActivity {
                         }
 
                         else if(iniCnt%2==0) {
+                            h++;
                             home_outout++;
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음

@@ -248,7 +248,7 @@ public class SDT_select extends Fragment {
 
                     }
                 }
-                if(iniCnt%2==0) {
+                else if(iniCnt%2==0) {
                     if (runCnt == 0) { // 주자의 현재 위치
                         h++;
 
@@ -569,7 +569,7 @@ public class SDT_select extends Fragment {
 
                         runCnt = 2;
 
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 2; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -625,7 +625,7 @@ public class SDT_select extends Fragment {
 
                         runCnt = 7;
 
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 2; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -643,7 +643,7 @@ public class SDT_select extends Fragment {
 
                     }
                 }
-                if (iniCnt % 2 == 0) {
+                else if (iniCnt % 2 == 0) {
                     if (runCnt == 0) { // 주자의 현재 위치
                         h++;
 
@@ -771,7 +771,7 @@ public class SDT_select extends Fragment {
 
                         runCnt = 2;
 
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 2; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -827,7 +827,7 @@ public class SDT_select extends Fragment {
 
                         runCnt = 7;
 
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 2; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -941,6 +941,7 @@ public class SDT_select extends Fragment {
                             }
                         }, 500);
 
+
                         stkCnt = 0;
                         ballCnt = 0;
 
@@ -957,7 +958,7 @@ public class SDT_select extends Fragment {
                         img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
 
                         runCnt = 3;
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 2; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -983,7 +984,7 @@ public class SDT_select extends Fragment {
                         img3.setVisibility(View.VISIBLE);
                         runCnt = 3;
 
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 2; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -1037,7 +1038,7 @@ public class SDT_select extends Fragment {
 
                         runCnt = 3;
 
-                        for (int i = 0; i < 4; i++) {
+                        for (int i = 0; i < 3; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -1054,9 +1055,8 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     }
-                }
-                if(iniCnt%2==0) {
-                    if(runCnt==0) {
+                } else if (iniCnt % 2 == 0) {
+                    if (runCnt == 0) {
                         h++;
 
                         img3.setText(img0.getText());
@@ -1073,97 +1073,18 @@ public class SDT_select extends Fragment {
 
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
-                    }
-                } else if (runCnt == 1) {// 주자의 현재 위치
-                    h++;
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        h++;
 
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
 
-                    runCnt = 3; // 주자 3루
+                        runCnt = 3; // 주자 3루
 
-                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                        @Override
-                        public void run() {
-                            hscore++;
-                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
-                        }
-                    }, 500);
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                } else if (runCnt == 2) { // 주자의 현재 위치
-                    h++;
-
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
-
-                    runCnt = 3; //주자 2,3루
-
-                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                        @Override
-                        public void run() {
-                            hscore++;
-                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
-                        }
-                    }, 500);
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                } else if (runCnt == 3) {// 주자의 현재 위치
-                    h++;
-
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE); //주자 3루로 이동
-
-                    runCnt = 3; //주자 1루
-
-
-                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                        @Override
-                        public void run() {
-                            hscore++;
-                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
-                        }
-                    }, 500);
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                } else if (runCnt == 4) {// 주자의 현재 위치
-                    h++;
-
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
-
-                    runCnt = 3;
-                    for (int i = 0; i < 3; i++) {
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -1171,25 +1092,25 @@ public class SDT_select extends Fragment {
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                             }
                         }, 500);
-                    }
-                    stkCnt = 0;
-                    ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                } else if (runCnt == 5) {// 주자의 현재 위치
-                    h++;
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);
-                    runCnt = 3;
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        h++;
 
-                    for (int i = 0; i < 3; i++) {
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+
+                        runCnt = 3; //주자 2,3루
+
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -1197,53 +1118,104 @@ public class SDT_select extends Fragment {
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                             }
                         }, 500);
-                    }
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                } else if (runCnt == 6) {// 주자의 현재 위치
-                    h++;
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        h++;
 
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE); //주자 3루로 이동
 
-                    runCnt = 3;
+                        runCnt = 3; //주자 1루
 
-                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                        @Override
-                        public void run() {
-                            hscore++;
-                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+
+                        runCnt = 3;
+                        for (int i = 0; i < 2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                }
+                            }, 500);
                         }
-                    }, 500);
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        h++;
 
-                } else if (runCnt == 7) {// 주자의 현재 위치
-                    h++;
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);
+                        runCnt = 3;
 
-                    img3.setText(img0.getText());
-                    img0.setText(home_arr[h]);
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+                        for (int i = 0; i < 2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                }
+                            }, 500);
+                        }
 
-                    runCnt = 3;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    for (int i = 0; i < 4; i++) {
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                        runCnt = 3;
+
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -1251,13 +1223,41 @@ public class SDT_select extends Fragment {
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                             }
                         }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 3;
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
                     }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
                 }
             }
         });
