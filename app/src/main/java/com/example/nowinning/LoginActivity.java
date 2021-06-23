@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 dialog.show();
 
-                                Intent intent = new Intent(LoginActivity.this, teamsel.class);
-                                startActivity(intent);
+                                Intent intent = new Intent(LoginActivity.this, StartRecorder.class);
+                                startActivity(intent); //계정 조건에 따라 분기점이 필요함(감독, 선수, 기록자)
                             }
                             else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
