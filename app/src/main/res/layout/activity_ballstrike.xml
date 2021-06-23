@@ -26,6 +26,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+
+
         <Button
             android:id="@+id/img1"
             android:layout_width="65dp"
@@ -37,6 +39,8 @@
             android:textColor="#1C315E"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img0" />
+
+
 
         <Button
             android:id="@+id/img2"
@@ -53,6 +57,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
+
+
         <Button
             android:id="@+id/img3"
             android:layout_width="65dp"
@@ -64,6 +70,8 @@
             android:textColor="#1C315E"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img0" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

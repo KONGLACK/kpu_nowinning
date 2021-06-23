@@ -8,15 +8,29 @@
 
     <string-array name="hanhwa_player">
         <item>선택</item>
-        <item>이승헌</item>
-        <item>안장호</item>
-        <item>aaa</item>
+        <item>a</item>
+        <item>b</item>
+        <item>c</item>
+        <item>d</item>
+        <item>e</item>
+        <item>f</item>
+        <item>g</item>
+        <item>h</item>
+        <item>i</item>
+        <item>j</item>
     </string-array>
 
     <string-array name="nexen_player">
         <item>선택</item>
-        <item>오창기</item>
-        <item>김학영</item>
-        <item>bbb</item>
+        <item>aa</item>
+        <item>bb</item>
+        <item>cc</item>
+        <item>dd</item>
+        <item>ee</item>
+        <item>ff</item>
+        <item>gg</item>
+        <item>hh</item>
+        <item>ii</item>
+        <item>jj</item>
     </string-array>
 </resources>

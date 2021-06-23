@@ -18,6 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.ballCnt;
+import static com.example.nowinning.BSOActivity.h;
+import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.img0;
 import static com.example.nowinning.BSOActivity.img1;
 import static com.example.nowinning.BSOActivity.img2;
@@ -35,6 +37,8 @@ import static com.example.nowinning.BSOActivity.ascore;
 import static com.example.nowinning.BSOActivity.stkCnt;
 import static com.example.nowinning.start.choice_home;
 import static com.example.nowinning.start.choice_away;
+import static com.example.nowinning.BSOActivity.a;
+import static com.example.nowinning.BSOActivity.away_arr;
 
 public class SDT_select extends Fragment {
 
@@ -59,125 +63,74 @@ public class SDT_select extends Fragment {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
+                if (iniCnt % 2 == 1) {
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        a++;
 
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
 
-                if (runCnt == 0) { // 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
+                        runCnt = 1;
 
-                    runCnt = 1;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        a++;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
 
-                else if (runCnt == 1) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+                        runCnt = 4; // 주자 1,2루
 
-                    runCnt = 4; // 주자 1,2루
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        a++;
 
-                }
+                        img3.setText(img2.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);  // 주자 3루로 이동
 
-                else if (runCnt == 2) { // 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);  // 주자 3루로 이동
+                        runCnt = 6; //주자 2,3루
 
-                    runCnt = 5; //주자 2,3루
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        a++;
 
-                }
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
 
-                else if (runCnt == 3) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+                        runCnt = 1; //주자 1루
 
-                    runCnt = 1; //주자 1루
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                            }
-                        }, 500);
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
-
-                else if (runCnt == 4) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
-
-                    runCnt = 7;
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 5) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                    runCnt = 6;
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -185,71 +138,45 @@ public class SDT_select extends Fragment {
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
                             }
                         }, 500);
-                    }
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        a++;
 
-                }
+                        img3.setText(img2.getText());
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
 
-                else if (runCnt == 6) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);   // 주자 1루로 이동
+                        runCnt = 7;
 
-                    runCnt = 4;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                            }
-                        }, 500);
-                    }
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        a++;
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        img3.setText(img2.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[0]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        runCnt = 6;
 
-                }
-
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                    runCnt = 7;
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -257,14 +184,253 @@ public class SDT_select extends Fragment {
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
                             }
                         }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        a++;
+
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 4;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img2.getText());
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 7;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
                     }
+                }
+                if(iniCnt%2==0) {
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        h++;
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        runCnt = 1;
 
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        h++;
+
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                        runCnt = 4; // 주자 1,2루
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img2.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);  // 주자 3루로 이동
+
+                        runCnt = 6; //주자 2,3루
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        h++;
+
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+
+                        runCnt = 1; //주자 1루
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img2.getText());
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                        runCnt = 7;
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img2.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 6;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        h++;
+
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 4;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img2.getText());
+                        img2.setText(img1.getText());
+                        img1.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 7;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });
@@ -273,164 +439,57 @@ public class SDT_select extends Fragment {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
+                if (iniCnt % 2 == 1) {
 
 
-                if (runCnt == 0) { // 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE); // 주자 2루로 이동
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        a++;
 
-                    runCnt = 2;
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE); // 주자 2루로 이동
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        runCnt = 2;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                else if (runCnt == 1) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        a++;
 
-                    runCnt = 5; // 주자 1,2루
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        runCnt = 5; // 주자 1,2루
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                }
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                else if (runCnt == 2) { // 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);// 주자 1루로 이동
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        a++;
 
-                    runCnt = 2; //주자 2,3루
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 1루로 이동
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
+                        runCnt = 2; //주자 2,3루
 
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                            }
-                        }, 500);
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 3) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
-
-                    runCnt = 2; //주자 1루
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                            }
-                        }, 500);
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
-
-                else if (runCnt == 4) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
-
-                    runCnt = 5;
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                            }
-                        }, 500);
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 5) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);
-
-                    runCnt = 2;
-
-                    for(int i = 0; i<3; i++) {
-                        if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    hscore++;
-                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                }
-                            }, 500);
-                        } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -438,36 +497,26 @@ public class SDT_select extends Fragment {
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
                                 }
                             }, 500);
-                        }
-                    }
 
-                    stkCnt = 0;
-                    ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                }
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                else if (runCnt == 6) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        a++;
 
-                    runCnt = 5;
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
+                        runCnt = 2; //주자 1루
 
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -475,91 +524,25 @@ public class SDT_select extends Fragment {
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
                             }
                         }, 500);
-                    }
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        a++;
 
-                }
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
 
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+                        runCnt = 5;
 
-                    runCnt = 7;
-
-                    for(int i = 0; i<3; i++) {
-                        if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    hscore++;
-                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                }
-                            }, 500);
-                        } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    ascore++;
-                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                }
-                            }, 500);
-                        }
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-            }
-        });
-
-        btn_Triple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (runCnt == 0) { // 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE); // 주자 3루로 이동
-
-                    runCnt = 3;
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
-
-                else if (runCnt == 1) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
-
-                    runCnt = 3; // 주자 3루
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -567,70 +550,26 @@ public class SDT_select extends Fragment {
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
                             }
                         }, 500);
-                    }
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                }
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        a++;
 
-                else if (runCnt == 2) { // 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);
 
-                    runCnt = 3; //주자 2,3루
+                        runCnt = 2;
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                            }
-                        }, 500);
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 3) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE); //주자 3루로 이동
-
-                    runCnt = 3; //주자 1루
-
-
-                        if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    hscore++;
-                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                }
-                            }, 500);
-                        } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        for (int i = 0; i < 3; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -643,99 +582,22 @@ public class SDT_select extends Fragment {
                         stkCnt = 0;
                         ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                else if (runCnt == 4) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        a++;
 
-                    runCnt = 3;
-                    for(int i = 0; i<3; i++) {
-                        if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    hscore++;
-                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                }
-                            }, 500);
-                        } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    ascore++;
-                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                }
-                            }, 500);
-                        }
-                    }
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        runCnt = 5;
 
-                }
-
-                else if (runCnt == 5) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);
-
-                    runCnt = 3;
-
-                    for(int i = 0; i<3; i++) {
-                        if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    hscore++;
-                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                }
-                            }, 500);
-                        } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    ascore++;
-                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                }
-                            }, 500);
-                        }
-                    }
-
-                    stkCnt = 0;
-                    ballCnt = 0;
-
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 6) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
-
-                    runCnt = 3;
-
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                            }
-                        }, 500);
-                    }
-
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
@@ -743,34 +605,27 @@ public class SDT_select extends Fragment {
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
                             }
                         }, 500);
-                    }
 
-                    stkCnt = 0;
-                    ballCnt = 0;
+                        stkCnt = 0;
+                        ballCnt = 0;
 
-                    layout_SDT.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                }
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        a++;
 
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
 
-                    runCnt = 3;
+                        runCnt = 7;
 
-                    for(int i = 0; i<4; i++) {
-                        if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                @Override
-                                public void run() {
-                                    hscore++;
-                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                }
-                            }, 500);
-                        } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
+                        for (int i = 0; i < 3; i++) {
                             handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
                                 public void run() {
@@ -779,6 +634,569 @@ public class SDT_select extends Fragment {
                                 }
                             }, 500);
                         }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    }
+                }
+                if (iniCnt % 2 == 0) {
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        h++;
+
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE); // 주자 2루로 이동
+
+                        runCnt = 2;
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+
+                        runCnt = 5; // 주자 1,2루
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        h++;
+
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 1루로 이동
+
+                        runCnt = 2; //주자 2,3루
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        h++;
+
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+
+                        runCnt = 2; //주자 1루
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                        runCnt = 5;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        h++;
+
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);
+
+                        runCnt = 2;
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                        runCnt = 5;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        h++;
+
+                        img3.setText(img1.getText());
+                        img2.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 7;
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
+
+        btn_Triple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (iniCnt % 2 == 1) {
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE); // 주자 3루로 이동
+
+                        runCnt = 3;
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
+
+                        runCnt = 3; // 주자 3루
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+
+                        runCnt = 3; //주자 2,3루
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE); //주자 3루로 이동
+
+                        runCnt = 3; //주자 1루
+
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+
+                        runCnt = 3;
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                }
+                            }, 500);
+                        }
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);
+                        runCnt = 3;
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                        runCnt = 3;
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                            }
+                        }, 500);
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        a++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 3;
+
+                        for (int i = 0; i < 4; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    }
+                }
+                if(iniCnt%2==0) {
+                    if(runCnt==0) {
+                        h++;
+
+                        img3.setText(img0.getText());
+                        img0.setText(home_arr[h]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE); // 주자 3루로 이동
+
+                        runCnt = 3;
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    }
+                } else if (runCnt == 1) {// 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE);   // 주자 3루로 이동
+
+                    runCnt = 3; // 주자 3루
+
+                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                        @Override
+                        public void run() {
+                            hscore++;
+                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                        }
+                    }, 500);
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                } else if (runCnt == 2) { // 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+
+                    runCnt = 3; //주자 2,3루
+
+                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                        @Override
+                        public void run() {
+                            hscore++;
+                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                        }
+                    }, 500);
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                } else if (runCnt == 3) {// 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE); //주자 3루로 이동
+
+                    runCnt = 3; //주자 1루
+
+
+                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                        @Override
+                        public void run() {
+                            hscore++;
+                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                        }
+                    }, 500);
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+                } else if (runCnt == 4) {// 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE);// 주자 3루로 이동
+
+                    runCnt = 3;
+                    for (int i = 0; i < 3; i++) {
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                } else if (runCnt == 5) {// 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE);
+                    runCnt = 3;
+
+                    for (int i = 0; i < 3; i++) {
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
                     }
 
                     stkCnt = 0;
@@ -787,6 +1205,59 @@ public class SDT_select extends Fragment {
                     layout_SDT.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
+                } else if (runCnt == 6) {// 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                    runCnt = 3;
+
+                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                        @Override
+                        public void run() {
+                            hscore++;
+                            et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                        }
+                    }, 500);
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                } else if (runCnt == 7) {// 주자의 현재 위치
+                    h++;
+
+                    img3.setText(img0.getText());
+                    img0.setText(home_arr[h]);
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
+                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                    runCnt = 3;
+
+                    for (int i = 0; i < 4; i++) {
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                            }
+                        }, 500);
+                    }
+
+                    stkCnt = 0;
+                    ballCnt = 0;
+
+                    layout_SDT.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
                 }
             }
         });

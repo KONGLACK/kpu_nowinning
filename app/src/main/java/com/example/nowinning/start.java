@@ -26,7 +26,17 @@ import static com.example.nowinning.BSOActivity.home_strike;
 import static com.example.nowinning.BSOActivity.away_ball;
 import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.away_outout;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_eight;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_five;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_nine;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_seven;
+import static com.example.nowinning.hanhwaplayersel.hanhwa_six;
+import static com.example.nowinning.nexenplayersel.nexen_eight;
+import static com.example.nowinning.nexenplayersel.nexen_five;
+import static com.example.nowinning.nexenplayersel.nexen_nine;
 import static com.example.nowinning.nexenplayersel.nexen_one;
+import static com.example.nowinning.nexenplayersel.nexen_seven;
+import static com.example.nowinning.nexenplayersel.nexen_six;
 import static com.example.nowinning.nexenplayersel.nexen_two;
 import static com.example.nowinning.nexenplayersel.nexen_three;
 import static com.example.nowinning.nexenplayersel.nexen_four;
@@ -34,6 +44,8 @@ import static com.example.nowinning.hanhwaplayersel.hanhwa_one;
 import static com.example.nowinning.hanhwaplayersel.hanhwa_two;
 import static com.example.nowinning.hanhwaplayersel.hanhwa_three;
 import static com.example.nowinning.hanhwaplayersel.hanhwa_four;
+import static com.example.nowinning.BSOActivity.a;
+import static com.example.nowinning.BSOActivity.h;
 
 
 public class start extends AppCompatActivity {
@@ -45,11 +57,21 @@ public class start extends AppCompatActivity {
     public static String away_player2="";
     public static String away_player3="";
     public static String away_player4="";
+    public static String away_player5="";
+    public static String away_player6="";
+    public static String away_player7="";
+    public static String away_player8="";
+    public static String away_player9="";
 
     public static String home_player1="";
     public static String home_player2="";
     public static String home_player3="";
     public static String home_player4="";
+    public static String home_player5="";
+    public static String home_player6="";
+    public static String home_player7="";
+    public static String home_player8="";
+    public static String home_player9="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +99,26 @@ public class start extends AppCompatActivity {
                     home_player2 = hanhwa_two;
                     home_player3 = hanhwa_three;
                     home_player4 = hanhwa_four;
+                    home_player5 = hanhwa_five;
+                    home_player6 = hanhwa_six;
+                    home_player7 = hanhwa_seven;
+                    home_player8 = hanhwa_eight;
+                    home_player9 = hanhwa_nine;
+
+
                 }
                 if(choice_home.equals("넥센")) {
                     home_player1 = nexen_one;
                     home_player2 = nexen_two;
                     home_player3 = nexen_three;
                     home_player4 = nexen_four;
+                    home_player5 = nexen_five;
+                    home_player6 = nexen_six;
+                    home_player7 = nexen_seven;
+                    home_player8 = nexen_eight;
+                    home_player9 = nexen_nine;
+
+
                 }
             }
 
@@ -103,12 +139,25 @@ public class start extends AppCompatActivity {
                     away_player2 = hanhwa_two;
                     away_player3 = hanhwa_three;
                     away_player4 = hanhwa_four;
+                    away_player5 = hanhwa_five;
+                    away_player6 = hanhwa_six;
+                    away_player7 = hanhwa_seven;
+                    away_player8 = hanhwa_eight;
+                    away_player9 = hanhwa_nine;
+
                 }
                 else if(choice_away.equals("넥센")) {
                     away_player1 = nexen_one;
                     away_player2 = nexen_two;
                     away_player3 = nexen_three;
                     away_player4 = nexen_four;
+                    away_player5 = nexen_five;
+                    away_player6 = nexen_six;
+                    away_player7 = nexen_seven;
+                    away_player8 = nexen_eight;
+                    away_player9 = nexen_nine;
+
+
                 }
             }
 
