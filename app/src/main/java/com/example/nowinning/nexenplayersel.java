@@ -20,6 +20,7 @@ public class nexenplayersel extends AppCompatActivity {
     public static String nexen_four="";
 
     Button sel_btn;
+    Button sel_btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,11 +87,20 @@ public class nexenplayersel extends AppCompatActivity {
 
 
         sel_btn = findViewById(R.id.sel_button);
-
+        sel_btn2 = findViewById(R.id.sel_button2);
         sel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),start.class);
+                startActivity(intent);
+
+                finish();
+            }
+        });
+        sel_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),teamsel.class);
                 startActivity(intent);
 
                 finish();

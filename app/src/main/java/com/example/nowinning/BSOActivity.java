@@ -91,15 +91,31 @@ public class BSOActivity extends AppCompatActivity {
         btn_home.setText(choice_home);
 
         runCnt = 0;
-        img0.setText(away_player1);
-        img1.setText(away_player2);
-        img2.setText(away_player3);
-        img3.setText(away_player4);
+        if(iniCnt%2==1) {
+            img0.setText(away_player1);
+            img1.setText(away_player2);
+            img2.setText(away_player3);
+            img3.setText(away_player4);
 
-        img0.setVisibility(View.VISIBLE);
-        img1.setVisibility(View.INVISIBLE);
-        img2.setVisibility(View.INVISIBLE);
-        img3.setVisibility(View.INVISIBLE);
+            img0.setVisibility(View.VISIBLE);
+            img1.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+            img3.setVisibility(View.INVISIBLE);
+
+        }
+        if(iniCnt%2==0) {
+            img0.setText(home_player1);
+            img1.setText(home_player2);
+            img2.setText(home_player3);
+            img3.setText(home_player4);
+
+            img0.setVisibility(View.VISIBLE);
+            img1.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+            img3.setVisibility(View.INVISIBLE);
+        }
+
+
 
                 Handler handler = new Handler();
 
