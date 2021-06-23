@@ -146,7 +146,7 @@
         tools:ignore="MissingConstraints"></Spinner>
 
     <Button
-        android:id="@+id/signup_button"
+        android:id="@+id/vsSend_button"
         android:layout_width="200dp"
         android:layout_height="56dp"
         android:layout_marginStart="55dp"

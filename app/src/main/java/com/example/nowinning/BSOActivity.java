@@ -603,6 +603,7 @@ public class BSOActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
+                        btn_o.setVisibility(View.INVISIBLE);
                         if (iniCnt%2==1) {
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
