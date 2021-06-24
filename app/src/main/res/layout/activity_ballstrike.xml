@@ -20,13 +20,12 @@
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"
             android:text=""
-            app:backgroundTint="#F47D30"
+            app:backgroundTint="#E6E6FA"
             android:textColor="#1C315E"
+            android:background="@drawable/solid_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-
 
         <Button
             android:id="@+id/img1"
@@ -35,12 +34,11 @@
             android:layout_gravity="center"
             android:layout_marginBottom="72dp"
             android:text=""
-            app:backgroundTint="#F47D30"
+            app:backgroundTint="#E6E6FA"
             android:textColor="#1C315E"
+            android:background="@drawable/solid_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img0" />
-
-
 
         <Button
             android:id="@+id/img2"
@@ -48,16 +46,15 @@
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:text=""
-            app:backgroundTint="#F47D30"
+            app:backgroundTint="#E6E6FA"
             android:textColor="#1C315E"
+            android:background="@drawable/solid_button"
             android:layout_marginBottom="72dp"
             app:layout_constraintBottom_toTopOf="@+id/img0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
-
-
 
         <Button
             android:id="@+id/img3"
@@ -66,8 +63,9 @@
             android:layout_gravity="center"
             android:layout_marginBottom="72dp"
             android:text=""
-            app:backgroundTint="#F47D30"
+            app:backgroundTint="#E6E6FA"
             android:textColor="#1C315E"
+            android:background="@drawable/solid_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img0" />
 
