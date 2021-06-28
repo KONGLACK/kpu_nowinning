@@ -31,6 +31,7 @@ import static com.example.nowinning.BSOActivity.img0;
 import static com.example.nowinning.BSOActivity.img1;
 import static com.example.nowinning.BSOActivity.img2;
 import static com.example.nowinning.BSOActivity.img3;
+import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.Others.btn_OutOthers;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.et_ascore;
@@ -72,7 +73,7 @@ public class SDT_select extends Fragment{
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
-                if (iniCnt % 2 == 1) {
+                if (ini_num % 2 == 1) {
                     a_SingleCount++;
 
                     if (runCnt == 0) { // 주자의 현재 위치
@@ -266,7 +267,7 @@ public class SDT_select extends Fragment{
 
                 }
 
-                if(iniCnt%2==0) {
+                if(ini_num%2==0) {
                     h_SingleCount++;
                     if (runCnt == 0) { // 주자의 현재 위치
                         h++;
@@ -459,7 +460,7 @@ public class SDT_select extends Fragment{
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
-                if (iniCnt % 2 == 1) {
+                if (ini_num % 2 == 1) {
                     a_DoubleCount++;
 
 
@@ -664,7 +665,7 @@ public class SDT_select extends Fragment{
 
                     }
                 }
-                else if (iniCnt % 2 == 0) {
+                else if (ini_num % 2 == 0) {
                     h_DoubleCount++;
                     if (runCnt == 0) { // 주자의 현재 위치
                         h++;
@@ -872,7 +873,7 @@ public class SDT_select extends Fragment{
         btn_Triple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (iniCnt % 2 == 1) {
+                if (ini_num % 2 == 1) {
                     a_TripleCount++;
                     if (runCnt == 0) { // 주자의 현재 위치
                         a++;
@@ -1078,7 +1079,7 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     }
-                } else if (iniCnt % 2 == 0) {
+                } else if (ini_num % 2 == 0) {
                     h_TripleCount++;
                     if (runCnt == 0) {
                         h++;

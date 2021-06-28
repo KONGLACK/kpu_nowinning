@@ -169,15 +169,12 @@
                     android:layout_weight="3"
                     android:text="홈      HOME 0"/>
 
-
-
-
                 <EditText
                     android:id="@+id/et_ini"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="1 이닝" />
+                    android:text="1 이닝    초" />
 
             </LinearLayout>
 

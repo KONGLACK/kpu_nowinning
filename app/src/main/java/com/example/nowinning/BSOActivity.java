@@ -72,6 +72,9 @@ public class BSOActivity extends AppCompatActivity {
     public static String[] home_arr = {home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9};
+    public static String[] ini = {"말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말",
+            "초", "말", "초", "말", "초", "말", "초", "말", "초", "말"};
+    public static int ini_num = 1;
 
 
     FrameLayout frame;
@@ -111,17 +114,12 @@ public class BSOActivity extends AppCompatActivity {
         btn_away.setText(choice_away);
         btn_home.setText(choice_home);
 
-            runCnt = 0;
-            img0.setText(away_arr[a]);
-            img0.setVisibility(View.VISIBLE);
-            img1.setVisibility(View.INVISIBLE);
-            img2.setVisibility(View.INVISIBLE);
-            img3.setVisibility(View.INVISIBLE);
-
-
-
-
-
+        runCnt = 0;
+        img0.setText(away_arr[a]);
+        img0.setVisibility(View.VISIBLE);
+        img1.setVisibility(View.INVISIBLE);
+        img2.setVisibility(View.INVISIBLE);
+        img3.setVisibility(View.INVISIBLE);
 
 
                 Handler handler = new Handler();
@@ -130,7 +128,7 @@ public class BSOActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        if(iniCnt%2==1) {
+                        if(ini_num%2==1) {
                             away_strike++;
                             Log.d("어웨이스트라이크값", away_strike+"");
 
@@ -158,7 +156,7 @@ public class BSOActivity extends AppCompatActivity {
                             queue.add(teamRequest);
 
                         }
-                        if(iniCnt%2==0) {
+                        if(ini_num%2==0) {
                             home_strike++;
                             Log.d("홈스트라이크값", home_strike+"");
 
@@ -193,7 +191,7 @@ public class BSOActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        if (iniCnt % 2 == 1) {
+                        if (ini_num % 2 == 1) {
                             away_ball++;
 
                             et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
@@ -377,7 +375,7 @@ public class BSOActivity extends AppCompatActivity {
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
-                        if (iniCnt % 2 == 0) {
+                        if (ini_num % 2 == 0) {
                             home_ball++;
 
                             et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
@@ -569,7 +567,7 @@ public class BSOActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         btn_o.setVisibility(View.INVISIBLE);
-                        if (iniCnt%2==1) {
+                        if (ini_num%2==1) {
                             a++;
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
@@ -595,12 +593,14 @@ public class BSOActivity extends AppCompatActivity {
                                         img2.setVisibility(View.INVISIBLE);
                                         img3.setVisibility(View.INVISIBLE);
                                         runCnt = 0;
-                                        Toast.makeText(BSOActivity.this, "이닝 변경", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(BSOActivity.this, choice_home + " 공격", Toast.LENGTH_SHORT).show();
                                     }
                                 }, 500);
-
-                                iniCnt++; // 주루 카운트 ++
-                                et_ini.setText(Integer.toString(iniCnt) + "이닝");
+                                if(ini_num%2==0) {
+                                    iniCnt++; // 주루 카운트 ++
+                                }
+                                ini_num++;
+                                et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
                             }
 
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -620,7 +620,7 @@ public class BSOActivity extends AppCompatActivity {
                             queue.add(teamRequest);
                         }
 
-                        else if(iniCnt%2==0) {
+                        else if(ini_num%2==0) {
                             home_outout++;
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
@@ -642,13 +642,16 @@ public class BSOActivity extends AppCompatActivity {
                                         img2.setVisibility(View.INVISIBLE);
                                         img3.setVisibility(View.INVISIBLE);
                                         runCnt=0;
-                                        Toast.makeText(BSOActivity.this, "이닝 변경", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(BSOActivity.this, choice_away + " 공격", Toast.LENGTH_SHORT).show();
                                     }
                                 }, 500);
 
 
-                                iniCnt++; // 주루 카운트 ++
-                                et_ini.setText(Integer.toString(iniCnt) + "이닝");
+                                if(ini_num%2==0) {
+                                    iniCnt++; // 주루 카운트 ++
+                                }
+                                ini_num++;
+                                et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
                             }
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
@@ -673,7 +676,7 @@ public class BSOActivity extends AppCompatActivity {
                 btn_other.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (iniCnt % 2 == 1) {
+                        if (ini_num % 2 == 1) {
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Others others_fragment = new Others();
                             transaction.replace(R.id.frame, others_fragment);
@@ -696,7 +699,7 @@ public class BSOActivity extends AppCompatActivity {
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
-                        if(iniCnt%2==0) {
+                        if(ini_num%2==0) {
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Others others_fragment = new Others();
@@ -726,7 +729,7 @@ public class BSOActivity extends AppCompatActivity {
                 btn_h.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(iniCnt%2==1) {
+                        if(ini_num%2==1) {
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Inplay inplay_fragment = new Inplay();
                             transaction.replace(R.id.frame, inplay_fragment);
@@ -749,7 +752,7 @@ public class BSOActivity extends AppCompatActivity {
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);
                         }
-                        if(iniCnt%2==0) {
+                        if(ini_num%2==0) {
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Inplay inplay_fragment = new Inplay();
@@ -779,7 +782,7 @@ public class BSOActivity extends AppCompatActivity {
                 img0.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(iniCnt%2==1) {
+                        if(ini_num%2==1) {
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Batplay batplay_fragment = new Batplay();
                             transaction.replace(R.id.frame, batplay_fragment);
@@ -803,7 +806,7 @@ public class BSOActivity extends AppCompatActivity {
                             queue.add(teamRequest);
                             //hi
                         }
-                        if(iniCnt%2==0) {
+                        if(ini_num%2==0) {
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Strike strike_fragment = new Strike();
