@@ -582,6 +582,7 @@ public class BSOActivity extends AppCompatActivity {
                             et_ball.setText("B ");
                             ballCnt = 0;
                             if (outCnt == 3) {
+                                a++;
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
@@ -620,7 +621,6 @@ public class BSOActivity extends AppCompatActivity {
                         }
 
                         else if(iniCnt%2==0) {
-                            h++;
                             home_outout++;
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
@@ -630,6 +630,7 @@ public class BSOActivity extends AppCompatActivity {
                             et_ball.setText("B ");
                             ballCnt = 0;
                             if (outCnt == 3) {
+                                h++;
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {

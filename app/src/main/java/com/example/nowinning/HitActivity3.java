@@ -259,6 +259,7 @@ public class HitActivity3 extends Fragment {
             public void onClick(View v) {
 
                 if (runCnt == 3) {// 주자의 현재 위치
+                    img2.setText(img3.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.VISIBLE);
@@ -279,6 +280,7 @@ public class HitActivity3 extends Fragment {
                 }
 
                 else if (runCnt == 6) {// 주자의 현재 위치
+                    img2.setText(img3.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.VISIBLE);
                     img2.setVisibility(View.VISIBLE);

@@ -157,13 +157,19 @@ public class HitActivity1 extends Fragment {
 
 
                 if (runCnt == 0) { // 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 실행할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.VISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE); // 주자 2루로 이동
+
+                    runCnt = 0;
 
                     layout_HIT1.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
                 }
 
                 else if (runCnt == 1) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.VISIBLE);
@@ -174,6 +180,7 @@ public class HitActivity1 extends Fragment {
 
                     layout_HIT1.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
+
                 }
 
                 else if (runCnt == 2) { // 주자의 현재 위치
@@ -222,6 +229,7 @@ public class HitActivity1 extends Fragment {
                 }
 
                 else if (runCnt == 6) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.VISIBLE);

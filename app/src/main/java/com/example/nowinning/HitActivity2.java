@@ -127,6 +127,7 @@ public class HitActivity2 extends Fragment {
                 // 추후 1루타 정보로 수정
 
                 if (runCnt == 2) { // 주자의 현재 위치
+                    img3.setText(img2.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
@@ -141,6 +142,7 @@ public class HitActivity2 extends Fragment {
 
 
                 else if (runCnt == 4) {// 주자의 현재 위치
+                    img3.setText(img2.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.VISIBLE);
                     img2.setVisibility(View.INVISIBLE);
@@ -176,6 +178,7 @@ public class HitActivity2 extends Fragment {
             public void onClick(View v) {
 
                 if (runCnt == 2) { // 주자의 현재 위치
+                    img1.setText(img2.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.VISIBLE);
                     img2.setVisibility(View.INVISIBLE);
@@ -197,6 +200,7 @@ public class HitActivity2 extends Fragment {
                 }
 
                 else if (runCnt == 5) {// 주자의 현재 위치
+                    img1.setText(img2.getText());
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.VISIBLE);
                     img2.setVisibility(View.INVISIBLE);
