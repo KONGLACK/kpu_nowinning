@@ -65,7 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
 
-                            if(success) {
+                            if(UserID.length()<5) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                dialog = builder.setMessage("ID는 5글자 이상이어야 합니다.").setPositiveButton("OK", null).create();
+                                dialog.show();
+                            }
+
+                            else if(success) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 dialog = builder.setMessage("you can use ID").setPositiveButton("OK", null).create();
                                 dialog.show();

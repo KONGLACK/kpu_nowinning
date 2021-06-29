@@ -23,7 +23,7 @@ public class StartRecorder extends AppCompatActivity {
         community_button = (Button) findViewById(R.id.community_button);
         vs_button = (Button) findViewById(R.id.vs_button);
 
-        match_button.setOnClickListener(new View.OnClickListener() {
+        match_button.setOnClickListener(new View.OnClickListener() { // 경기기록
             @Override
             public void onClick(View v) {
 
@@ -33,18 +33,16 @@ public class StartRecorder extends AppCompatActivity {
             }
         });
 
-        record_button.setOnClickListener(new View.OnClickListener() {
+        record_button.setOnClickListener(new View.OnClickListener() { // 선수기록
             @Override
             public void onClick(View v) {
 
                 Toast.makeText(StartRecorder.this,"선수 기록을 확인할 수 있는 버튼입니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(StartRecorder.this, StartList.class);
-                startActivity(intent);
 
             }
         });
 
-        community_button.setOnClickListener(new View.OnClickListener() {
+        community_button.setOnClickListener(new View.OnClickListener() { // 커뮤니티
             @Override
             public void onClick(View v) {
 
@@ -55,7 +53,7 @@ public class StartRecorder extends AppCompatActivity {
             }
         });
 
-        vs_button.setOnClickListener(new View.OnClickListener() {
+        vs_button.setOnClickListener(new View.OnClickListener() { // 상대전적
             @Override
             public void onClick(View v) {
 

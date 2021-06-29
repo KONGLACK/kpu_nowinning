@@ -20,8 +20,10 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
     private AlertDialog dialog;
-    EditText idtext, pwdtext;
+    EditText pwdtext;
     Button login_btn, find_id_btn, find_pw_btn, signup_btn;
+    public static EditText idtext;
+    public static String UserID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String UserID = idtext.getText().toString();
+                UserID = idtext.getText().toString();
                 final String UserPwd = pwdtext.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -52,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
 
-                            if(success && UserID.equals("recorder")) {
+                            if(success && UserID.substring(0,5).equals("direc")) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 
                                 dialog = builder.setMessage("로그인에 성공했습니다")
@@ -61,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 dialog.show();
 
-                                Intent intent = new Intent(LoginActivity.this, StartRecorder.class);
+                                Intent intent = new Intent(LoginActivity.this, StartManager.class);
                                 startActivity(intent); //계정 조건에 따라 분기점이 필요함(감독, 선수, 기록자)
                             }
                             else if(success) {

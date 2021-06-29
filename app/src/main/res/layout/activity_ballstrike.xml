@@ -84,27 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            >
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:id="@+id/awaybutton"
-                android:text="away"
-                android:textStyle="bold"
-                app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"
-                ></androidx.appcompat.widget.AppCompatButton>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:id="@+id/homebutton"
-                android:text="home"
-                android:textStyle="bold"
-                app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"
-                ></androidx.appcompat.widget.AppCompatButton>
-        </LinearLayout>
+            />
 
 
 

@@ -514,5 +514,45 @@
         app:layout_constraintTop_toBottomOf="@+id/centerfielder_spinner"
         tools:ignore="MissingConstraints"></Spinner>
 
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="284dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="104dp"
+        android:text="등록완료"
+        android:textColor="#1C315E"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#F47D30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></Button>
+
+    <Button
+        android:id="@+id/team_button"
+        android:layout_width="192dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="524dp"
+        android:text="팀"
+        android:textColor="#1C315E"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#F47D30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></Button>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

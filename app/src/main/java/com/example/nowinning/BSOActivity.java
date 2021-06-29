@@ -96,8 +96,6 @@ public class BSOActivity extends AppCompatActivity {
         et_hscore = (EditText) findViewById(R.id.et_hscore);
         et_ascore = (EditText) findViewById(R.id.et_ascore);
         et_ini = (EditText) findViewById(R.id.et_ini);
-        btn_away = (Button) findViewById(R.id.awaybutton);
-        btn_home = (Button) findViewById(R.id.homebutton);
 
         btn_s = (Button) findViewById(R.id.strike_button);
         btn_b = (Button) findViewById(R.id.ball_button);
