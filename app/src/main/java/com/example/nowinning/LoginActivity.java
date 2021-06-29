@@ -52,7 +52,19 @@ public class LoginActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
 
-                            if(success) {
+                            if(success && UserID.equals("recorder")) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+
+                                dialog = builder.setMessage("로그인에 성공했습니다")
+                                        .setPositiveButton("확인", null)
+                                        .create();
+
+                                dialog.show();
+
+                                Intent intent = new Intent(LoginActivity.this, StartRecorder.class);
+                                startActivity(intent); //계정 조건에 따라 분기점이 필요함(감독, 선수, 기록자)
+                            }
+                            else if(success) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 
                                 dialog = builder.setMessage("로그인에 성공했습니다")
