@@ -24,9 +24,11 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.nowinning.BSOActivity.away_ining;
 import static com.example.nowinning.BSOActivity.ballCnt;
 import static com.example.nowinning.BSOActivity.h;
 import static com.example.nowinning.BSOActivity.home_arr;
+import static com.example.nowinning.BSOActivity.home_ining;
 import static com.example.nowinning.BSOActivity.img0;
 import static com.example.nowinning.BSOActivity.img1;
 import static com.example.nowinning.BSOActivity.img2;
@@ -153,6 +155,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -199,6 +202,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -226,6 +230,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -254,6 +259,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -341,6 +347,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -387,6 +394,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -414,6 +422,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -442,6 +451,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -517,6 +527,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     ascore++;
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
                                 }
                             }, 500);
 
@@ -544,6 +555,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -570,6 +582,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -597,6 +610,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     ascore++;
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
                                 }
                             }, 500);
                         }
@@ -625,6 +639,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -653,6 +668,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     ascore++;
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
                                 }
                             }, 500);
                         }
@@ -720,6 +736,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -747,6 +764,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -773,6 +791,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -800,6 +819,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     hscore++;
                                     et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
                                 }
                             }, 500);
                         }
@@ -828,6 +848,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -856,6 +877,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     hscore++;
                                     et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
                                 }
                             }, 500);
                         }
@@ -909,6 +931,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -935,6 +958,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -962,6 +986,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -988,6 +1013,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     ascore++;
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
                                 }
                             }, 500);
                         }
@@ -1014,6 +1040,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     ascore++;
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
                                 }
                             }, 500);
                         }
@@ -1041,6 +1068,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
 
@@ -1068,6 +1096,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     ascore++;
                                     et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
                                 }
                             }, 500);
                         }
@@ -1115,6 +1144,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -1141,6 +1171,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -1168,6 +1199,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -1193,6 +1225,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     hscore++;
                                     et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
                                 }
                             }, 500);
                         }
@@ -1219,6 +1252,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     hscore++;
                                     et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
                                 }
                             }, 500);
                         }
@@ -1246,6 +1280,7 @@ public class SDT_select extends Fragment{
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
 
@@ -1273,6 +1308,7 @@ public class SDT_select extends Fragment{
                                 public void run() {
                                     hscore++;
                                     et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
                                 }
                             }, 500);
                         }

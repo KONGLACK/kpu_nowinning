@@ -3,6 +3,7 @@ package com.example.nowinning;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -45,27 +46,32 @@ import static com.example.nowinning.start.home_player9;
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
-    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, oCnt, btn_away, btn_home;
+    public static Button btn_s, btn_b, btn_other, btn_h, btn_o, oCnt, btn_away, btn_home;
     public static Button img1, img2, img3, img0;
     public static Button img4, img5, img6, img7;
+    public static String WINNER, LOSER;
 
     public static LinearLayout btn_SBO;
 
-    public int i,j;
+    public int i, j;
     public static int stkCnt, ballCnt, outCnt; //sCnt, bCnt, oCnt은 다른 곳에서도 쓰일 거 같아서 퍼블릭
     public static int hscore, ascore; // 해당 이닝에 발생한 점수
     public static int runCnt = 0; // 진루 카운트를 통해 진루 컨트롤
     public static int iniCnt = 1; // 이닝 카운트를 통해 현재 이닝 표시
+    public static int win_score = 0;
+    public static int los_score = 0;
 
     public static int away_ball = 0;
     public static int away_strike = 0;
     public static int away_outout = 0;
+    public static int away_ining = 0;
+    public static int home_ining = 0;
 
     public static int home_ball = 0;
     public static int home_strike = 0;
     public static int home_outout = 0;
-    public static int a=0;
-    public static int h=0;
+    public static int a = 0;
+    public static int h = 0;
     public static String[] away_arr = {away_player1, away_player2, away_player3, away_player4, away_player5,
             away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
             away_player6, away_player7, away_player8, away_player9};
@@ -109,8 +115,6 @@ public class BSOActivity extends AppCompatActivity {
 
         et_hscore.setText("홈      " + choice_home + " 0");
         et_ascore.setText("원정   " + choice_away + " 0");
-        btn_away.setText(choice_away);
-        btn_home.setText(choice_home);
 
         runCnt = 0;
         img0.setText(away_arr[a]);
@@ -120,748 +124,773 @@ public class BSOActivity extends AppCompatActivity {
         img3.setVisibility(View.INVISIBLE);
 
 
-                Handler handler = new Handler();
+        Handler handler = new Handler();
 
-                btn_s.setOnClickListener(new View.OnClickListener() {
+            btn_s.setOnClickListener(new View.OnClickListener() {
 
-                    @Override
-                    public void onClick(View v) {
-                        if(ini_num%2==1) {
-                            away_strike++;
-                            Log.d("어웨이스트라이크값", away_strike+"");
+                @Override
+                public void onClick(View v) {
+                    if (ini_num % 2 == 1) {
+                        away_strike++;
+                        Log.d("어웨이스트라이크값", away_strike + "");
 
 
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        Strike strike_fragment = new Strike();
+                        transaction.replace(R.id.frame, strike_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
 
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
 
-                        }
-                        if(ini_num%2==0) {
-                            home_strike++;
-                            Log.d("홈스트라이크값", home_strike+"");
-
-
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                        }
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
 
                     }
-                });
-
-                btn_b.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        if (ini_num % 2 == 1) {
-                            away_ball++;
-
-                            et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
-                            ballCnt++; //스트라이크 카운트 세기 위해
-                            if (ballCnt == 4) {
-                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                    @Override
-                                    public void run() {
-                                        et_ball.setText("B ");
-                                        ballCnt = 0;
-                                    }
-                                }, 500);
-
-                                if (runCnt == 0) { // 주자의 현재 위치
-                                    a++;
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.INVISIBLE);
-                                    img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
-
-                                    runCnt = 1;
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-                                } else if (runCnt == 1) {// 주자의 현재 위치
-                                    a++;
-
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
-
-                                    runCnt = 4; // 주자 1,2루
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
+                    if (ini_num % 2 == 0) {
+                        home_strike++;
+                        Log.d("홈스트라이크값", home_strike + "");
 
 
-                                } else if (runCnt == 2) { // 주자의 현재 위치
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        Strike strike_fragment = new Strike();
+                        transaction.replace(R.id.frame, strike_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
 
-                                    runCnt = 4; //주자 2,3루
-                                    a++;
-                                    stkCnt = 0;
-                                    ballCnt = 0;
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
 
-
-                                } else if (runCnt == 3) {// 주자의 현재 위치
-                                    a++;
-
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.INVISIBLE);
-                                    img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
-
-                                    runCnt = 6; //주자 1루
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-                                } else if (runCnt == 4) {// 주자의 현재 위치
-                                    a++;
-
-                                    img3.setText(img2.getText());
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
-
-                                    runCnt = 7;
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-
-                                } else if (runCnt == 5) {// 주자의 현재 위치
-                                    a++;
-
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                                    runCnt = 7;
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-                                } else if (runCnt == 6) {// 주자의 현재 위치
-                                    a++;
-
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                                    runCnt = 5;
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-                                } else if (runCnt == 7) {// 주자의 현재 위치
-                                    a++;
-
-                                    img3.setText(img2.getText());
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(away_arr[a]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                                    runCnt = 7;
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-                                    stkCnt = 0;
-                                    ballCnt = 0;
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
+
                             }
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                        }
-                        if (ini_num % 2 == 0) {
-                            home_ball++;
-
-                            et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
-                            ballCnt++; //스트라이크 카운트 세기 위해
-                            if (ballCnt == 4) {
-                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                    @Override
-                                    public void run() {
-                                        et_ball.setText("B ");
-                                        ballCnt = 0;
-                                    }
-                                }, 500);
-
-                                if (runCnt == 0) { // 주자의 현재 위치
-                                    h++;
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.INVISIBLE);
-                                    img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
-
-                                    runCnt = 1;
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-                                } else if (runCnt == 1) {// 주자의 현재 위치
-                                    h++;
-
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
-
-                                    runCnt = 4; // 주자 1,2루
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-
-                                } else if (runCnt == 2) { // 주자의 현재 위치
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
-
-                                    runCnt = 4; //주자 2,3루
-                                    h++;
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-
-                                } else if (runCnt == 3) {// 주자의 현재 위치
-                                    h++;
-
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.INVISIBLE);
-                                    img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
-
-                                    runCnt = 6; //주자 1루
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-                                } else if (runCnt == 4) {// 주자의 현재 위치
-                                    h++;
-
-                                    img3.setText(img2.getText());
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
-
-                                    runCnt = 7;
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-
-                                } else if (runCnt == 5) {// 주자의 현재 위치
-                                    h++;
-
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                                    runCnt = 7;
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-
-                                } else if (runCnt == 6) {// 주자의 현재 위치
-                                    h++;
-
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                                    runCnt = 5;
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-                                } else if (runCnt == 7) {// 주자의 현재 위치
-                                    h++;
-
-                                    img3.setText(img2.getText());
-                                    img2.setText(img1.getText());
-                                    img1.setText(img0.getText());
-                                    img0.setText(home_arr[h]);
-                                    img0.setVisibility(View.VISIBLE);
-                                    img1.setVisibility(View.VISIBLE);
-                                    img2.setVisibility(View.VISIBLE);
-                                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
-
-                                    runCnt = 7;
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
-                                    stkCnt = 0;
-                                    ballCnt = 0;
-                                }
-                            }
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                        }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
                     }
-                });
 
-                btn_o.setOnClickListener(new View.OnClickListener() {
+                }
+            });
 
-                    @Override
-                    public void onClick(View v) {
-                        btn_o.setVisibility(View.INVISIBLE);
-                        if (ini_num%2==1) {
-                            a++;
-                            away_outout++;
-                            Log.d("어웨이아웃값", away_outout+"");
+            btn_b.setOnClickListener(new View.OnClickListener() {
 
+                @Override
+                public void onClick(View v) {
+                    if (ini_num % 2 == 1) {
+                        away_ball++;
 
-                            et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
-                            outCnt++; //스트라이크 카운트 세기 위해
-                            et_strike.setText("S ");
-                            stkCnt = 0;
-                            et_ball.setText("B ");
-                            ballCnt = 0;
-                            if (outCnt == 3) {
+                        et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
+                        ballCnt++; //스트라이크 카운트 세기 위해
+                        if (ballCnt == 4) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    et_ball.setText("B ");
+                                    ballCnt = 0;
+                                }
+                            }, 500);
+
+                            if (runCnt == 0) { // 주자의 현재 위치
                                 a++;
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.INVISIBLE);
+                                img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
+
+                                runCnt = 1;
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+                            } else if (runCnt == 1) {// 주자의 현재 위치
+                                a++;
+
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                                runCnt = 4; // 주자 1,2루
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+
+                            } else if (runCnt == 2) { // 주자의 현재 위치
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
+
+                                runCnt = 4; //주자 2,3루
+                                a++;
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+
+                            } else if (runCnt == 3) {// 주자의 현재 위치
+                                a++;
+
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.INVISIBLE);
+                                img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+
+                                runCnt = 6; //주자 1루
+
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
-                                        et_out.setText("O ");
-                                        outCnt = 0;
-                                        img0.setText(home_arr[h]);
-
-                                        img0.setVisibility(View.VISIBLE);
-                                        img1.setVisibility(View.INVISIBLE);
-                                        img2.setVisibility(View.INVISIBLE);
-                                        img3.setVisibility(View.INVISIBLE);
-                                        runCnt = 0;
-                                        Toast.makeText(BSOActivity.this, choice_home + " 공격", Toast.LENGTH_SHORT).show();
+                                        ascore++;
+                                        et_hscore.setText("원정      " + choice_away + Integer.toString(ascore));
+                                        away_ining++;
                                     }
                                 }, 500);
-                                if(ini_num%2==0) {
-                                    iniCnt++; // 주루 카운트 ++
-                                }
-                                ini_num++;
-                                et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
-                            }
 
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
+                                stkCnt = 0;
+                                ballCnt = 0;
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+                            } else if (runCnt == 4) {// 주자의 현재 위치
+                                a++;
+
+                                img3.setText(img2.getText());
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                                runCnt = 7;
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+
+                            } else if (runCnt == 5) {// 주자의 현재 위치
+                                a++;
+
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                                runCnt = 7;
+
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        ascore++;
+                                        et_hscore.setText("원정      " + choice_away + Integer.toString(ascore));
+                                        away_ining++;
                                     }
+                                }, 500);
 
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+                            } else if (runCnt == 6) {// 주자의 현재 위치
+                                a++;
+
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                                runCnt = 5;
+
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        ascore++;
+                                        et_hscore.setText("원정      " + choice_away + Integer.toString(ascore));
+                                        away_ining++;
+                                    }
+                                }, 500);
+                                stkCnt = 0;
+                                ballCnt = 0;
+                            } else if (runCnt == 7) {// 주자의 현재 위치
+                                a++;
+
+                                img3.setText(img2.getText());
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(away_arr[a]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                                runCnt = 7;
+
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        ascore++;
+                                        et_hscore.setText("원정      " + choice_away + Integer.toString(ascore));
+                                        away_ining++;
+                                    }
+                                }, 500);
+                                stkCnt = 0;
+                                ballCnt = 0;
+                            }
                         }
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
 
-                        else if(ini_num%2==0) {
-                            home_outout++;
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
+                    }
+                    if (ini_num % 2 == 0) {
+                        home_ball++;
 
-                            et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
-                            outCnt++; //스트라이크 카운트 세기 위해
-                            et_strike.setText("S ");
-                            stkCnt = 0;
-                            et_ball.setText("B ");
-                            ballCnt = 0;
-                            if (outCnt == 3) {
+                        et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
+                        ballCnt++; //스트라이크 카운트 세기 위해
+                        if (ballCnt == 4) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    et_ball.setText("B ");
+                                    ballCnt = 0;
+                                }
+                            }, 500);
+
+                            if (runCnt == 0) { // 주자의 현재 위치
                                 h++;
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.INVISIBLE);
+                                img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
+
+                                runCnt = 1;
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+                            } else if (runCnt == 1) {// 주자의 현재 위치
+                                h++;
+
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                                runCnt = 4; // 주자 1,2루
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+
+                            } else if (runCnt == 2) { // 주자의 현재 위치
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
+
+                                runCnt = 4; //주자 2,3루
+                                h++;
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+
+                            } else if (runCnt == 3) {// 주자의 현재 위치
+                                h++;
+
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.INVISIBLE);
+                                img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+
+                                runCnt = 6; //주자 1루
+
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
-                                        et_out.setText("O ");
-                                        outCnt = 0;
-                                        img0.setText(away_arr[a]);
-                                        img0.setVisibility(View.VISIBLE);
-                                        img1.setVisibility(View.INVISIBLE);
-                                        img2.setVisibility(View.INVISIBLE);
-                                        img3.setVisibility(View.INVISIBLE);
-                                        runCnt=0;
-                                        Toast.makeText(BSOActivity.this, choice_away + " 공격", Toast.LENGTH_SHORT).show();
+                                        hscore++;
+                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        home_ining++;
                                     }
                                 }, 500);
 
+                                stkCnt = 0;
+                                ballCnt = 0;
 
-                                if(ini_num%2==0) {
-                                    iniCnt++; // 주루 카운트 ++
-                                }
-                                ini_num++;
-                                et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
+                            } else if (runCnt == 4) {// 주자의 현재 위치
+                                h++;
+
+                                img3.setText(img2.getText());
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                                runCnt = 7;
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+
+                            } else if (runCnt == 5) {// 주자의 현재 위치
+                                h++;
+
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                                runCnt = 7;
+
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        hscore++;
+                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        home_ining++;
+                                    }
+                                }, 500);
+
+                                stkCnt = 0;
+                                ballCnt = 0;
+
+                            } else if (runCnt == 6) {// 주자의 현재 위치
+                                h++;
+
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                                runCnt = 5;
+
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        hscore++;
+                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        home_ining++;
+                                    }
+                                }, 500);
+                                stkCnt = 0;
+                                ballCnt = 0;
+                            } else if (runCnt == 7) {// 주자의 현재 위치
+                                h++;
+
+                                img3.setText(img2.getText());
+                                img2.setText(img1.getText());
+                                img1.setText(img0.getText());
+                                img0.setText(home_arr[h]);
+                                img0.setVisibility(View.VISIBLE);
+                                img1.setVisibility(View.VISIBLE);
+                                img2.setVisibility(View.VISIBLE);
+                                img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                                runCnt = 7;
+
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        hscore++;
+                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        home_ining++;
+                                    }
+                                }, 500);
+                                stkCnt = 0;
+                                ballCnt = 0;
                             }
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-
-                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
                         }
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
                     }
-                });
+                }
+            });
 
-                btn_other.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (ini_num % 2 == 1) {
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Others others_fragment = new Others();
-                            transaction.replace(R.id.frame, others_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
+            btn_o.setOnClickListener(new View.OnClickListener() {
 
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                @Override
+                public void onClick(View v) {
+                    btn_o.setVisibility(View.INVISIBLE);
+                    if (ini_num % 2 == 1) {
+                        a++;
+                        away_outout++;
+                        Log.d("어웨이아웃값", away_outout + "");
+
+
+                        et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
+                        outCnt++; //스트라이크 카운트 세기 위해
+                        et_strike.setText("S ");
+                        stkCnt = 0;
+                        et_ball.setText("B ");
+                        ballCnt = 0;
+                        if (outCnt == 3) {
+                            a++;
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
+                                public void run() {
+                                    et_out.setText("O ");
+                                    outCnt = 0;
+                                    img0.setText(home_arr[h]);
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
+                                    img0.setVisibility(View.VISIBLE);
+                                    img1.setVisibility(View.INVISIBLE);
+                                    img2.setVisibility(View.INVISIBLE);
+                                    img3.setVisibility(View.INVISIBLE);
+                                    runCnt = 0;
+                                    Toast.makeText(BSOActivity.this, choice_home + " 공격", Toast.LENGTH_SHORT).show();
                                 }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
+                            }, 500);
+                            if (ini_num % 2 == 0) {
+                                iniCnt++; // 주루 카운트 ++
+                            }
+                            ini_num++;
+                            et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
                         }
-                        if(ini_num%2==0) {
 
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Others others_fragment = new Others();
-                            transaction.replace(R.id.frame, others_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
 
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
+                    } else if (ini_num % 2 == 0) {
+                        home_outout++;
+
+                        et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
+                        outCnt++; //스트라이크 카운트 세기 위해
+                        et_strike.setText("S ");
+                        stkCnt = 0;
+                        et_ball.setText("B ");
+                        ballCnt = 0;
+                        if (outCnt == 3) {
+                            h++;
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                 @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
+                                public void run() {
+                                    et_out.setText("O ");
+                                    outCnt = 0;
+                                    img0.setText(away_arr[a]);
+                                    img0.setVisibility(View.VISIBLE);
+                                    img1.setVisibility(View.INVISIBLE);
+                                    img2.setVisibility(View.INVISIBLE);
+                                    img3.setVisibility(View.INVISIBLE);
+                                    runCnt = 0;
+                                    Toast.makeText(BSOActivity.this, choice_away + " 공격", Toast.LENGTH_SHORT).show();
                                 }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
+                            }, 500);
+
+
+                            if (ini_num % 2 == 0) {
+                                iniCnt++; // 주루 카운트 ++
+                            }
+                            ini_num++;
+                            et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
                         }
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+
+                        TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
                     }
-                });
+                }
+            });
 
-                btn_h.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(ini_num%2==1) {
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Inplay inplay_fragment = new Inplay();
-                            transaction.replace(R.id.frame, inplay_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                        }
-                        if(ini_num%2==0) {
-
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Inplay inplay_fragment = new Inplay();
-                            transaction.replace(R.id.frame, inplay_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                        }
-                    }
-                });
-
-                img0.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(ini_num%2==1) {
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Batplay batplay_fragment = new Batplay();
-                            transaction.replace(R.id.frame, batplay_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                            //hi
-                        }
-                        if(ini_num%2==0) {
-
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Strike strike_fragment = new Strike();
-                            transaction.replace(R.id.frame, strike_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
-                        }
-                    }
-                });
-
-                img1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            btn_other.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (ini_num % 2 == 1) {
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        HitActivity1 Hitter1_fragment = new HitActivity1();
-                        transaction.replace(R.id.frame, Hitter1_fragment);
+                        Others others_fragment = new Others();
+                        transaction.replace(R.id.frame, others_fragment);
                         transaction.commit();
                         btn_SBO.setVisibility(View.INVISIBLE);
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
                     }
-                });
+                    if (ini_num % 2 == 0) {
 
-                 img2.setOnClickListener(new View.OnClickListener() {
-                     @Override
-                     public void onClick(View v) {
-                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                         HitActivity2 Hitter2_fragment = new HitActivity2();
-                         transaction.replace(R.id.frame, Hitter2_fragment);
-                         transaction.commit();
-                         btn_SBO.setVisibility(View.INVISIBLE);
-                     }
-                 });
-
-                img3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        HitActivity3 Hitter3_fragment = new HitActivity3();
-                        transaction.replace(R.id.frame, Hitter3_fragment);
+                        Others others_fragment = new Others();
+                        transaction.replace(R.id.frame, others_fragment);
                         transaction.commit();
                         btn_SBO.setVisibility(View.INVISIBLE);
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
                     }
-                });
+                }
+            });
+
+            btn_h.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (ini_num % 2 == 1) {
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        Inplay inplay_fragment = new Inplay();
+                        transaction.replace(R.id.frame, inplay_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
+                    }
+                    if (ini_num % 2 == 0) {
+
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        Inplay inplay_fragment = new Inplay();
+                        transaction.replace(R.id.frame, inplay_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
+                    }
+                }
+            });
+
+            img0.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (ini_num % 2 == 1) {
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        Batplay batplay_fragment = new Batplay();
+                        transaction.replace(R.id.frame, batplay_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
+                        //hi
+                    }
+                    if (ini_num % 2 == 0) {
+
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        Strike strike_fragment = new Strike();
+                        transaction.replace(R.id.frame, strike_fragment);
+                        transaction.commit();
+                        btn_SBO.setVisibility(View.INVISIBLE);
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        };
+                        TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                        queue.add(teamRequest);
+                    }
+                }
+            });
+
+            img1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    HitActivity1 Hitter1_fragment = new HitActivity1();
+                    transaction.replace(R.id.frame, Hitter1_fragment);
+                    transaction.commit();
+                    btn_SBO.setVisibility(View.INVISIBLE);
+                }
+            });
+
+            img2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    HitActivity2 Hitter2_fragment = new HitActivity2();
+                    transaction.replace(R.id.frame, Hitter2_fragment);
+                    transaction.commit();
+                    btn_SBO.setVisibility(View.INVISIBLE);
+                }
+            });
+
+            img3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    HitActivity3 Hitter3_fragment = new HitActivity3();
+                    transaction.replace(R.id.frame, Hitter3_fragment);
+                    transaction.commit();
+                    btn_SBO.setVisibility(View.INVISIBLE);
+                }
+            });
+
+            if(hscore > ascore) {
+                WINNER = choice_home;
+                LOSER = choice_away;
+                win_score = hscore;
+                los_score = ascore;
+            }
+            if(ascore > hscore) {
+                WINNER = choice_away;
+                LOSER = choice_home;
+                win_score = ascore;
+                los_score = hscore;
+            }
+
+
+
+
+
+
 
 
        /* oCnt.setOnClickListener(new View.OnClickListener() {
@@ -873,5 +902,5 @@ public class BSOActivity extends AppCompatActivity {
         });
     */
 
-            }
         }
+    }
