@@ -3,6 +3,7 @@ package com.example.nowinning;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -45,7 +46,7 @@ import static com.example.nowinning.start.home_player9;
 public class BSOActivity extends AppCompatActivity {
 
     public static EditText et_strike, et_ball, et_out, et_hscore, et_ascore, et_ini;
-    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, oCnt, btn_away, btn_home;
+    public static Button btn_s, btn_b, btn_other, btn_h , btn_o, btn_Undo,oCnt, btn_away, btn_home;
     public static Button img1, img2, img3, img0;
     public static Button img4, img5, img6, img7;
 
@@ -68,8 +69,14 @@ public class BSOActivity extends AppCompatActivity {
     public static int h=0;
     public static String[] away_arr = {away_player1, away_player2, away_player3, away_player4, away_player5,
             away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
+            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
+            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
+            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
             away_player6, away_player7, away_player8, away_player9};
     public static String[] home_arr = {home_player1, home_player2, home_player3, home_player4, home_player5,
+            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
+            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
+            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9};
     public static String[] ini = {"말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말",
@@ -78,6 +85,54 @@ public class BSOActivity extends AppCompatActivity {
 
 
     FrameLayout frame;
+
+    /*private static final String TAG = "Main_Activity";
+
+    private String downloadData="";
+    private String currentState="";
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+        currentState="에너지 50";
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+        Log.d(TAG, "onResume: 현재 에너지 : "+currentState);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+
+
+    }
+    */ // 안드로이드 생명주기 확인 로그
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,17 +155,17 @@ public class BSOActivity extends AppCompatActivity {
         btn_s = (Button) findViewById(R.id.strike_button);
         btn_b = (Button) findViewById(R.id.ball_button);
         btn_o = (Button) findViewById(R.id.out_button);
+        btn_o.setVisibility(View.INVISIBLE);
 
         btn_other = (Button) findViewById(R.id.other_button);
         btn_h = (Button) findViewById(R.id.hit_button);
 
         btn_SBO = (LinearLayout) findViewById(R.id.btn_SBO);
+        btn_Undo =(Button) findViewById(R.id.btn_Undo);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 
         et_hscore.setText("홈      " + choice_home + " 0");
         et_ascore.setText("원정   " + choice_away + " 0");
-        btn_away.setText(choice_away);
-        btn_home.setText(choice_home);
 
         runCnt = 0;
         img0.setText(away_arr[a]);
@@ -118,6 +173,7 @@ public class BSOActivity extends AppCompatActivity {
         img1.setVisibility(View.INVISIBLE);
         img2.setVisibility(View.INVISIBLE);
         img3.setVisibility(View.INVISIBLE);
+
 
 
                 Handler handler = new Handler();
@@ -564,9 +620,9 @@ public class BSOActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        btn_o.setVisibility(View.INVISIBLE);
                         if (ini_num%2==1) {
                             a++;
+                            img0.setText(away_arr[a]);
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
 
@@ -578,7 +634,14 @@ public class BSOActivity extends AppCompatActivity {
                             et_ball.setText("B ");
                             ballCnt = 0;
                             if (outCnt == 3) {
-                                a++;
+                                if (iniCnt>=9&&ascore!=hscore) {
+                                    Intent intent = new Intent(BSOActivity.this, GameSet.class);
+                                    startActivity(intent);
+
+                                    Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
+                                }
+
+                                a++;//away 값 ++
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
@@ -591,7 +654,7 @@ public class BSOActivity extends AppCompatActivity {
                                         img2.setVisibility(View.INVISIBLE);
                                         img3.setVisibility(View.INVISIBLE);
                                         runCnt = 0;
-                                        Toast.makeText(BSOActivity.this, choice_home + " 공격", Toast.LENGTH_SHORT).show();
+                                       // Toast.makeText(BSOActivity.this, choice_home + " 공격", Toast.LENGTH_SHORT).show();
                                     }
                                 }, 500);
                                 if(ini_num%2==0) {
@@ -620,6 +683,7 @@ public class BSOActivity extends AppCompatActivity {
 
                         else if(ini_num%2==0) {
                             home_outout++;
+                            img0.setText(home_arr[h]);
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
                             outCnt++; //스트라이크 카운트 세기 위해
@@ -628,7 +692,14 @@ public class BSOActivity extends AppCompatActivity {
                             et_ball.setText("B ");
                             ballCnt = 0;
                             if (outCnt == 3) {
-                                h++;
+                                if (iniCnt>=9&&ascore!=hscore) {
+                                    Intent intent = new Intent(BSOActivity.this, GameSet.class);
+                                    startActivity(intent);
+
+                                    Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
+                                }
+
+                                h++;//home 값 ++
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
@@ -640,7 +711,7 @@ public class BSOActivity extends AppCompatActivity {
                                         img2.setVisibility(View.INVISIBLE);
                                         img3.setVisibility(View.INVISIBLE);
                                         runCnt=0;
-                                        Toast.makeText(BSOActivity.this, choice_away + " 공격", Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(BSOActivity.this, choice_away + " 공격", Toast.LENGTH_SHORT).show();
                                     }
                                 }, 500);
 
@@ -860,6 +931,14 @@ public class BSOActivity extends AppCompatActivity {
                         transaction.replace(R.id.frame, Hitter3_fragment);
                         transaction.commit();
                         btn_SBO.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+                btn_Undo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        btn_SBO.setVisibility(View.VISIBLE);
+
                     }
                 });
 

@@ -14,6 +14,15 @@
         android:layout_height="328dp">
 
         <Button
+            android:id="@+id/btn_Undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNDO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <Button
             android:id="@+id/img0"
             android:layout_width="65dp"
             android:layout_height="65dp"
