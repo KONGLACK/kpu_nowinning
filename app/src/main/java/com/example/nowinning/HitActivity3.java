@@ -14,11 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.ascore;
+import static com.example.nowinning.BSOActivity.away_ining;
 import static com.example.nowinning.BSOActivity.ballCnt;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_o;
 import static com.example.nowinning.BSOActivity.et_ascore;
 import static com.example.nowinning.BSOActivity.et_hscore;
+import static com.example.nowinning.BSOActivity.home_ining;
 import static com.example.nowinning.BSOActivity.hscore;
 import static com.example.nowinning.BSOActivity.img0;
 import static com.example.nowinning.BSOActivity.img1;
@@ -137,6 +139,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
                     }
@@ -147,6 +150,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
                     }
@@ -169,6 +173,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
                     } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
@@ -177,6 +182,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
                     }
@@ -201,6 +207,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
                     }
@@ -211,6 +218,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
                     }
@@ -234,6 +242,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 hscore++;
                                 et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                home_ining++;
                             }
                         }, 500);
                     } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
@@ -242,6 +251,7 @@ public class HitActivity3 extends Fragment {
                             public void run() {
                                 ascore++;
                                 et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
                             }
                         }, 500);
                     }
