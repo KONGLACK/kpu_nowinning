@@ -13,6 +13,90 @@
         android:layout_width="match_parent"
         android:layout_height="328dp">
 
+       <!-- <LinearLayout
+            android:id="@+id/layout_HitPlace"
+            android:layout_width="0dp"
+            android:layout_height="237dp"
+            android:orientation="vertical"
+            android:weightSum="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/hitPlace1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#00ff0000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/hitPlace2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#00ff0000">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/hitPlace3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#00ff0000">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/hitPlace4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#00ff0000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/hitPlace5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#00ff0000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/hitPlace6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="#00ff0000">
+
+                </Button>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+-->
         <Button
             android:id="@+id/btn_Undo"
             android:layout_width="wrap_content"
@@ -28,10 +112,10 @@
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"
-            android:text=""
-            app:backgroundTint="#E6E6FA"
-            android:textColor="#1C315E"
             android:background="@drawable/solid_button"
+            android:text=""
+            android:textColor="#1C315E"
+            app:backgroundTint="#E6E6FA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -42,10 +126,10 @@
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginBottom="72dp"
-            android:text=""
-            app:backgroundTint="#E6E6FA"
-            android:textColor="#1C315E"
             android:background="@drawable/solid_button"
+            android:text=""
+            android:textColor="#1C315E"
+            app:backgroundTint="#E6E6FA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img0" />
 
@@ -54,11 +138,11 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
-            android:text=""
-            app:backgroundTint="#E6E6FA"
-            android:textColor="#1C315E"
-            android:background="@drawable/solid_button"
             android:layout_marginBottom="72dp"
+            android:background="@drawable/solid_button"
+            android:text=""
+            android:textColor="#1C315E"
+            app:backgroundTint="#E6E6FA"
             app:layout_constraintBottom_toTopOf="@+id/img0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,14 +155,12 @@
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginBottom="72dp"
-            android:text=""
-            app:backgroundTint="#E6E6FA"
-            android:textColor="#1C315E"
             android:background="@drawable/solid_button"
+            android:text=""
+            android:textColor="#1C315E"
+            app:backgroundTint="#E6E6FA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img0" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -171,8 +171,8 @@ public class BSOActivity extends AppCompatActivity {
 
         et_hscore.setText("홈      " + choice_home + " 0");
         et_ascore.setText("원정   " + choice_away + " 0");
-        btn_away.setText(choice_away);
-        btn_home.setText(choice_home);
+//        btn_away.setText(choice_away);
+//        btn_home.setText(choice_home);
 
         runCnt = 0;
         img0.setText(away_arr[a]);
@@ -181,6 +181,7 @@ public class BSOActivity extends AppCompatActivity {
         img2.setVisibility(View.INVISIBLE);
         img3.setVisibility(View.INVISIBLE);
         //hihi
+        //okhihi
 
 
                 Handler handler = new Handler();
