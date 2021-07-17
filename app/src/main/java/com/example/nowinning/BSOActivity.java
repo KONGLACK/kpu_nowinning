@@ -180,6 +180,7 @@ public class BSOActivity extends AppCompatActivity {
         img1.setVisibility(View.INVISIBLE);
         img2.setVisibility(View.INVISIBLE);
         img3.setVisibility(View.INVISIBLE);
+        //hihi
 
 
                 Handler handler = new Handler();
