@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.nowinning.SDT_select.away_singleCount2;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
 import static com.example.nowinning.start.away_player1;
@@ -73,16 +74,8 @@ public class BSOActivity extends AppCompatActivity {
     public static int a=0;
     public static int h=0;
     public static String[] away_arr = {away_player1, away_player2, away_player3, away_player4, away_player5,
-            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
-            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
-            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
-            away_player6, away_player7, away_player8, away_player9, away_player1, away_player2, away_player3, away_player4, away_player5,
             away_player6, away_player7, away_player8, away_player9};
     public static String[] home_arr = {home_player1, home_player2, home_player3, home_player4, home_player5,
-            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
-            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
-            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
-            home_player6, home_player7, home_player8, home_player9, home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9};
     public static String[] ini = {"말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말",
             "초", "말", "초", "말", "초", "말", "초", "말", "초", "말"};
@@ -180,7 +173,7 @@ public class BSOActivity extends AppCompatActivity {
         img1.setVisibility(View.INVISIBLE);
         img2.setVisibility(View.INVISIBLE);
         img3.setVisibility(View.INVISIBLE);
-        //hihi
+        //hihiㄹㅇ
         //okhihi
 
 
@@ -269,6 +262,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 if (runCnt == 0) { // 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
                                     img1.setText(img0.getText());
                                     img0.setText(away_arr[a]);
                                     img0.setVisibility(View.VISIBLE);
@@ -282,6 +278,9 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
                                 } else if (runCnt == 1) {// 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
 
                                     img2.setText(img1.getText());
                                     img1.setText(img0.getText());
@@ -298,6 +297,10 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 2) { // 주자의 현재 위치
+                                    a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
                                     img1.setText(img0.getText());
                                     img0.setText(away_arr[a]);
                                     img0.setVisibility(View.VISIBLE);
@@ -306,13 +309,15 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
 
                                     runCnt = 4; //주자 2,3루
-                                    a++;
                                     stkCnt = 0;
                                     ballCnt = 0;
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
 
                                     img1.setText(img0.getText());
                                     img0.setText(away_arr[a]);
@@ -336,6 +341,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 } else if (runCnt == 4) {// 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
 
                                     img3.setText(img2.getText());
                                     img2.setText(img1.getText());
@@ -354,6 +362,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
 
                                     img1.setText(img0.getText());
                                     img0.setText(away_arr[a]);
@@ -377,6 +388,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 } else if (runCnt == 6) {// 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
 
                                     img2.setText(img1.getText());
                                     img1.setText(img0.getText());
@@ -399,6 +413,9 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
                                 } else if (runCnt == 7) {// 주자의 현재 위치
                                     a++;
+                                    if(a>8) {
+                                        a=0;
+                                    }
 
                                     img3.setText(img2.getText());
                                     img2.setText(img1.getText());
@@ -453,6 +470,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 if (runCnt == 0) { // 주자의 현재 위치
                                     h++;
+                                    if(h>8) {
+                                        h=0;
+                                    }
                                     img1.setText(img0.getText());
                                     img0.setText(home_arr[h]);
                                     img0.setVisibility(View.VISIBLE);
@@ -466,7 +486,9 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
                                 } else if (runCnt == 1) {// 주자의 현재 위치
                                     h++;
-
+                                    if(h>8) {
+                                        h=0;
+                                    }
                                     img2.setText(img1.getText());
                                     img1.setText(img0.getText());
                                     img0.setText(home_arr[h]);
@@ -482,6 +504,10 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 2) { // 주자의 현재 위치
+                                    h++;
+                                    if(h>8) {
+                                        h=0;
+                                    }
                                     img1.setText(img0.getText());
                                     img0.setText(home_arr[h]);
                                     img0.setVisibility(View.VISIBLE);
@@ -490,14 +516,15 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
 
                                     runCnt = 4; //주자 2,3루
-                                    h++;
                                     stkCnt = 0;
                                     ballCnt = 0;
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
                                     h++;
-
+                                    if(h>8) {
+                                        h=0;
+                                    }
                                     img1.setText(img0.getText());
                                     img0.setText(home_arr[h]);
                                     img0.setVisibility(View.VISIBLE);
@@ -520,7 +547,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 } else if (runCnt == 4) {// 주자의 현재 위치
                                     h++;
-
+                                    if(h>8) {
+                                        h=0;
+                                    }
                                     img3.setText(img2.getText());
                                     img2.setText(img1.getText());
                                     img1.setText(img0.getText());
@@ -538,7 +567,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
                                     h++;
-
+                                    if(h>8) {
+                                        h=0;
+                                    }
                                     img1.setText(img0.getText());
                                     img0.setText(home_arr[h]);
                                     img0.setVisibility(View.VISIBLE);
@@ -561,6 +592,9 @@ public class BSOActivity extends AppCompatActivity {
 
                             } else if (runCnt == 6) {// 주자의 현재 위치
                                 h++;
+                                if(h>8) {
+                                    h=0;
+                                }
 
                                 img2.setText(img1.getText());
                                 img1.setText(img0.getText());
@@ -584,6 +618,9 @@ public class BSOActivity extends AppCompatActivity {
                                 ballCnt = 0;
                             } else if (runCnt == 7) {// 주자의 현재 위치
                                 h++;
+                                if(h>8) {
+                                    h=0;
+                                }
 
                                 img3.setText(img2.getText());
                                 img2.setText(img1.getText());
@@ -632,6 +669,9 @@ public class BSOActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if (ini_num%2==1) {
                             a++;
+                            if(a>8) {
+                                a=0;
+                            }
                             img0.setText(away_arr[a]);
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
@@ -692,6 +732,10 @@ public class BSOActivity extends AppCompatActivity {
                         }
 
                         else if(ini_num%2==0) {
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
                             home_outout++;
                             img0.setText(home_arr[h]);
 
@@ -969,6 +1013,9 @@ public class BSOActivity extends AppCompatActivity {
 
             }
         });
+
+
+
 
 
 

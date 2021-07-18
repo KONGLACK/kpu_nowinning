@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.ascore;
@@ -59,7 +60,6 @@ public class HitActivity1 extends Fragment {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
-
 
                 if (runCnt == 0) { // 주자의 현재 위치
                     Toast.makeText(getActivity(),"현재 상황에서 실행할 수 없습니다.", Toast.LENGTH_SHORT).show();

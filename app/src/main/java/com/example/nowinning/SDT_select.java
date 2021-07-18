@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.RequestQueue;
@@ -50,17 +51,20 @@ import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.BSOActivity.a;
 import static com.example.nowinning.BSOActivity.away_arr;
 
-public class SDT_select extends Fragment{
+public class SDT_select extends Fragment {
 
     public static Button btn_Single, btn_Double, btn_Triple;
     public static int a_SingleCount=0, a_DoubleCount=0, a_TripleCount=0;
     public static int h_SingleCount=0, h_DoubleCount=0, h_TripleCount=0;
     private int i;
     public static LinearLayout layout_SDT;
+    public static int[] away_singleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public static int[] away_singleCount2 = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public static int[] home_singleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
-    @Nullable
     @Override
+    @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.sdt, container, false);
@@ -76,15 +80,12 @@ public class SDT_select extends Fragment{
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
                 if (ini_num % 2 == 1) {
-                    a_SingleCount++;
-
                     if (runCnt == 0) { // 주자의 현재 위치
-
-
-
-
-
+                        away_singleCount[a]++;
                         a++;
+                        if(a>8) {
+                            a=0;
+                        }
 
                         img1.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -101,8 +102,11 @@ public class SDT_select extends Fragment{
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -120,8 +124,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img2.getText());
                         img1.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -139,8 +146,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img1.setText(img0.getText());
                         img0.setText(away_arr[a]);
                         img0.setVisibility(View.VISIBLE);
@@ -165,8 +175,11 @@ public class SDT_select extends Fragment{
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img2.getText());
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
@@ -185,11 +198,14 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img2.getText());
                         img1.setText(img0.getText());
-                        img0.setText(away_arr[0]);
+                        img0.setText(away_arr[a]);
                         img0.setVisibility(View.VISIBLE);
                         img1.setVisibility(View.VISIBLE);
                         img2.setVisibility(View.INVISIBLE);
@@ -213,8 +229,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -241,8 +260,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
+                        away_singleCount[a]++;
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img2.getText());
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
@@ -270,14 +292,35 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     }
-
                 }
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+                for(int i=0; i<9; i++) {
+                    BatterRequest batterRequest = new BatterRequest(choice_away, away_arr[i], away_singleCount2[i], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(batterRequest);
+                }
+
+
+
 
                 if(ini_num%2==0) {
-                    h_SingleCount++;
                     if (runCnt == 0) { // 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img1.setText(img0.getText());
                         img0.setText(home_arr[h]);
                         img0.setVisibility(View.VISIBLE);
@@ -293,8 +336,11 @@ public class SDT_select extends Fragment{
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -312,8 +358,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img2.getText());
                         img1.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -331,8 +380,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img1.setText(img0.getText());
                         img0.setText(home_arr[h]);
                         img0.setVisibility(View.VISIBLE);
@@ -357,8 +409,11 @@ public class SDT_select extends Fragment{
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img2.getText());
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
@@ -377,8 +432,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img2.getText());
                         img1.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -405,8 +463,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -433,8 +494,11 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
+                        home_singleCount[h]++;
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img2.getText());
                         img2.setText(img1.getText());
                         img1.setText(img0.getText());
@@ -462,8 +526,10 @@ public class SDT_select extends Fragment{
                         btn_SBO.setVisibility(View.VISIBLE);
                     }
                 }
+
             }
         });
+
 
 
         btn_Double.setOnClickListener(new View.OnClickListener() {
@@ -1322,27 +1388,6 @@ public class SDT_select extends Fragment{
                 }
             }
         });
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        PlayerRequest playerRequest = new PlayerRequest(away_arr[a], a_SingleCount, a_DoubleCount, a_TripleCount, responseListener);
-
-
-        PlayerRequest playerRequest1 = new PlayerRequest(home_arr[h], h_SingleCount, h_DoubleCount, h_TripleCount, responseListener);
-        Log.d("값", home_arr[h]);
-
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        queue.add(playerRequest);
-        queue.add(playerRequest1);
-
 
 
         return v;
