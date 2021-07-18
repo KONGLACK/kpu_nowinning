@@ -5,262 +5,152 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="@drawable/sizefield"
 
+    android:background="@drawable/sizefield"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="328dp">
-
-       <!-- <LinearLayout
-            android:id="@+id/layout_HitPlace"
-            android:layout_width="0dp"
-            android:layout_height="237dp"
-            android:orientation="vertical"
-            android:weightSum="10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/hitPlace1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="#00ff0000">
-
-                </Button>
-
-                <Button
-                    android:id="@+id/hitPlace2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="#00ff0000">
-
-
-                </Button>
-
-                <Button
-                    android:id="@+id/hitPlace3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="#00ff0000">
-
-                </Button>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/hitPlace4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="#00ff0000">
-
-                </Button>
-
-                <Button
-                    android:id="@+id/hitPlace5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="#00ff0000">
-
-                </Button>
-
-                <Button
-                    android:id="@+id/hitPlace6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="#00ff0000">
-
-                </Button>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
--->
-        <Button
-            android:id="@+id/btn_Undo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="UNDO"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-        <Button
-            android:id="@+id/img0"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/solid_button"
-            android:text=""
-            android:textColor="#1C315E"
-            app:backgroundTint="#E6E6FA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/img1"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="72dp"
-            android:background="@drawable/solid_button"
-            android:text=""
-            android:textColor="#1C315E"
-            app:backgroundTint="#E6E6FA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img0" />
-
-        <Button
-            android:id="@+id/img2"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="72dp"
-            android:background="@drawable/solid_button"
-            android:text=""
-            android:textColor="#1C315E"
-            app:backgroundTint="#E6E6FA"
-            app:layout_constraintBottom_toTopOf="@+id/img0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <Button
-            android:id="@+id/img3"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="72dp"
-            android:background="@drawable/solid_button"
-            android:text=""
-            android:textColor="#1C315E"
-            app:backgroundTint="#E6E6FA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img0" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/finish_button"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="경기종료"
-        android:textColor="#1C315E"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:backgroundTint="#F47D30" />
-
     <LinearLayout
+        android:id="@+id/LL_board"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        >
+        android:layout_gravity="center"
+        android:gravity="center">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
             android:orientation="horizontal"
-            />
+            android:weightSum="9">
+
+            <EditText
+                android:id="@+id/et_ini"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="1 이닝    초" />
+
+            <EditText
+                android:id="@+id/et_strike"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="S" />
+
+            <EditText
+                android:id="@+id/et_ball"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="B" />
+
+            <EditText
+                android:id="@+id/et_out"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="O" />
 
 
-
-
+        </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LL_board"
+            android:id="@+id/sc_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="9">
+
+            <EditText
+                android:id="@+id/et_ascore"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="AWAY 0" />
+
+            <EditText
+                android:id="@+id/et_hscore"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="HOME 0"/>
+        </LinearLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="328dp">
+
+            <Button
+                android:id="@+id/img0"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/solid_button"
+                android:text=""
+                android:textColor="#1C315E"
+                app:backgroundTint="#E6E6FA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/img1"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="72dp"
+                android:background="@drawable/solid_button"
+                android:text=""
+                android:textColor="#1C315E"
+                app:backgroundTint="#E6E6FA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img0" />
+
+            <Button
+                android:id="@+id/img2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="72dp"
+                android:background="@drawable/solid_button"
+                android:text=""
+                android:textColor="#1C315E"
+                app:backgroundTint="#E6E6FA"
+                app:layout_constraintBottom_toTopOf="@+id/img0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/img3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="72dp"
+                android:background="@drawable/solid_button"
+                android:text=""
+                android:textColor="#1C315E"
+                app:backgroundTint="#E6E6FA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
+            android:orientation="vertical"
+            >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:orientation="vertical"
-                android:weightSum="9">
-
-
-                <EditText
-                    android:id="@+id/et_strike"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="S" />
-
-                <EditText
-                    android:id="@+id/et_ball"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="B" />
-
-                <EditText
-                    android:id="@+id/et_out"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="O" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/sc_board"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:orientation="vertical"
-                android:weightSum="9">
-
-                <EditText
-                    android:id="@+id/et_ascore"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="원정   AWAY 0" />
-
-                <EditText
-                    android:id="@+id/et_hscore"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="홈      HOME 0"/>
-
-                <EditText
-                    android:id="@+id/et_ini"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="1 이닝    초" />
-
-            </LinearLayout>
-
-
+                android:orientation="horizontal" />
         </LinearLayout>
 
         <FrameLayout
@@ -357,7 +247,40 @@
                -->
             </LinearLayout>
 
+
+
         </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/finish_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:text="경기종료"
+            android:textColor="#1C315E"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="#F47D30" />
+
+        <Button
+            android:id="@+id/btn_Undo"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="UNDO"
+            android:textColor="#1C315E"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="#F47D30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </LinearLayout>
 
