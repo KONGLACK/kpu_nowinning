@@ -1,21 +1,15 @@
 package com.example.nowinning;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.RequestQueue;
@@ -35,13 +29,9 @@ import static com.example.nowinning.BSOActivity.img1;
 import static com.example.nowinning.BSOActivity.img2;
 import static com.example.nowinning.BSOActivity.img3;
 import static com.example.nowinning.BSOActivity.ini_num;
-import static com.example.nowinning.Others.btn_OutOthers;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.et_ascore;
 import static com.example.nowinning.BSOActivity.et_hscore;
-import static com.example.nowinning.BSOActivity.et_strike;
-import static com.example.nowinning.BSOActivity.iniCnt;
-import static com.example.nowinning.BSOActivity.outCnt;
 import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.hscore;
 import static com.example.nowinning.BSOActivity.ascore;
@@ -59,9 +49,11 @@ public class SDT_select extends Fragment {
     private int i;
     public static LinearLayout layout_SDT;
     public static int[] away_singleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-    public static int[] away_singleCount2 = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public static int[] home_singleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-
+    public static int[] away_doubleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public static int[] home_doubleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public static int[] away_tripleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public static int[] home_tripleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     @Override
     @Nullable
@@ -75,13 +67,28 @@ public class SDT_select extends Fragment {
         layout_SDT = (LinearLayout) v.findViewById(R.id.layout_SDT);
         Handler handler = new Handler();
 
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+
         btn_Single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
                 if (ini_num % 2 == 1) {
                     if (runCnt == 0) { // 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -102,7 +109,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -124,7 +133,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -146,7 +157,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -175,7 +188,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -198,7 +213,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -229,7 +246,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -260,7 +279,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
-                        away_singleCount[a]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         a++;
                         if(a>8) {
                             a=0;
@@ -293,30 +314,16 @@ public class SDT_select extends Fragment {
 
                     }
                 }
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                };
-                for(int i=0; i<9; i++) {
-                    BatterRequest batterRequest = new BatterRequest(choice_away, away_arr[i], away_singleCount2[i], responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(getContext());
-                    queue.add(batterRequest);
-                }
 
 
 
 
                 if(ini_num%2==0) {
                     if (runCnt == 0) { // 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -336,7 +343,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -358,7 +367,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -380,7 +391,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -409,7 +422,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -432,7 +447,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -463,7 +480,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -494,7 +513,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
-                        home_singleCount[h]++;
+                        BatterRequest_One batterRequestOne = new BatterRequest_One(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestOne);
                         h++;
                         if(h>8) {
                             h=0;
@@ -526,7 +547,6 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
                     }
                 }
-
             }
         });
 
@@ -537,11 +557,16 @@ public class SDT_select extends Fragment {
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
                 if (ini_num % 2 == 1) {
-                    a_DoubleCount++;
 
 
                     if (runCnt == 0) { // 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
+                        if(a>8) {
+                            a=0;
+                        }
 
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -558,8 +583,13 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -577,8 +607,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
                         img0.setVisibility(View.VISIBLE);
@@ -605,8 +640,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
                         img0.setVisibility(View.VISIBLE);
@@ -631,8 +671,13 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -659,8 +704,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
                         img0.setVisibility(View.VISIBLE);
@@ -688,8 +738,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -716,8 +771,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         a++;
-
+                        if(a>8) {
+                            a=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(away_arr[a]);
@@ -746,12 +806,17 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     }
+
                 }
                 else if (ini_num % 2 == 0) {
-                    h_DoubleCount++;
                     if (runCnt == 0) { // 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
                         img0.setVisibility(View.VISIBLE);
@@ -767,7 +832,13 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
+                        if(h>8) {
+                            h=0;
+                        }
 
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
@@ -786,8 +857,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
                         img0.setVisibility(View.VISIBLE);
@@ -814,8 +890,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
                         img0.setVisibility(View.VISIBLE);
@@ -840,8 +921,13 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -868,8 +954,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
                         img0.setVisibility(View.VISIBLE);
@@ -897,8 +988,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -925,8 +1021,13 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
+                        BatterRequest_Two batterRequestTwo = new BatterRequest_Two(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestTwo);
                         h++;
-
+                        if(h>8) {
+                            h=0;
+                        }
                         img3.setText(img1.getText());
                         img2.setText(img0.getText());
                         img0.setText(home_arr[h]);
@@ -962,8 +1063,10 @@ public class SDT_select extends Fragment {
             @Override
             public void onClick(View v) {
                 if (ini_num % 2 == 1) {
-                    a_TripleCount++;
                     if (runCnt == 0) { // 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -981,6 +1084,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1008,6 +1114,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1035,6 +1144,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1063,6 +1175,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1090,6 +1205,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1118,6 +1236,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1145,6 +1266,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_away, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1175,8 +1299,10 @@ public class SDT_select extends Fragment {
 
                     }
                 } else if (ini_num % 2 == 0) {
-                    h_TripleCount++;
                     if (runCnt == 0) {
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1194,6 +1320,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 1) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1221,6 +1350,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 2) { // 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1248,6 +1380,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 3) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1275,6 +1410,9 @@ public class SDT_select extends Fragment {
                         layout_SDT.setVisibility(View.INVISIBLE);
                         btn_SBO.setVisibility(View.VISIBLE);
                     } else if (runCnt == 4) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1302,6 +1440,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 5) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1330,6 +1471,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 6) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1357,6 +1501,9 @@ public class SDT_select extends Fragment {
                         btn_SBO.setVisibility(View.VISIBLE);
 
                     } else if (runCnt == 7) {// 주자의 현재 위치
+                        BatterRequest_Three batterRequestThree = new BatterRequest_Three(choice_home, home_arr[h], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(batterRequestThree);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1387,6 +1534,7 @@ public class SDT_select extends Fragment {
                     }
                 }
             }
+
         });
 
 

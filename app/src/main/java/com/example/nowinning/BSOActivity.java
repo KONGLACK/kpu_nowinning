@@ -21,7 +21,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.example.nowinning.SDT_select.away_singleCount2;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
 import static com.example.nowinning.start.away_player1;
