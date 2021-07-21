@@ -54,6 +54,7 @@ public class SDT_select extends Fragment {
     public static int[] home_doubleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public static int[] away_tripleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public static int[] home_tripleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    //hi
 
     @Override
     @Nullable
