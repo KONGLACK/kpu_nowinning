@@ -50,6 +50,7 @@ public class SDT_select extends Fragment {
     public static LinearLayout layout_SDT;
     public static int[] away_singleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public static int[] home_singleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    
     public static int[] away_doubleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public static int[] home_doubleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     public static int[] away_tripleCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};

@@ -13,10 +13,23 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.nowinning.BSOActivity.a;
+import static com.example.nowinning.BSOActivity.away_arr;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_o;
 import static com.example.nowinning.BSOActivity.btn_s;
+import static com.example.nowinning.BSOActivity.home_arr;
+import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.BSOActivity.runCnt;
+import static com.example.nowinning.start.choice_away;
+import static com.example.nowinning.start.choice_home;
 
 public class Inplay2 extends Fragment {
 
@@ -37,6 +50,18 @@ public class Inplay2 extends Fragment {
 
         layout_Inplay2 = (LinearLayout) v.findViewById(R.id.layout_Inplay2);
 
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
 
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,10 +75,26 @@ public class Inplay2 extends Fragment {
         btn_Hit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                SDT_select sdt_select = new SDT_select();
-                transaction.replace(R.id.frame, sdt_select);
-                transaction.commit(); // 저장
+                if(ini_num%2==1) {
+                    AvgReqeust avgRequest = new AvgReqeust(choice_away, away_arr[a], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(avgRequest);
+
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    SDT_select sdt_select = new SDT_select();
+                    transaction.replace(R.id.frame, sdt_select);
+                    transaction.commit(); // 저장
+                }
+                if(ini_num%2==0) {
+                    AvgReqeust avgRequest = new AvgReqeust(choice_home, home_arr[a], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(avgRequest);
+
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    SDT_select sdt_select = new SDT_select();
+                    transaction.replace(R.id.frame, sdt_select);
+                    transaction.commit(); // 저장
+                }
             }
         });
 

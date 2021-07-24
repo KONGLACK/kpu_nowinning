@@ -76,6 +76,8 @@ public class BSOActivity extends AppCompatActivity {
             away_player6, away_player7, away_player8, away_player9};
     public static String[] home_arr = {home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9};
+    public static int[] away_hitCount = new int[9];
+    public static int[] home_hitCount = new int[9];
     public static String[] ini = {"말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말",
             "초", "말", "초", "말", "초", "말", "초", "말", "초", "말"};
     public static int ini_num = 1;
@@ -852,12 +854,6 @@ public class BSOActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(ini_num%2==1) {
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Inplay inplay_fragment = new Inplay();
-                            transaction.replace(R.id.frame, inplay_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
-
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -870,9 +866,16 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
+                            HitRequest HitRequest = new HitRequest(choice_away, away_arr[a], responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
+                            queue.add(HitRequest);
+
+                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                            Inplay inplay_fragment = new Inplay();
+                            transaction.replace(R.id.frame, inplay_fragment);
+                            transaction.commit();
+                            btn_SBO.setVisibility(View.INVISIBLE);
+
                         }
                         if(ini_num%2==0) {
 
