@@ -16,6 +16,16 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btn_test"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="Test"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"
+                />
+
+            <Button
                 android:id="@+id/btn_HBP"
                 android:layout_width="300dp"
                 android:layout_height="50dp"

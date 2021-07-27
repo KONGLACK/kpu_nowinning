@@ -5,4 +5,30 @@
         <item>한화</item>
         <item>넥센</item>
     </string-array>
+0
+    <string-array name="hanhwa_player">
+        <item>선택</item>
+        <item>노원우</item>
+        <item>최강선</item>
+        <item>배상아</item>
+        <item>류경은</item>
+        <item>권시안</item>
+        <item>성기하</item>
+        <item>안현영</item>
+        <item>표종진</item>
+        <item>강준민</item>
+    </string-array>
+
+    <string-array name="nexen_player">
+        <item>선택</item>
+        <item>풍은석</item>
+        <item>허혜정</item>
+        <item>허경은</item>
+        <item>탁대혁</item>
+        <item>풍영호</item>
+        <item>김진주</item>
+        <item>정광현</item>
+        <item>안상준</item>
+        <item>송현아</item>
+    </string-array>
 </resources>
