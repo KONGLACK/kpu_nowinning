@@ -76,9 +76,7 @@ public class Inplay2 extends Fragment {
             @Override
             public void onClick(View v) {
                 if(ini_num%2==1) {
-                    AvgReqeust avgRequest = new AvgReqeust(choice_away, away_arr[a], responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(getContext());
-                    queue.add(avgRequest);
+
 
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     SDT_select sdt_select = new SDT_select();
@@ -86,9 +84,7 @@ public class Inplay2 extends Fragment {
                     transaction.commit(); // 저장
                 }
                 if(ini_num%2==0) {
-                    AvgReqeust avgRequest = new AvgReqeust(choice_home, home_arr[a], responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(getContext());
-                    queue.add(avgRequest);
+
 
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     SDT_select sdt_select = new SDT_select();

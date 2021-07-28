@@ -176,6 +176,7 @@ public class BSOActivity extends AppCompatActivity {
         img3.setVisibility(View.INVISIBLE);
         //hihiㄹㅇ
         //okhihi
+        // PHP 타율 계산 처리 (ONE+TWO+THREE)/Hit 형태
 
 
                 Handler handler = new Handler();
