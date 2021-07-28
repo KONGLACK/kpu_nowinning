@@ -178,6 +178,19 @@ public class BSOActivity extends AppCompatActivity {
         //okhihi
         // PHP 타율 계산 처리 (ONE+TWO+THREE)/Hit 형태
 
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+
 
                 Handler handler = new Handler();
 
@@ -196,21 +209,6 @@ public class BSOActivity extends AppCompatActivity {
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
 
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball,away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
 
                         }
                         if(ini_num%2==0) {
@@ -224,21 +222,7 @@ public class BSOActivity extends AppCompatActivity {
                             transaction.commit();
                             btn_SBO.setVisibility(View.INVISIBLE);
 
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
                         }
 
                     }
@@ -316,6 +300,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -363,6 +350,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -389,6 +379,9 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
 
                                 } else if (runCnt == 6) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -414,6 +407,9 @@ public class BSOActivity extends AppCompatActivity {
                                     stkCnt = 0;
                                     ballCnt = 0;
                                 } else if (runCnt == 7) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -441,20 +437,7 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
                                 }
                             }
-                            Response.Listener<String> responseListener = new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonResponse = new JSONObject(response);
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            };
-                            TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
-                            RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(teamRequest);
                         }
                         if (ini_num % 2 == 0) {
                             home_ball++;
@@ -523,6 +506,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                     h++;
                                     if(h>8) {
                                         h=0;
@@ -568,6 +554,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                     h++;
                                     if(h>8) {
                                         h=0;
@@ -589,10 +578,13 @@ public class BSOActivity extends AppCompatActivity {
                                         }
                                     }, 500);
 
-                                stkCnt = 0;
-                                ballCnt = 0;
-
+                                    stkCnt = 0;
+                                    ballCnt = 0;
                             } else if (runCnt == 6) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
+
                                 h++;
                                 if(h>8) {
                                     h=0;
@@ -619,6 +611,9 @@ public class BSOActivity extends AppCompatActivity {
                                 stkCnt = 0;
                                 ballCnt = 0;
                             } else if (runCnt == 7) {// 주자의 현재 위치
+                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                                    queue.add(getScoreRequest);
                                 h++;
                                 if(h>8) {
                                     h=0;
@@ -647,20 +642,6 @@ public class BSOActivity extends AppCompatActivity {
                                 ballCnt = 0;
                             }
                         }
-                        Response.Listener<String> responseListener = new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONObject jsonResponse = new JSONObject(response);
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        };
-                        TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
-                        RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                        queue.add(teamRequest);
                     }
                 }
             });
