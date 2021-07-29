@@ -7,12 +7,12 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class getScoreRequest extends StringRequest {
+public class RBIRequest extends StringRequest {
 
-    final static private String URL = "http://shun8800.dothome.co.kr/getScore.php";
+    final static private String URL = "http://shun8800.dothome.co.kr/RBI.php";
     private Map<String, String> parameters;
 
-    public getScoreRequest(String Team, String Player, Response.Listener<String> listener) {
+    public RBIRequest(String Team, String Player, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);//해당 URL에 POST방식으로 파마미터들을 전송함
         parameters = new HashMap<>();
         parameters.put("Team", Team);

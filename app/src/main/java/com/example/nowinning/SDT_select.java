@@ -164,9 +164,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -224,9 +224,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -261,9 +261,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -298,9 +298,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -414,9 +414,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -476,9 +476,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -513,9 +513,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -550,9 +550,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestOne);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -648,9 +648,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -685,9 +685,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -720,9 +720,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -757,10 +757,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        for(int i=a; i<a+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         a++;
                         if(a>8) {
@@ -797,9 +797,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
                         if(a>8) {
                             a=0;
@@ -834,10 +834,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        for(int i=a; i<a+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         a++;
                         if(a>8) {
@@ -926,9 +926,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -963,9 +963,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -998,9 +998,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -1035,10 +1035,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        for(int i=h; i<h+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         h++;
                         if(h>8) {
@@ -1075,9 +1075,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
                         if(h>8) {
                             h=0;
@@ -1112,10 +1112,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestTwo);
 
-                        for(int i=h; i<h+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         h++;
                         if(h>8) {
@@ -1181,9 +1181,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1215,9 +1215,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1249,9 +1249,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1284,10 +1284,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        for(int i=a; i<a+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         a++;
 
@@ -1320,10 +1320,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        for(int i=a; i<a+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         a++;
 
@@ -1357,9 +1357,11 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
-                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest);
+                        }
 
                         a++;
 
@@ -1372,14 +1374,17 @@ public class SDT_select extends Fragment {
 
                         runCnt = 3;
 
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                away_ining++;
-                            }
-                        }, 500);
+                        for(int i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+
+                        }
 
                         stkCnt = 0;
                         ballCnt = 0;
@@ -1392,10 +1397,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        for(int i=a; i<a+3; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[i], responseListener);
+                        for(int i=0; i<3; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         a++;
 
@@ -1452,9 +1457,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
 
                         h++;
 
@@ -1487,9 +1492,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1521,9 +1526,9 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                        RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                         RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        queue1.add(RBIRequest);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1555,10 +1560,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        for(int i=h; i<h+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         h++;
 
@@ -1591,10 +1596,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        for(int i=h; i<h+2; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[i], responseListener);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         h++;
 
@@ -1628,9 +1633,11 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[i], responseListener);
-                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                        queue1.add(getScoreRequest);
+                        for(int i=0; i<2; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[i], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest);
+                        }
 
                         h++;
 
@@ -1643,14 +1650,16 @@ public class SDT_select extends Fragment {
 
                         runCnt = 3;
 
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
-                                home_ining++;
-                            }
-                        }, 500);
+                        for(int i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
 
                         stkCnt = 0;
                         ballCnt = 0;
@@ -1663,10 +1672,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue = Volley.newRequestQueue(getContext());
                         queue.add(batterRequestThree);
 
-                        for(int i=h; i<h+3; i++) {
-                            getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[i], responseListener);
+                        for(int i=0; i<3; i++) {
+                            RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
-                            queue1.add(getScoreRequest);
+                            queue1.add(RBIRequest);
                         }
                         h++;
 

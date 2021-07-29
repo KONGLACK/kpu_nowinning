@@ -300,9 +300,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -350,9 +350,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -379,9 +379,9 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
 
                                 } else if (runCnt == 6) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -407,9 +407,9 @@ public class BSOActivity extends AppCompatActivity {
                                     stkCnt = 0;
                                     ballCnt = 0;
                                 } else if (runCnt == 7) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_away, away_arr[a], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -506,9 +506,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                     h++;
                                     if(h>8) {
                                         h=0;
@@ -554,9 +554,9 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                     h++;
                                     if(h>8) {
                                         h=0;
@@ -581,9 +581,9 @@ public class BSOActivity extends AppCompatActivity {
                                     stkCnt = 0;
                                     ballCnt = 0;
                             } else if (runCnt == 6) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
 
                                 h++;
                                 if(h>8) {
@@ -611,9 +611,9 @@ public class BSOActivity extends AppCompatActivity {
                                 stkCnt = 0;
                                 ballCnt = 0;
                             } else if (runCnt == 7) {// 주자의 현재 위치
-                                    getScoreRequest getScoreRequest = new getScoreRequest(choice_home, home_arr[h], responseListener);
+                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(getScoreRequest);
+                                    queue.add(RBIRequest);
                                 h++;
                                 if(h>8) {
                                     h=0;
