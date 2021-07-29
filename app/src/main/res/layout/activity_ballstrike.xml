@@ -4,14 +4,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:background="@drawable/sizefield"
-
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="328dp">
+        android:layout_height="328dp"
+        android:id="@+id/frame2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_field"
+            android:layout_width="match_parent"
+            android:layout_height="328dp">
 
        <!-- <LinearLayout
             android:id="@+id/layout_HitPlace"
@@ -164,6 +168,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
     <Button
         android:id="@+id/finish_button"
