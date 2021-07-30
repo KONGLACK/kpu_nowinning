@@ -164,6 +164,7 @@ public class BSOActivity extends AppCompatActivity {
 
         btn_SBO = (LinearLayout) findViewById(R.id.btn_SBO);
         btn_Undo =(Button) findViewById(R.id.btn_Undo);
+        layout_field = (ConstraintLayout) findViewById(R.id.layout_field);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 
         et_hscore.setText("홈      " + choice_home + " 0");
@@ -907,7 +908,7 @@ public class BSOActivity extends AppCompatActivity {
 
 
 
-                img0.setOnClickListener(new View.OnClickListener() {
+                /*img0.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if(ini_num%2==1) {
@@ -958,7 +959,7 @@ public class BSOActivity extends AppCompatActivity {
                             queue.add(teamRequest);
                         }
                     }
-                });
+                });*/
 
                 img1.setOnClickListener(new View.OnClickListener() {
                     @Override
