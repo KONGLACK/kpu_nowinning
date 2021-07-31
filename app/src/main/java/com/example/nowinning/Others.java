@@ -55,8 +55,9 @@ public class Others extends Fragment {
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i =0; i<10; i++){
+                for(int i =0; i<9; i++){
                     iniCnt++;
+                    Toast.makeText(getActivity(),"이닝 카운트가 8 증가합니다", Toast.LENGTH_SHORT).show();
                 }
                 /*FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 TestBtn testbtn = new TestBtn();
