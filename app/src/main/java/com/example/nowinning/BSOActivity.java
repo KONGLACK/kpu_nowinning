@@ -300,9 +300,6 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
-                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -317,13 +314,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 6; //주자 1루
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -350,9 +341,6 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
-                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -367,21 +355,11 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
 
                                     stkCnt = 0;
                                     ballCnt = 0;
 
                                 } else if (runCnt == 6) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
-                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -397,19 +375,17 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 5;
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
                                     stkCnt = 0;
                                     ballCnt = 0;
                                 } else if (runCnt == 7) {// 주자의 현재 위치
                                     RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                                     queue.add(RBIRequest);
+
+                                    ScoreRequest ScoreRequest = new ScoreRequest(choice_away, (String) img3.getText(), responseListener);
+                                    RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
+                                    queue1.add(ScoreRequest);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -506,9 +482,6 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 3) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
-                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
                                     h++;
                                     if(h>8) {
                                         h=0;
@@ -521,14 +494,6 @@ public class BSOActivity extends AppCompatActivity {
                                     img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
 
                                     runCnt = 6; //주자 1루
-
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -554,9 +519,6 @@ public class BSOActivity extends AppCompatActivity {
 
 
                                 } else if (runCnt == 5) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
-                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
                                     h++;
                                     if(h>8) {
                                         h=0;
@@ -570,20 +532,10 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
 
                                     stkCnt = 0;
                                     ballCnt = 0;
                             } else if (runCnt == 6) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
-                                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
 
                                 h++;
                                 if(h>8) {
@@ -600,20 +552,16 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 5;
 
-                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                    @Override
-                                    public void run() {
-                                        hscore++;
-                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        home_ining++;
-                                    }
-                                }, 500);
                                 stkCnt = 0;
                                 ballCnt = 0;
                             } else if (runCnt == 7) {// 주자의 현재 위치
                                     RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                                     queue.add(RBIRequest);
+
+                                    ScoreRequest ScoreRequest = new ScoreRequest(choice_home, (String) img3.getText(), responseListener);
+                                    RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
+                                    queue1.add(ScoreRequest);
                                 h++;
                                 if(h>8) {
                                     h=0;
