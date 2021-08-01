@@ -16,15 +16,42 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.nowinning.BSOActivity.a;
+import static com.example.nowinning.BSOActivity.ahit_by_pitch;
+import static com.example.nowinning.BSOActivity.away_arr;
+import static com.example.nowinning.BSOActivity.away_ball;
+import static com.example.nowinning.BSOActivity.away_outout;
+import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.ballCnt;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_o;
+import static com.example.nowinning.BSOActivity.et_hscore;
 import static com.example.nowinning.BSOActivity.et_ini;
 import static com.example.nowinning.BSOActivity.et_out;
+import static com.example.nowinning.BSOActivity.h;
+import static com.example.nowinning.BSOActivity.hhit_by_pitch;
+import static com.example.nowinning.BSOActivity.home_arr;
+import static com.example.nowinning.BSOActivity.home_ball;
+import static com.example.nowinning.BSOActivity.home_ining;
+import static com.example.nowinning.BSOActivity.hscore;
+import static com.example.nowinning.BSOActivity.img0;
+import static com.example.nowinning.BSOActivity.img1;
+import static com.example.nowinning.BSOActivity.img2;
+import static com.example.nowinning.BSOActivity.img3;
 import static com.example.nowinning.BSOActivity.iniCnt;
+import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.BSOActivity.outCnt;
 import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.stkCnt;
+import static com.example.nowinning.start.choice_away;
+import static com.example.nowinning.start.choice_home;
 
 
 public class Others extends Fragment {
@@ -69,12 +96,359 @@ public class Others extends Fragment {
         btn_HBP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                runCnt++;
-                stkCnt = 0;
-                ballCnt = 0;
+                if (ini_num % 2 == 1) {
 
-                layout_Others.setVisibility(View.INVISIBLE);
+                    ahit_by_pitch++; //어웨이 사구 증가
+
+                        if (runCnt == 0) { // 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.INVISIBLE);
+                            img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
+
+                            runCnt = 1;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+                        } else if (runCnt == 1) {// 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                            runCnt = 4; // 주자 1,2루
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+
+                        } else if (runCnt == 2) { // 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
+
+                            runCnt = 4; //주자 2,3루
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+
+                        } else if (runCnt == 3) {// 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.INVISIBLE);
+                            img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+
+                            runCnt = 6; //주자 1루
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 4) {// 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+
+                            img3.setText(img2.getText());
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                            runCnt = 7;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+
+                        } else if (runCnt == 5) {// 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                            runCnt = 7;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 6) {// 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                            runCnt = 7;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 7) {// 주자의 현재 위치
+                            a++;
+                            if(a>8) {
+                                a=0;
+                            }
+
+                            img3.setText(img2.getText());
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(away_arr[a]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                            runCnt = 7;
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                }
+                            }, 500);
+                            stkCnt = 0;
+                            ballCnt = 0;
+                        }
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+                    TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getActivity());
+                    queue.add(teamRequest);
+                }
+                if (ini_num % 2 == 0) {
+                    hhit_by_pitch++; //홈 사구 증가
+                        if (runCnt == 0) { // 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.INVISIBLE);
+                            img3.setVisibility(View.INVISIBLE); // 주자 1루로 이동
+
+                            runCnt = 1;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 1) {// 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                            runCnt = 4; // 주자 1,2루
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+
+                        } else if (runCnt == 2) { // 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
+
+                            runCnt = 4; //주자 2,3루
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+
+                        } else if (runCnt == 3) {// 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.INVISIBLE);
+                            img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+
+                            runCnt = 6; //주자 1루
+
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 4) {// 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+                            img3.setText(img2.getText());
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+
+                            runCnt = 7;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+
+                        } else if (runCnt == 5) {// 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                            runCnt = 7;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 6) {// 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                            runCnt = 7;
+
+                            stkCnt = 0;
+                            ballCnt = 0;
+
+                        } else if (runCnt == 7) {// 주자의 현재 위치
+                            h++;
+                            if(h>8) {
+                                h=0;
+                            }
+
+                            img3.setText(img2.getText());
+                            img2.setText(img1.getText());
+                            img1.setText(img0.getText());
+                            img0.setText(home_arr[h]);
+                            img0.setVisibility(View.VISIBLE);
+                            img1.setVisibility(View.VISIBLE);
+                            img2.setVisibility(View.VISIBLE);
+                            img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+
+                            runCnt = 7;
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                            stkCnt = 0;
+                            ballCnt = 0;
+                        }
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+                    TeamRequest teamRequest = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getActivity());
+                    queue.add(teamRequest);
+                }
+
                 btn_SBO.setVisibility(View.VISIBLE);
+                layout_Others.setVisibility(View.INVISIBLE);
             }
         });
 

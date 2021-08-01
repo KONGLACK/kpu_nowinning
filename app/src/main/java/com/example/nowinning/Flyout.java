@@ -26,11 +26,17 @@ import org.json.JSONObject;
 import static com.example.nowinning.BSOActivity.a;
 import static com.example.nowinning.BSOActivity.ascore;
 import static com.example.nowinning.BSOActivity.away_arr;
+import static com.example.nowinning.BSOActivity.away_ball;
 import static com.example.nowinning.BSOActivity.away_outout;
+import static com.example.nowinning.BSOActivity.away_strike;
+import static com.example.nowinning.BSOActivity.ballCnt;
 import static com.example.nowinning.BSOActivity.et_ball;
 import static com.example.nowinning.BSOActivity.et_ini;
 import static com.example.nowinning.BSOActivity.h;
 import static com.example.nowinning.BSOActivity.home_arr;
+import static com.example.nowinning.BSOActivity.home_ball;
+import static com.example.nowinning.BSOActivity.home_outout;
+import static com.example.nowinning.BSOActivity.home_strike;
 import static com.example.nowinning.BSOActivity.hscore;
 import static com.example.nowinning.BSOActivity.img0;
 import static com.example.nowinning.BSOActivity.img1;
@@ -39,6 +45,7 @@ import static com.example.nowinning.BSOActivity.img3;
 import static com.example.nowinning.BSOActivity.ini;
 import static com.example.nowinning.BSOActivity.iniCnt;
 import static com.example.nowinning.BSOActivity.ini_num;
+import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.Others.btn_OutOthers;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_h;
@@ -54,7 +61,7 @@ import static com.example.nowinning.start.choice_home;
 public class Flyout extends Fragment {
 
     public static Button btn_flyout, btn_flyout_sac;
-    public static int flyout, flyout_sac; // 희생 플라이 판별
+    public static int flyout_sac_Cnt; // 희생 플라이 판별
     public static LinearLayout layout_flyout; // 플라이아웃 프래그먼트
 
     @Nullable
@@ -71,7 +78,7 @@ public class Flyout extends Fragment {
         Handler handler = new Handler();
 
 
-        flyout.setOnClickListener(new View.OnClickListener() {
+        btn_flyout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -83,7 +90,7 @@ public class Flyout extends Fragment {
             }
         });
 
-        flyout_sac.setOnClickListener(new View.OnClickListener() { // 타자가 스트라이크 존에 들어온 공에 타격을 시도하지 않은 경우
+        btn_flyout_sac.setOnClickListener(new View.OnClickListener() { // 타자가 플라이아웃을 통해 타점을 발생시킨 경우
             @Override
             public void onClick(View v) {
                 if (ini_num%2==1) {
@@ -97,10 +104,15 @@ public class Flyout extends Fragment {
 
 
                     et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
-                    outCnt++; //스트라이크 카운트 세기 위해
-                    et_strike.setText("S ");
+                    outCnt++;   //아웃 카운트 세기 위해
+
+                    //----------------------------------------------
+                    flyout_sac_Cnt++; //여기가 희생 플라이 카운터
+                    //-----------------------------------------------
+
+                    et_strike.setText("S "); //스트라이크 초기화
                     stkCnt = 0;
-                    et_ball.setText("B ");
+                    et_ball.setText("B "); //볼 값 초기화
                     ballCnt = 0;
                     if (outCnt == 3) {
                         if (iniCnt>=9&&ascore!=hscore) {
@@ -160,16 +172,21 @@ public class Flyout extends Fragment {
 
                     et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
                     outCnt++; //스트라이크 카운트 세기 위해
+
+                    //----------------------------------------------
+                    flyout_sac_Cnt++; //여기가 희생 플라이 카운터
+                    //-----------------------------------------------
+
                     et_strike.setText("S ");
                     stkCnt = 0;
                     et_ball.setText("B ");
                     ballCnt = 0;
                     if (outCnt == 3) {
                         if (iniCnt>=9&&ascore!=hscore) {
-                            Intent intent = new Intent(BSOActivity.this, GameSet.class);
+                            Intent intent = new Intent(getActivity(), GameSet.class);
                             startActivity(intent);
 
-                            Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),"게임 종료", Toast.LENGTH_SHORT).show();
                         }
 
                         h++;//home 값 ++
@@ -209,7 +226,7 @@ public class Flyout extends Fragment {
                     };
 
                     TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
+                    RequestQueue queue = Volley.newRequestQueue(getActivity());
                     queue.add(teamRequest);
                 }
 

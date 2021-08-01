@@ -44,10 +44,9 @@ public class Inplay_Fly extends Fragment {
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_o.performClick();
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                SDT_select sdt_select = new SDT_select();
-                transaction.replace(R.id.frame, sdt_select);
+                Flyout flyout = new Flyout();
+                transaction.replace(R.id.frame, flyout);
                 transaction.commit(); // 저장
 
             }
