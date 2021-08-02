@@ -174,14 +174,6 @@ public class start extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                away_ball = 0;
-                away_outout = 0;
-                away_strike = 0;
-                home_ball = 0;
-                home_strike = 0;
-                home_outout =0;
-
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -194,6 +186,22 @@ public class start extends AppCompatActivity {
 
                     }
                 };
+
+                CreateTable_Request CreateTable_Request = new CreateTable_Request(choice_away, choice_home, away_player1, away_player2, away_player3,
+                        away_player4, away_player5, away_player6, away_player7, away_player8, away_player9, home_player1,
+                        home_player2, home_player3, home_player4, home_player5, home_player6, home_player7, home_player8, home_player9,
+                        responseListener);
+                RequestQueue queue5 = Volley.newRequestQueue(start.this);
+                queue5.add(CreateTable_Request);
+
+                away_ball = 0;
+                away_outout = 0;
+                away_strike = 0;
+                home_ball = 0;
+                home_strike = 0;
+                home_outout =0;
+
+
                 TeamRequest teamRequest1 = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                 TeamRequest teamRequest2 = new TeamRequest(choice_away, away_ball, away_strike, away_outout, responseListener);
 
