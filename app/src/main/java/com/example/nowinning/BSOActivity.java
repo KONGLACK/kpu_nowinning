@@ -1,10 +1,8 @@
 package com.example.nowinning;
 
-// 주석연습 23
-//
-// 수정
-// 수정 1
-// 수정 2
+// 마스터에 주석추가 1
+// 마스터에 주석추가 2
+// 마스터에 주석추가 3
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
