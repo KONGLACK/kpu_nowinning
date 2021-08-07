@@ -8,6 +8,8 @@
         android:fromYDelta="0"
         android:toYDelta="180"
         android:startOffset ="1500"
+        android:fillAfter="true"
+
         />
     <translate
         android:duration="1500"
@@ -15,5 +17,6 @@
         android:toXDelta="0"
         android:fromYDelta="-250"
         android:toYDelta="-350"
+        android:fillAfter="true"
         />
 </set>

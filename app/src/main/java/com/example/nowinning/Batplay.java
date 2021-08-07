@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import static com.example.nowinning.BSOActivity.btn_SBO;
+import static com.example.nowinning.BSOActivity.img0;
+
 public class Batplay extends Fragment {
 
     public static Button btn1, btn2, btn3, btn4, btn5, btn6;
@@ -27,7 +30,6 @@ public class Batplay extends Fragment {
         btn1 = (Button) v.findViewById(R.id.btn1);
         btn2 = (Button) v.findViewById(R.id.btn2);
         btn3 = (Button) v.findViewById(R.id.btn3);
-        //btn_Line = (Button) v.findViewById(R.id.btn_Line);
         btn4 = (Button) v.findViewById(R.id.btn4);
         btn5 = (Button) v.findViewById(R.id.btn5);
 
@@ -38,10 +40,9 @@ public class Batplay extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"임시 페이지로 이동", Toast.LENGTH_SHORT).show();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Inplay_Bunt inplay_bunt = new Inplay_Bunt();
-                transaction.replace(R.id.frame, inplay_bunt);
-                transaction.commit(); // 저장
+
+                btn_SBO.setVisibility(View.INVISIBLE);
+                layout_batplay.setVisibility(View.VISIBLE);
 
             }
         });

@@ -34,7 +34,7 @@ import static com.example.nowinning.start.choice_home;
 public class Inplay2 extends Fragment {
 
     public static Button btn_Out, btn_Hit, btn_Error, btn_Foul, btn_ItpHR, btn_Bfoul;
-    public static LinearLayout layout_Inplay2;
+    public static LinearLayout layout_inplay2;
 
     @Nullable
     @Override
@@ -48,7 +48,7 @@ public class Inplay2 extends Fragment {
         btn_Foul = (Button) v.findViewById(R.id.btn_Foul);
         btn_ItpHR = (Button) v.findViewById(R.id.btn_ItpHR);
 
-        layout_Inplay2 = (LinearLayout) v.findViewById(R.id.layout_Inplay2);
+        layout_inplay2 = (LinearLayout) v.findViewById(R.id.layout_inplay2);
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -67,7 +67,7 @@ public class Inplay2 extends Fragment {
             @Override
             public void onClick(View v) {
                 btn_o.performClick();
-                layout_Inplay2.setVisibility(View.INVISIBLE);
+                layout_inplay2.setVisibility(View.INVISIBLE);
                 btn_SBO.setVisibility(View.VISIBLE);
             }
         });

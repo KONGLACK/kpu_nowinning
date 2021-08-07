@@ -1,6 +1,7 @@
 package com.example.nowinning;
-
+//branch test
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -52,6 +53,7 @@ public class BSOActivity extends AppCompatActivity {
     public static String WINNER, LOSER;
 
     public static LinearLayout btn_SBO;
+    public static ConstraintLayout layout_field;
 
     public int i,j;
     public static int stkCnt, ballCnt, outCnt; //sCnt, bCnt, oCnt은 다른 곳에서도 쓰일 거 같아서 퍼블릭
@@ -84,6 +86,8 @@ public class BSOActivity extends AppCompatActivity {
 
 
     FrameLayout frame;
+    FrameLayout frame2;
+
 
     /*private static final String TAG = "Main_Activity";
 
@@ -138,6 +142,7 @@ public class BSOActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ballstrike);
 
+
         img0 = (Button) findViewById(R.id.img0);
         img1 = (Button) findViewById(R.id.img1);
         img2 = (Button) findViewById(R.id.img2);
@@ -161,6 +166,7 @@ public class BSOActivity extends AppCompatActivity {
 
         btn_SBO = (LinearLayout) findViewById(R.id.btn_SBO);
         btn_Undo =(Button) findViewById(R.id.btn_Undo);
+        layout_field = (ConstraintLayout) findViewById(R.id.layout_field);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 
         et_hscore.setText("홈      " + choice_home + " 0");
@@ -836,7 +842,7 @@ public class BSOActivity extends AppCompatActivity {
 
 
 
-                img0.setOnClickListener(new View.OnClickListener() {
+                /*img0.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if(ini_num%2==1) {
@@ -887,7 +893,7 @@ public class BSOActivity extends AppCompatActivity {
                             queue.add(teamRequest);
                         }
                     }
-                });
+                });*/
 
                 img1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -941,8 +947,11 @@ public class BSOActivity extends AppCompatActivity {
         btn_Undo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_SBO.setVisibility(View.VISIBLE);
-
+                FragmentTransaction transaction2= getSupportFragmentManager().beginTransaction();
+                DefenceActivity Defence_fragment = new DefenceActivity();
+                transaction2.replace(R.id.frame2, Defence_fragment);
+                transaction2.commit();
+                layout_field.setVisibility(View.INVISIBLE);
             }
         });
 
