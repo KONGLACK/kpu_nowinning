@@ -1,5 +1,5 @@
 package com.example.nowinning;
-//branch test
+//
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -56,6 +56,7 @@ public class BSOActivity extends AppCompatActivity {
     public static ConstraintLayout layout_field;
 
     public int i,j;
+    public static int hhit_by_pitch, ahit_by_pitch; //홈 사구, 어웨이 사구
     public static int stkCnt, ballCnt, outCnt; //sCnt, bCnt, oCnt은 다른 곳에서도 쓰일 거 같아서 퍼블릭
     public static int hscore, ascore; // 해당 이닝에 발생한 점수
     public static int runCnt = 0; // 진루 카운트를 통해 진루 컨트롤
@@ -89,58 +90,56 @@ public class BSOActivity extends AppCompatActivity {
     FrameLayout frame2;
 
 
-    /*private static final String TAG = "Main_Activity";
-
-    private String downloadData="";
-    private String currentState="";
+    private static final String TAG = "Main_Activity";
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart: ");
+        Log.e(TAG, "onStart: ");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart: ");
+        Log.e(TAG, "onRestart: ");
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop: ");
+        Log.e(TAG, "onStop: ");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause: ");
-        currentState="에너지 50";
+        Log.e(TAG, "onPause: ");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume: ");
-        Log.d(TAG, "onResume: 현재 에너지 : "+currentState);
+        Log.e(TAG, "onResume: ");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy: ");
+        Log.e(TAG, "onDestroy: ");
 
 
     }
-    */ // 안드로이드 생명주기 확인 로그
+    // 안드로이드 생명주기 확인 로그
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ballstrike);
+
+        Log.d(TAG,"onCreate:  ");
 
 
         img0 = (Button) findViewById(R.id.img0);
@@ -320,7 +319,13 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 6; //주자 1루
 
-
+                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                        @Override
+                                        public void run() {
+                                            hscore++;
+                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        }
+                                    }, 500);
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -361,6 +366,13 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
+                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                        @Override
+                                        public void run() {
+                                            hscore++;
+                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        }
+                                    }, 500);
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -379,11 +391,18 @@ public class BSOActivity extends AppCompatActivity {
                                     img2.setVisibility(View.VISIBLE);
                                     img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
 
-                                    runCnt = 5;
+                                    runCnt = 7;
 
-
+                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                        @Override
+                                        public void run() {
+                                            hscore++;
+                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        }
+                                    }, 500);
                                     stkCnt = 0;
                                     ballCnt = 0;
+
                                 } else if (runCnt == 7) {// 주자의 현재 위치
                                     RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
@@ -501,6 +520,14 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 6; //주자 1루
 
+                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                        @Override
+                                        public void run() {
+                                            hscore++;
+                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        }
+                                    }, 500);
+
                                     stkCnt = 0;
                                     ballCnt = 0;
 
@@ -538,9 +565,17 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
+                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                        @Override
+                                        public void run() {
+                                            hscore++;
+                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        }
+                                    }, 500);
 
-                                    stkCnt = 0;
-                                    ballCnt = 0;
+                                stkCnt = 0;
+                                ballCnt = 0;
+
                             } else if (runCnt == 6) {// 주자의 현재 위치
 
                                 h++;
@@ -556,10 +591,19 @@ public class BSOActivity extends AppCompatActivity {
                                 img2.setVisibility(View.VISIBLE);
                                 img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
 
-                                    runCnt = 5;
+                                    runCnt = 7;
 
+                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                    @Override
+                                    public void run() {
+                                        hscore++;
+                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        home_ining++;
+                                    }
+                                }, 500);
                                 stkCnt = 0;
                                 ballCnt = 0;
+
                             } else if (runCnt == 7) {// 주자의 현재 위치
                                     RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
@@ -584,14 +628,6 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                    @Override
-                                    public void run() {
-                                        hscore++;
-                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        home_ining++;
-                                    }
-                                }, 500);
                                 stkCnt = 0;
                                 ballCnt = 0;
                             }

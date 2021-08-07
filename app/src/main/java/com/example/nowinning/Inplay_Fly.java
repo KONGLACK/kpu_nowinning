@@ -19,7 +19,8 @@ import static com.example.nowinning.BSOActivity.runCnt;
 
 public class Inplay_Fly extends Fragment {
 
-    public static Button btn_Out, btn_Hit, btn_Error, btn_Foul, btn_ItpHR, btn_Bfoul;
+    private Button btn_Out;
+    public static Button btn_Hit, btn_Error, btn_Foul, btn_ItpHR, btn_Bfoul;
     private int i;
     public static LinearLayout layout_Fly;
 
@@ -44,10 +45,10 @@ public class Inplay_Fly extends Fragment {
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_o.performClick();
-                layout_Fly.setVisibility(View.INVISIBLE);
-                btn_SBO.setVisibility(View.VISIBLE);
-
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Flyout flyout = new Flyout();
+                transaction.replace(R.id.frame, flyout);
+                transaction.commit(); // 저장
             }
         });
 
