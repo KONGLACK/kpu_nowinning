@@ -1,7 +1,10 @@
 package com.example.nowinning;
 
-// 주석연습
+// 주석연습 23
 //
+// 수정
+// 수정 1
+// 수정 2
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
