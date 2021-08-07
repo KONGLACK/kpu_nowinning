@@ -1,8 +1,8 @@
 package com.example.nowinning;
 
 // 마스터에 주석추가 1
-// 마스터에 주석추가 2
-// 마스터에 주석추가 3
+// 최종 테스트_1
+// 최종 테스트_2
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -91,6 +91,7 @@ public class BSOActivity extends AppCompatActivity {
 
     FrameLayout frame;
     FrameLayout frame2;
+
 
 
     private static final String TAG = "Main_Activity";
