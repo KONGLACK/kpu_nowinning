@@ -319,13 +319,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 6; //주자 1루
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -366,13 +360,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -393,13 +381,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
                                     stkCnt = 0;
                                     ballCnt = 0;
 
@@ -520,13 +502,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 6; //주자 1루
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
 
                                     stkCnt = 0;
                                     ballCnt = 0;
@@ -565,13 +541,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                        @Override
-                                        public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        }
-                                    }, 500);
+
 
                                 stkCnt = 0;
                                 ballCnt = 0;
@@ -593,14 +563,7 @@ public class BSOActivity extends AppCompatActivity {
 
                                     runCnt = 7;
 
-                                handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                                    @Override
-                                    public void run() {
-                                        hscore++;
-                                        et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                        home_ining++;
-                                    }
-                                }, 500);
+
                                 stkCnt = 0;
                                 ballCnt = 0;
 
