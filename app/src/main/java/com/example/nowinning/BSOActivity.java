@@ -1,4 +1,6 @@
 package com.example.nowinning;
+
+// 주석연습
 //
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
