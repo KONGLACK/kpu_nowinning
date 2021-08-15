@@ -1,8 +1,5 @@
 package com.example.nowinning;
 
-// 마스터에 주석추가 1
-// 최종 테스트_1
-// 최종 테스트_2
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -390,13 +387,13 @@ public class BSOActivity extends AppCompatActivity {
                                     ballCnt = 0;
 
                                 } else if (runCnt == 7) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_away, away_arr[a], responseListener);
+                                    RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
+                                    queue.add(RBIRequest_away);
 
-                                    ScoreRequest ScoreRequest = new ScoreRequest(choice_away, (String) img3.getText(), responseListener);
+                                    ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
                                     RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
-                                    queue1.add(ScoreRequest);
+                                    queue1.add(ScoreRequest_away);
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -572,13 +569,13 @@ public class BSOActivity extends AppCompatActivity {
                                 ballCnt = 0;
 
                             } else if (runCnt == 7) {// 주자의 현재 위치
-                                    RBIRequest RBIRequest = new RBIRequest(choice_home, home_arr[h], responseListener);
+                                    RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest);
+                                    queue.add(RBIRequest_away);
 
-                                    ScoreRequest ScoreRequest = new ScoreRequest(choice_home, (String) img3.getText(), responseListener);
+                                    ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_home, choice_home, (String) img3.getText(), responseListener);
                                     RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
-                                    queue1.add(ScoreRequest);
+                                    queue1.add(ScoreRequest_away);
                                 h++;
                                 if(h>8) {
                                     h=0;
@@ -805,9 +802,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            HitRequest HitRequest = new HitRequest(choice_away, away_arr[a], responseListener);
+                            HitRequest_away HitRequest_away = new HitRequest_away(choice_away, choice_home, away_arr[a], responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                            queue.add(HitRequest);
+                            queue.add(HitRequest_away);
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Inplay inplay_fragment = new Inplay();
@@ -817,12 +814,6 @@ public class BSOActivity extends AppCompatActivity {
 
                         }
                         if(ini_num%2==0) {
-
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            Inplay inplay_fragment = new Inplay();
-                            transaction.replace(R.id.frame, inplay_fragment);
-                            transaction.commit();
-                            btn_SBO.setVisibility(View.INVISIBLE);
 
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
@@ -836,6 +827,17 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
+                            HitRequest_away HitRequest_away = new HitRequest_away(choice_away, choice_home, home_arr[h], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
+                            queue1.add(HitRequest_away);
+
+                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                            Inplay inplay_fragment = new Inplay();
+                            transaction.replace(R.id.frame, inplay_fragment);
+                            transaction.commit();
+                            btn_SBO.setVisibility(View.INVISIBLE);
+
+
                             TeamRequest teamRequest = new TeamRequest(choice_home, home_ball, home_strike, home_outout, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
                             queue.add(teamRequest);

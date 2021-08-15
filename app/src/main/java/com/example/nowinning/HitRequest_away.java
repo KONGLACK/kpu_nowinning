@@ -7,15 +7,16 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScoreRequest extends StringRequest {
+public class HitRequest_away extends StringRequest {
 
-    final static private String URL = "http://shun8800.dothome.co.kr/score.php";
+    final static private String URL = "http://shun8800.dothome.co.kr/hit_away.php";
     private Map<String, String> parameters;
 
-    public ScoreRequest(String Team, String Player, Response.Listener<String> listener) {
+    public HitRequest_away(String Team1, String Team2, String Player, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);//해당 URL에 POST방식으로 파마미터들을 전송함
         parameters = new HashMap<>();
-        parameters.put("Team", Team);
+        parameters.put("Team1", Team1);
+        parameters.put("Team2", Team2);
         parameters.put("Player", Player);
 
     }
@@ -23,6 +24,5 @@ public class ScoreRequest extends StringRequest {
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return parameters;
-
     }
 }
