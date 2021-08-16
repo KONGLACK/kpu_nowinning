@@ -13,6 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static com.example.nowinning.BSOActivity.ascore;
 import static com.example.nowinning.BSOActivity.away_ining;
 import static com.example.nowinning.BSOActivity.ballCnt;
@@ -120,148 +127,244 @@ public class HitActivity3 extends Fragment {
             }
         });
 
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+
         btn_HitRun3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
+                if(iniCnt % 2 == 1) {
+                    if (runCnt == 3) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
 
-                if (runCnt == 3) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
+                        runCnt = 0; //주자 1루
 
-                    runCnt = 0; //주자 1루
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_away);
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                home_ining++;
-                            }
-                        }, 500);
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
                     }
 
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                away_ining++;
-                            }
-                        }, 500);
+                    else if (runCnt == 5) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);
+
+                        runCnt = 2;
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_away);
+
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+
+
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
                     }
 
-                    layout_HIT3.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                    else if (runCnt == 6) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
+
+                        runCnt = 1;
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_away);
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    }
+
+                    else if (runCnt == 7) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 1루로 이동
+
+                        runCnt = 4;
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_away);
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+
+
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    }
                 }
 
-                else if (runCnt == 5) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);
+                if(iniCnt % 2 == 0) {
+                    if (runCnt == 3) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); //주자 1루로 이동
 
-                    runCnt = 2;
+                        runCnt = 0; //주자 1루
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                home_ining++;
-                            }
-                        }, 500);
-                    } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                away_ining++;
-                            }
-                        }, 500);
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_home);
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
                     }
 
+                    else if (runCnt == 5) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);
 
-                    layout_HIT3.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        runCnt = 2;
 
-                }
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_home);
 
-                else if (runCnt == 6) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
 
-                    runCnt = 1;
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                home_ining++;
-                            }
-                        }, 500);
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
                     }
 
-                    else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                away_ining++;
-                            }
-                        }, 500);
+                    else if (runCnt == 6) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
+
+                        runCnt = 1;
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_home);
+
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
                     }
 
-                    layout_HIT3.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                    else if (runCnt == 7) {// 주자의 현재 위치
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.VISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 1루로 이동
 
-                }
+                        runCnt = 4;
 
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);   // 주자 1루로 이동
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(ScoreRequest_home);
 
-                    runCnt = 4;
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
 
-                    if (iniCnt % 2 == 0) { // 이닝이 짝수 = 말에 홈팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                hscore++;
-                                et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
-                                home_ining++;
-                            }
-                        }, 500);
-                    } else if (iniCnt % 2 == 1) { // 이닝이 홀수 = 초에 어웨이 팀의 공격
-                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
-                            @Override
-                            public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
-                                away_ining++;
-                            }
-                        }, 500);
+
+                        layout_HIT3.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
                     }
-
-
-                    layout_HIT3.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
                 }
             }
+
         });
 
         btn_HitBack3.setOnClickListener(new View.OnClickListener() {

@@ -569,13 +569,13 @@ public class BSOActivity extends AppCompatActivity {
                                 ballCnt = 0;
 
                             } else if (runCnt == 7) {// 주자의 현재 위치
-                                    RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, home_arr[h], responseListener);
+                                    RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[h], responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(BSOActivity.this);
-                                    queue.add(RBIRequest_away);
+                                    queue.add(RBIRequest_home);
 
-                                    ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_home, choice_home, (String) img3.getText(), responseListener);
+                                    ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_home, choice_home, (String) img3.getText(), responseListener);
                                     RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
-                                    queue1.add(ScoreRequest_away);
+                                    queue1.add(ScoreRequest_home);
                                 h++;
                                 if(h>8) {
                                     h=0;
@@ -827,9 +827,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                 }
                             };
-                            HitRequest_away HitRequest_away = new HitRequest_away(choice_away, choice_home, home_arr[h], responseListener);
+                            HitRequest_home HitRequest_home = new HitRequest_home(choice_away, choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
-                            queue1.add(HitRequest_away);
+                            queue1.add(HitRequest_home);
 
                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             Inplay inplay_fragment = new Inplay();
