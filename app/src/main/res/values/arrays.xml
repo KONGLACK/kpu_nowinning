@@ -4,8 +4,16 @@
         <item>선택</item>
         <item>한화</item>
         <item>넥센</item>
+        <item>KT</item>
+        <item>LG</item>
+        <item>삼성</item>
+        <item>NC</item>
+        <item>SSG</item>
+        <item>두산</item>
+        <item>롯데</item>
+        <item>KIA</item>
     </string-array>
-0
+
     <string-array name="hanhwa_player">
         <item>선택</item>
         <item>노원우</item>
@@ -31,4 +39,111 @@
         <item>안상준</item>
         <item>송현아</item>
     </string-array>
+
+    <string-array name="kt_player">
+        <item>선택</item>
+        <item>kt1</item>
+        <item>kt2</item>
+        <item>kt3</item>
+        <item>kt4</item>
+        <item>kt5</item>
+        <item>kt6</item>
+        <item>kt7</item>
+        <item>kt8</item>
+        <item>kt9</item>
+    </string-array>
+
+    <string-array name="samsung_player">
+        <item>선택</item>
+        <item>sam1</item>
+        <item>sam2</item>
+        <item>sam3</item>
+        <item>sam4</item>
+        <item>sam5</item>
+        <item>sam6</item>
+        <item>sam7</item>
+        <item>sam8</item>
+        <item>sam9</item>
+    </string-array>
+
+    <string-array name="lg_player">
+        <item>선택</item>
+        <item>lg1</item>
+        <item>lg2</item>
+        <item>lg3</item>
+        <item>lg4</item>
+        <item>lg5</item>
+        <item>lg6</item>
+        <item>lg7</item>
+        <item>lg8</item>
+        <item>lg9</item>
+    </string-array>
+
+    <string-array name="nc_player">
+        <item>선택</item>
+        <item>nc1</item>
+        <item>nc2</item>
+        <item>nc3</item>
+        <item>nc4</item>
+        <item>nc5</item>
+        <item>nc6</item>
+        <item>nc7</item>
+        <item>nc8</item>
+        <item>nc9</item>
+    </string-array>
+
+    <string-array name="dusan_player">
+        <item>선택</item>
+        <item>ssg1</item>
+        <item>ssg2</item>
+        <item>ssg3</item>
+        <item>ssg4</item>
+        <item>ssg5</item>
+        <item>ssg6</item>
+        <item>ssg7</item>
+        <item>ssg8</item>
+        <item>ssg9</item>
+    </string-array>
+
+    <string-array name="ssg_player">
+        <item>선택</item>
+        <item>dus1</item>
+        <item>dus2</item>
+        <item>dus3</item>
+        <item>dus4</item>
+        <item>dus5</item>
+        <item>dus6</item>
+        <item>dus7</item>
+        <item>dus8</item>
+        <item>dus9</item>
+    </string-array>
+
+    <string-array name="lotte_player">
+        <item>선택</item>
+        <item>lot1</item>
+        <item>lot2</item>
+        <item>lot3</item>
+        <item>lot4</item>
+        <item>lot5</item>
+        <item>lot6</item>
+        <item>lot7</item>
+        <item>lot8</item>
+        <item>lot9</item>
+    </string-array>
+
+    <string-array name="kia_player">
+        <item>선택</item>
+        <item>kia1</item>
+        <item>kia2</item>
+        <item>kia3</item>
+        <item>kia4</item>
+        <item>kia5</item>
+        <item>kia6</item>
+        <item>kia7</item>
+        <item>kia8</item>
+        <item>kia9</item>
+    </string-array>
+
+
+
 </resources>

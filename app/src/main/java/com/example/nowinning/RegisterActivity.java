@@ -60,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            Log.d("값", response);
                             Toast.makeText(RegisterActivity.this, response, Toast.LENGTH_LONG).show();
 
                             JSONObject jsonResponse = new JSONObject(response);
@@ -101,7 +102,7 @@ public class RegisterActivity extends AppCompatActivity {
         Button registerButton = findViewById(R.id.signup_button);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)  {
                 String UserID = idtext.getText().toString();
                 String UserPwd = pwdtext.getText().toString();
                 String UserEmail = emailtext.getText().toString();
@@ -158,7 +159,9 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
 
-                RegisterRequest registerRequest = new RegisterRequest(UserID,UserPwd,UserNick,UserEmail,responseListener);
+
+
+                RegisterRequest registerRequest = new RegisterRequest(UserID, UserPwd, UserNick, UserEmail, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
 
