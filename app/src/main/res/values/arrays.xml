@@ -92,7 +92,7 @@
         <item>nc9</item>
     </string-array>
 
-    <string-array name="dusan_player">
+    <string-array name="ssg_player">
         <item>선택</item>
         <item>ssg1</item>
         <item>ssg2</item>
@@ -105,7 +105,7 @@
         <item>ssg9</item>
     </string-array>
 
-    <string-array name="ssg_player">
+    <string-array name="dusan_player">
         <item>선택</item>
         <item>dus1</item>
         <item>dus2</item>

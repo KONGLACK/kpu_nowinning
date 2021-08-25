@@ -1,6 +1,7 @@
 package com.example.nowinning;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -136,6 +137,8 @@ public class StartList extends AppCompatActivity {
         final Spinner hitter8 = (Spinner) findViewById(R.id.hitter_8_spinner);
         final Spinner hitter9 = (Spinner) findViewById(R.id.hitter_9_spinner);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if (UserID.equals("direchan")) {
             teamname.setText("한화");
@@ -146,7 +149,10 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_one = hitter1.getSelectedItem().toString();
+                    editor.putString("hanhwa_one", hanhwa_one);
+                    editor.commit();
                 }
+
 
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
@@ -159,6 +165,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_two = hitter2.getSelectedItem().toString();
+                    editor.putString("hanhwa_two", hanhwa_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -172,6 +180,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_three = hitter3.getSelectedItem().toString();
+                    editor.putString("hanhwa_three", hanhwa_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -185,6 +195,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_four = hitter4.getSelectedItem().toString();
+                    editor.putString("hanhwa_four", hanhwa_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -198,6 +210,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_five = hitter5.getSelectedItem().toString();
+                    editor.putString("hanhwa_five", hanhwa_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -211,6 +225,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_six = hitter6.getSelectedItem().toString();
+                    editor.putString("hanhwa_six", hanhwa_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -224,6 +240,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("hanhwa_seven", hanhwa_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -237,6 +255,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("hanhwa_eight", hanhwa_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -250,6 +270,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("hanhwa_nine", hanhwa_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -266,6 +288,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_one = hitter1.getSelectedItem().toString();
+                    editor.putString("nexen_one", nexen_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -279,6 +303,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_two = hitter2.getSelectedItem().toString();
+                    editor.putString("nexen_two", nexen_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -292,6 +318,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_three = hitter3.getSelectedItem().toString();
+                    editor.putString("nexen_three", nexen_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -305,6 +333,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_four = hitter4.getSelectedItem().toString();
+                    editor.putString("nexen_four", nexen_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -318,6 +348,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_five = hitter5.getSelectedItem().toString();
+                    editor.putString("nexen_five", nexen_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -331,6 +363,9 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_six = hitter6.getSelectedItem().toString();
+                    editor.putString("nexen_six", nexen_six);
+                    editor.commit();
+
                 }
 
                 @Override
@@ -344,6 +379,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("nexen_seven", nexen_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -357,6 +394,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("nexen_eight", nexen_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -370,6 +409,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nexen_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("nexen_nine", nexen_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -387,6 +428,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_one = hitter1.getSelectedItem().toString();
+                    editor.putString("kt_one", kt_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -400,6 +443,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_two = hitter2.getSelectedItem().toString();
+                    editor.putString("kt_two", kt_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -413,6 +458,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_three = hitter3.getSelectedItem().toString();
+                    editor.putString("kt_three", kt_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -426,6 +473,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_four = hitter4.getSelectedItem().toString();
+                    editor.putString("kt_four", kt_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -439,6 +488,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_five = hitter5.getSelectedItem().toString();
+                    editor.putString("kt_five", kt_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -452,6 +503,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_six = hitter6.getSelectedItem().toString();
+                    editor.putString("kt_six", kt_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -465,6 +518,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("kt_seven", kt_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -478,6 +533,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("kt_eight", kt_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -491,6 +548,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("kt_nine", kt_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -508,6 +567,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_one = hitter1.getSelectedItem().toString();
+                    editor.putString("samsung_one", samsung_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -521,6 +582,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_two = hitter2.getSelectedItem().toString();
+                    editor.putString("samsung_two", samsung_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -534,6 +597,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_three = hitter3.getSelectedItem().toString();
+                    editor.putString("samsung_three", samsung_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -547,6 +612,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_four = hitter4.getSelectedItem().toString();
+                    editor.putString("samsung_four", samsung_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -560,6 +627,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_five = hitter5.getSelectedItem().toString();
+                    editor.putString("samsung_five", samsung_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -573,6 +642,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_six = hitter6.getSelectedItem().toString();
+                    editor.putString("samsung_six", samsung_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -586,6 +657,9 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("samsung_seven", samsung_seven);
+                    editor.commit();
+
                 }
 
                 @Override
@@ -599,6 +673,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("samsung_eight", samsung_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -612,6 +688,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     samsung_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("samsung_nine", samsung_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -629,6 +707,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_one = hitter1.getSelectedItem().toString();
+                    editor.putString("lg_one", lg_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -642,6 +722,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_two = hitter2.getSelectedItem().toString();
+                    editor.putString("lg_two", lg_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -655,6 +737,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_three = hitter3.getSelectedItem().toString();
+                    editor.putString("lg_three", lg_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -668,6 +752,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_four = hitter4.getSelectedItem().toString();
+                    editor.putString("lg_four", lg_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -681,6 +767,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_five = hitter5.getSelectedItem().toString();
+                    editor.putString("lg_five", lg_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -694,6 +782,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_six = hitter6.getSelectedItem().toString();
+                    editor.putString("lg_six", lg_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -707,6 +797,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("lg_seven", lg_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -720,6 +812,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("lg_eight", lg_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -733,6 +827,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("lg_nine", lg_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -750,6 +846,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_one = hitter1.getSelectedItem().toString();
+                    editor.putString("nc_one", nc_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -763,6 +861,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_two = hitter2.getSelectedItem().toString();
+                    editor.putString("nc_two", nc_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -776,6 +876,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_three = hitter3.getSelectedItem().toString();
+                    editor.putString("nc_three", nc_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -789,6 +891,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_four = hitter4.getSelectedItem().toString();
+                    editor.putString("nc_four", nc_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -802,6 +906,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_five = hitter5.getSelectedItem().toString();
+                    editor.putString("nc_five", nc_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -815,6 +921,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_six = hitter6.getSelectedItem().toString();
+                    editor.putString("nc_six", nc_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -828,6 +936,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("nc_seven", nc_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -841,6 +951,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("nc_eight", nc_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -854,6 +966,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("nc_nine", nc_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -871,6 +985,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_one = hitter1.getSelectedItem().toString();
+                    editor.putString("dusan_one", dusan_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -884,6 +1000,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_two = hitter2.getSelectedItem().toString();
+                    editor.putString("dusan_two", dusan_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -897,6 +1015,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_three = hitter3.getSelectedItem().toString();
+                    editor.putString("dusan_three", dusan_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -910,6 +1030,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_four = hitter4.getSelectedItem().toString();
+                    editor.putString("dusan_four", dusan_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -923,6 +1045,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_five = hitter5.getSelectedItem().toString();
+                    editor.putString("dusan_five", dusan_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -936,6 +1060,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_six = hitter6.getSelectedItem().toString();
+                    editor.putString("dusan_six", dusan_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -949,6 +1075,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("dusan_seven", dusan_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -962,6 +1090,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("dusan_eight", dusan_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -975,6 +1105,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("dusan_nine", dusan_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -992,6 +1124,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_one = hitter1.getSelectedItem().toString();
+                    editor.putString("ssg_one", ssg_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -1005,6 +1139,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_two = hitter2.getSelectedItem().toString();
+                    editor.putString("ssg_two", ssg_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -1018,6 +1154,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_three = hitter3.getSelectedItem().toString();
+                    editor.putString("ssg_three", ssg_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -1031,6 +1169,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_four = hitter4.getSelectedItem().toString();
+                    editor.putString("ssg_four", ssg_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -1044,6 +1184,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_five = hitter5.getSelectedItem().toString();
+                    editor.putString("ssg_five", ssg_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -1057,6 +1199,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_six = hitter6.getSelectedItem().toString();
+                    editor.putString("ssg_six", ssg_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -1070,6 +1214,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("ssg_seven", ssg_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -1083,6 +1229,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("ssg_eight", ssg_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -1096,6 +1244,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("ssg_nine", ssg_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -1113,6 +1263,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_one = hitter1.getSelectedItem().toString();
+                    editor.putString("lotte_one", lotte_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -1126,6 +1278,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_two = hitter2.getSelectedItem().toString();
+                    editor.putString("lotte_two", lotte_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -1139,6 +1293,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_three = hitter3.getSelectedItem().toString();
+                    editor.putString("lotte_three", lotte_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -1152,6 +1308,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_four = hitter4.getSelectedItem().toString();
+                    editor.putString("lotte_four", lotte_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -1165,6 +1323,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_five = hitter5.getSelectedItem().toString();
+                    editor.putString("lotte_five", lotte_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -1178,6 +1338,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_six = hitter6.getSelectedItem().toString();
+                    editor.putString("lotte_six", lotte_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -1191,6 +1353,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("lotte_seven", lotte_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -1204,6 +1368,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("lotte_eight", lotte_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -1217,6 +1383,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lotte_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("lotte_nine", lotte_nine);
+                    editor.commit();
                 }
 
                 @Override
@@ -1234,6 +1402,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_one = hitter1.getSelectedItem().toString();
+                    editor.putString("kia_one", kia_one);
+                    editor.commit();
                 }
 
                 @Override
@@ -1247,6 +1417,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_two = hitter2.getSelectedItem().toString();
+                    editor.putString("kia_two", kia_two);
+                    editor.commit();
                 }
 
                 @Override
@@ -1260,6 +1432,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_three = hitter3.getSelectedItem().toString();
+                    editor.putString("kia_three", kia_three);
+                    editor.commit();
                 }
 
                 @Override
@@ -1273,6 +1447,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_four = hitter4.getSelectedItem().toString();
+                    editor.putString("kia_four", kia_four);
+                    editor.commit();
                 }
 
                 @Override
@@ -1286,6 +1462,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_five = hitter5.getSelectedItem().toString();
+                    editor.putString("kia_five", kia_five);
+                    editor.commit();
                 }
 
                 @Override
@@ -1299,6 +1477,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_six = hitter6.getSelectedItem().toString();
+                    editor.putString("kia_six", kia_six);
+                    editor.commit();
                 }
 
                 @Override
@@ -1312,6 +1492,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_seven = hitter7.getSelectedItem().toString();
+                    editor.putString("kia_seven", kia_seven);
+                    editor.commit();
                 }
 
                 @Override
@@ -1325,6 +1507,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_eight = hitter8.getSelectedItem().toString();
+                    editor.putString("kia_eight", kia_eight);
+                    editor.commit();
                 }
 
                 @Override
@@ -1338,6 +1522,8 @@ public class StartList extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_nine = hitter9.getSelectedItem().toString();
+                    editor.putString("kia_nine", kia_nine);
+                    editor.commit();
                 }
 
                 @Override
