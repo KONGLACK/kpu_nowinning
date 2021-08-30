@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class CreateTable_Request extends StringRequest {
 
-    final static private String URL = "http://shun8800.dothome.co.kr/CreateTable.php";
+    final static private String URL = "http://shun8800.dothome.co.kr/CreateTable_batter.php";
     private Map<String, String> parameters;
 
     public CreateTable_Request(String Team1, String Team2, String Player1, String Player2, String Player3, String Player4,

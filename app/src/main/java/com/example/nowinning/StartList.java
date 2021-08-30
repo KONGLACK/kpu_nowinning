@@ -17,7 +17,7 @@ import java.lang.reflect.Array;
 import static com.example.nowinning.LoginActivity.UserID;
 
 public class StartList extends AppCompatActivity {
-    ArrayAdapter<CharSequence> adteam, adhit1, adhit2, adhit3, adhit4, adhit5, adhit6, adhit7, adhit8, adhit9;
+    ArrayAdapter<CharSequence> adteam, adhit1, adhit2, adhit3, adhit4, adhit5, adhit6, adhit7, adhit8, adhit9, adpit;
 
     public static String hanhwa_one = "";
     public static String hanhwa_two = "";
@@ -29,6 +29,10 @@ public class StartList extends AppCompatActivity {
     public static String hanhwa_eight = "";
     public static String hanhwa_nine = "";
 
+    public static String hanhwa_one_pit = "";
+    public static String hanhwa_two_pit = "";
+    public static String hanhwa_three_pit = "";
+
     public static String nexen_one = "";
     public static String nexen_two = "";
     public static String nexen_three = "";
@@ -38,6 +42,10 @@ public class StartList extends AppCompatActivity {
     public static String nexen_seven = "";
     public static String nexen_eight = "";
     public static String nexen_nine = "";
+
+    public static String nexen_one_pit = "";
+    public static String nexen_two_pit = "";
+    public static String nexen_three_pit = "";
 
     public static String kt_one = "";
     public static String kt_two = "";
@@ -49,6 +57,10 @@ public class StartList extends AppCompatActivity {
     public static String kt_eight = "";
     public static String kt_nine = "";
 
+    public static String kt_one_pit = "";
+    public static String kt_two_pit = "";
+    public static String kt_three_pit = "";
+
     public static String samsung_one = "";
     public static String samsung_two = "";
     public static String samsung_three = "";
@@ -58,6 +70,10 @@ public class StartList extends AppCompatActivity {
     public static String samsung_seven = "";
     public static String samsung_eight = "";
     public static String samsung_nine = "";
+
+    public static String samsung_one_pit = "";
+    public static String samsung_two_pit = "";
+    public static String samsung_three_pit = "";
 
     public static String lg_one = "";
     public static String lg_two = "";
@@ -69,6 +85,10 @@ public class StartList extends AppCompatActivity {
     public static String lg_eight = "";
     public static String lg_nine = "";
 
+    public static String lg_one_pit = "";
+    public static String lg_two_pit = "";
+    public static String lg_three_pit = "";
+
     public static String nc_one = "";
     public static String nc_two = "";
     public static String nc_three = "";
@@ -78,6 +98,10 @@ public class StartList extends AppCompatActivity {
     public static String nc_seven = "";
     public static String nc_eight = "";
     public static String nc_nine = "";
+
+    public static String nc_one_pit = "";
+    public static String nc_two_pit = "";
+    public static String nc_three_pit = "";
 
     public static String dusan_one = "";
     public static String dusan_two = "";
@@ -89,6 +113,10 @@ public class StartList extends AppCompatActivity {
     public static String dusan_eight = "";
     public static String dusan_nine = "";
 
+    public static String dusan_one_pit = "";
+    public static String dusan_two_pit = "";
+    public static String dusan_three_pit = "";
+
     public static String ssg_one = "";
     public static String ssg_two = "";
     public static String ssg_three = "";
@@ -98,6 +126,10 @@ public class StartList extends AppCompatActivity {
     public static String ssg_seven = "";
     public static String ssg_eight = "";
     public static String ssg_nine = "";
+
+    public static String ssg_one_pit = "";
+    public static String ssg_two_pit = "";
+    public static String ssg_three_pit = "";
 
     public static String lotte_one = "";
     public static String lotte_two = "";
@@ -109,6 +141,10 @@ public class StartList extends AppCompatActivity {
     public static String lotte_eight = "";
     public static String lotte_nine = "";
 
+    public static String lotte_one_pit = "";
+    public static String lotte_two_pit = "";
+    public static String lotte_three_pit = "";
+
     public static String kia_one = "";
     public static String kia_two = "";
     public static String kia_three = "";
@@ -118,6 +154,10 @@ public class StartList extends AppCompatActivity {
     public static String kia_seven = "";
     public static String kia_eight = "";
     public static String kia_nine = "";
+
+    public static String kia_one_pit = "";
+    public static String kia_two_pit = "";
+    public static String kia_three_pit = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +176,8 @@ public class StartList extends AppCompatActivity {
         final Spinner hitter7 = (Spinner) findViewById(R.id.hitter_7_spinner);
         final Spinner hitter8 = (Spinner) findViewById(R.id.hitter_8_spinner);
         final Spinner hitter9 = (Spinner) findViewById(R.id.hitter_9_spinner);
+        final Spinner pitcher = (Spinner) findViewById(R.id.pitcher_spinner);
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -271,6 +313,22 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     hanhwa_nine = hitter9.getSelectedItem().toString();
                     editor.putString("hanhwa_nine", hanhwa_nine);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("hanhwa_one_pit", hanhwa_one_pit);
                     editor.commit();
                 }
 
@@ -418,6 +476,22 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("nexen_one_pit", nexen_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direckt")) {
             teamname.setText("KT");
@@ -549,6 +623,22 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_nine = hitter9.getSelectedItem().toString();
                     editor.putString("kt_nine", kt_nine);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("kt_one_pit", kt_one_pit);
                     editor.commit();
                 }
 
@@ -697,6 +787,22 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("samsung_one_pit", samsung_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direclg")) {
             teamname.setText("엘지");
@@ -828,6 +934,22 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     lg_nine = hitter9.getSelectedItem().toString();
                     editor.putString("lg_nine", lg_nine);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("lg_one_pit", lg_one_pit);
                     editor.commit();
                 }
 
@@ -975,6 +1097,22 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("nc_one_pit", nc_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direcdu")) {
             teamname.setText("두산");
@@ -1106,6 +1244,22 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     dusan_nine = hitter9.getSelectedItem().toString();
                     editor.putString("dusan_nine", dusan_nine);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("dusan_one_pit", dusan_one_pit);
                     editor.commit();
                 }
 
@@ -1253,6 +1407,21 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("ssg_one_pit", ssg_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
         }
         if (UserID.equals("direclot")) {
             teamname.setText("롯데");
@@ -1392,6 +1561,22 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("lotte_one_pit", lotte_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direckia")) {
             teamname.setText("KIA");
@@ -1523,6 +1708,22 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_nine = hitter9.getSelectedItem().toString();
                     editor.putString("kia_nine", kia_nine);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            adpit = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player_pit, android.R.layout.simple_spinner_dropdown_item);
+            adpit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            pitcher.setAdapter(adpit);
+            pitcher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_one_pit = pitcher.getSelectedItem().toString();
+                    editor.putString("kia_one_pit", kia_one_pit);
                     editor.commit();
                 }
 

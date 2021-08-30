@@ -135,6 +135,8 @@ public class start extends AppCompatActivity {
     public static String away_player7="";
     public static String away_player8="";
     public static String away_player9="";
+    public static String away_pitcher="";
+
 
     public static String home_player1="";
     public static String home_player2="";
@@ -145,6 +147,8 @@ public class start extends AppCompatActivity {
     public static String home_player7="";
     public static String home_player8="";
     public static String home_player9="";
+    public static String home_pitcher="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,9 +183,8 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("hanhwa_seven", "오류");
                     home_player8 = sharedPreferences.getString("hanhwa_eight", "오류");
                     home_player9 = sharedPreferences.getString("hanhwa_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("hanhwa_one_pit", "오류");
                 }
-                Log.d("값", home_player2);
-
 
                 if(choice_home.equals("넥센")) {
                     home_player1 = sharedPreferences.getString("nexen_one", "오류");
@@ -193,6 +196,8 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("nexen_seven", "오류");
                     home_player8 = sharedPreferences.getString("nexen_eight", "오류");
                     home_player9 = sharedPreferences.getString("nexen_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("nexen_one_pit", "오류");
+
                 }
                 if(choice_home.equals("KT")) {
                     home_player1 = sharedPreferences.getString("kt_one", "오류");
@@ -204,6 +209,8 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("kt_seven", "오류");
                     home_player8 = sharedPreferences.getString("kt_eight", "오류");
                     home_player9 = sharedPreferences.getString("kt_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("kt_one_pit", "오류");
+
                 }
                 if(choice_home.equals("삼성")) {
                     home_player1 = sharedPreferences.getString("samsung_one", "오류");
@@ -215,6 +222,8 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("samsung_seven", "오류");
                     home_player8 = sharedPreferences.getString("samsung_eight", "오류");
                     home_player9 = sharedPreferences.getString("samsung_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("samsung_one_pit", "오류");
+
                 }
                 if(choice_home.equals("LG")) {
                     home_player1 = sharedPreferences.getString("lg_one", "오류");
@@ -226,6 +235,7 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("lg_seven", "오류");
                     home_player8 = sharedPreferences.getString("lg_eight", "오류");
                     home_player9 = sharedPreferences.getString("lg_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("lg_one_pit", "오류");
                 }
                 if(choice_home.equals("NC")) {
                     home_player1 = sharedPreferences.getString("nc_one", "오류");
@@ -237,6 +247,7 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("nc_seven", "오류");
                     home_player8 = sharedPreferences.getString("nc_eight", "오류");
                     home_player9 = sharedPreferences.getString("nc_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("nc_one_pit", "오류");
                 }
                 if(choice_home.equals("두산")) {
                     home_player1 = sharedPreferences.getString("dusan_one", "오류");
@@ -248,6 +259,7 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("dusan_seven", "오류");
                     home_player8 = sharedPreferences.getString("dusan_eight", "오류");
                     home_player9 = sharedPreferences.getString("dusan_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("dusan_one_pit", "오류");
                 }
                 if(choice_home.equals("SSG")) {
                     home_player1 = sharedPreferences.getString("ssg_one", "오류");
@@ -259,6 +271,7 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("ssg_seven", "오류");
                     home_player8 = sharedPreferences.getString("ssg_eight", "오류");
                     home_player9 = sharedPreferences.getString("ssg_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("ssg_one_pit", "오류");
                 }
                 if(choice_home.equals("롯데")) {
                     home_player1 = sharedPreferences.getString("lotte_one", "오류");
@@ -270,6 +283,8 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("lotte_seven", "오류");
                     home_player8 = sharedPreferences.getString("lotte_eight", "오류");
                     home_player9 = sharedPreferences.getString("lotte_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("lotte_one_pit", "오류");
+
                 }
                 if(choice_home.equals("KIA")) {
                     home_player1 = sharedPreferences.getString("kia_one", "오류");
@@ -281,6 +296,7 @@ public class start extends AppCompatActivity {
                     home_player7 = sharedPreferences.getString("kia_seven", "오류");
                     home_player8 = sharedPreferences.getString("kia_eight", "오류");
                     home_player9 = sharedPreferences.getString("kia_nine", "오류");
+                    home_pitcher = sharedPreferences.getString("kia_one_pit", "오류");
                 }
             }
 
@@ -306,6 +322,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("hanhwa_seven", "오류");
                     away_player8 = sharedPreferences.getString("hanhwa_eight", "오류");
                     away_player9 = sharedPreferences.getString("hanhwa_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("hanhwa_one_pit", "오류");
                 }
 
 
@@ -319,6 +336,8 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("nexen_seven", "오류");
                     away_player8 = sharedPreferences.getString("nexen_eight", "오류");
                     away_player9 = sharedPreferences.getString("nexen_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("nexen_one_pit", "오류");
+
                 }
                 if(choice_away.equals("KT")) {
                     away_player1 = sharedPreferences.getString("kt_one", "오류");
@@ -330,6 +349,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("kt_seven", "오류");
                     away_player8 = sharedPreferences.getString("kt_eight", "오류");
                     away_player9 = sharedPreferences.getString("kt_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("kt_one_pit", "오류");
                 }
                 if(choice_away.equals("삼성")) {
                     away_player1 = sharedPreferences.getString("samsung_one", "오류");
@@ -341,6 +361,8 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("samsung_seven", "오류");
                     away_player8 = sharedPreferences.getString("samsung_eight", "오류");
                     away_player9 = sharedPreferences.getString("samsung_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("samsung_one_pit", "오류");
+
                 }
                 if(choice_away.equals("LG")) {
                     away_player1 = sharedPreferences.getString("lg_one", "오류");
@@ -352,6 +374,8 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("lg_seven", "오류");
                     away_player8 = sharedPreferences.getString("lg_eight", "오류");
                     away_player9 = sharedPreferences.getString("lg_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("lg_one_pit", "오류");
+
                 }
                 if(choice_away.equals("NC")) {
                     away_player1 = sharedPreferences.getString("nc_one", "오류");
@@ -363,6 +387,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("nc_seven", "오류");
                     away_player8 = sharedPreferences.getString("nc_eight", "오류");
                     away_player9 = sharedPreferences.getString("nc_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("nc_one_pit", "오류");
                 }
                 if(choice_away.equals("두산")) {
                     away_player1 = sharedPreferences.getString("dusan_one", "오류");
@@ -374,6 +399,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("dusan_seven", "오류");
                     away_player8 = sharedPreferences.getString("dusan_eight", "오류");
                     away_player9 = sharedPreferences.getString("dusan_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("dusan_one_pit", "오류");
                 }
                 if(choice_away.equals("SSG")) {
                     away_player1 = sharedPreferences.getString("ssg_one", "오류");
@@ -385,6 +411,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("ssg_seven", "오류");
                     away_player8 = sharedPreferences.getString("ssg_eight", "오류");
                     away_player9 = sharedPreferences.getString("ssg_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("ssg_one_pit", "오류");
                 }
                 if(choice_away.equals("롯데")) {
                     away_player1 = sharedPreferences.getString("lotte_one", "오류");
@@ -396,6 +423,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("lotte_seven", "오류");
                     away_player8 = sharedPreferences.getString("lotte_eight", "오류");
                     away_player9 = sharedPreferences.getString("lotte_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("lotte_one_pit", "오류");
                 }
                 if(choice_away.equals("KIA")) {
                     away_player1 = sharedPreferences.getString("kia_one", "오류");
@@ -407,6 +435,7 @@ public class start extends AppCompatActivity {
                     away_player7 = sharedPreferences.getString("kia_seven", "오류");
                     away_player8 = sharedPreferences.getString("kia_eight", "오류");
                     away_player9 = sharedPreferences.getString("kia_nine", "오류");
+                    away_pitcher = sharedPreferences.getString("kia_one_pit", "오류");
                 }
             }
 
@@ -437,27 +466,7 @@ public class start extends AppCompatActivity {
                 };
                 //
 
-                Log.d("어웨이", choice_away);
-                Log.d("홈", choice_home);
-                Log.d("ㅁ", away_player1);
-                Log.d("ㅁ", away_player2);
-                Log.d("ㅁ", away_player3);
-                Log.d("ㅁ", away_player4);
-                Log.d("ㅁ", away_player5);
-                Log.d("ㅁ", away_player6);
-                Log.d("ㅁ", away_player7);
-                Log.d("ㅁ", away_player8);
-                Log.d("ㅁ", away_player9);
 
-                Log.d("r", home_player1);
-                Log.d("r", home_player2);
-                Log.d("r", home_player3);
-                Log.d("r", home_player4);
-                Log.d("r", home_player5);
-                Log.d("r", home_player6);
-                Log.d("r", home_player7);
-                Log.d("r", home_player8);
-                Log.d("r", home_player9);
 
                 CreateTable_Request CreateTable_Request = new CreateTable_Request(choice_away, choice_home, away_player1, away_player2, away_player3,
                         away_player4, away_player5, away_player6, away_player7, away_player8, away_player9, home_player1,
@@ -465,6 +474,12 @@ public class start extends AppCompatActivity {
                         responseListener);
                 RequestQueue queue5 = Volley.newRequestQueue(start.this);
                 queue5.add(CreateTable_Request);
+
+                CreateTable_Request_pitcher CreateTable_Request_pitcher = new CreateTable_Request_pitcher(choice_away, choice_home,
+                        away_pitcher, home_pitcher, responseListener);
+                RequestQueue queue6 = Volley.newRequestQueue(start.this);
+                queue5.add(CreateTable_Request_pitcher);
+
 
                 away_ball = 0;
                 away_outout = 0;
