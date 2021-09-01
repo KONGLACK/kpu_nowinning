@@ -17,7 +17,7 @@ import java.lang.reflect.Array;
 import static com.example.nowinning.LoginActivity.UserID;
 
 public class StartList extends AppCompatActivity {
-    ArrayAdapter<CharSequence> adteam, adhit1, adhit2, adhit3, adhit4, adhit5, adhit6, adhit7, adhit8, adhit9, adpit;
+    ArrayAdapter<CharSequence> adteam, adhit1, adhit2, adhit3, adhit4, adhit5, adhit6, adhit7, adhit8, adhit9, adpit, addef0, addef1, addef4, addef3, addef2, addef5, addef6, addef7;
 
     public static String hanhwa_one = "";
     public static String hanhwa_two = "";
@@ -33,6 +33,16 @@ public class StartList extends AppCompatActivity {
     public static String hanhwa_two_pit = "";
     public static String hanhwa_three_pit = "";
 
+    public static String hanhwa_catcher ="";
+    public static String hanhwa_firstbase ="";
+    public static String hanhwa_secondbase ="";
+    public static String hanhwa_thirdbase ="";
+    public static String hanhwa_shortstop ="";
+    public static String hanhwa_leftfielder ="";
+    public static String hanhwa_centerfielder ="";
+    public static String hanhwa_rightfielder ="";
+
+
     public static String nexen_one = "";
     public static String nexen_two = "";
     public static String nexen_three = "";
@@ -46,6 +56,15 @@ public class StartList extends AppCompatActivity {
     public static String nexen_one_pit = "";
     public static String nexen_two_pit = "";
     public static String nexen_three_pit = "";
+
+    public static String nexen_catcher ="";
+    public static String nexen_firstbase ="";
+    public static String nexen_secondbase ="";
+    public static String nexen_thirdbase ="";
+    public static String nexen_shortstop ="";
+    public static String nexen_leftfielder ="";
+    public static String nexen_centerfielder ="";
+    public static String nexen_rightfielder ="";
 
     public static String kt_one = "";
     public static String kt_two = "";
@@ -61,6 +80,15 @@ public class StartList extends AppCompatActivity {
     public static String kt_two_pit = "";
     public static String kt_three_pit = "";
 
+    public static String kt_catcher ="";
+    public static String kt_firstbase ="";
+    public static String kt_secondbase ="";
+    public static String kt_thirdbase ="";
+    public static String kt_shortstop ="";
+    public static String kt_leftfielder ="";
+    public static String kt_centerfielder ="";
+    public static String kt_rightfielder ="";
+
     public static String samsung_one = "";
     public static String samsung_two = "";
     public static String samsung_three = "";
@@ -74,6 +102,15 @@ public class StartList extends AppCompatActivity {
     public static String samsung_one_pit = "";
     public static String samsung_two_pit = "";
     public static String samsung_three_pit = "";
+
+    public static String samsung_catcher ="";
+    public static String samsung_firstbase ="";
+    public static String samsung_secondbase ="";
+    public static String samsung_thirdbase ="";
+    public static String samsung_shortstop ="";
+    public static String samsung_leftfielder ="";
+    public static String samsung_centerfielder ="";
+    public static String samsung_rightfielder ="";
 
     public static String lg_one = "";
     public static String lg_two = "";
@@ -89,6 +126,15 @@ public class StartList extends AppCompatActivity {
     public static String lg_two_pit = "";
     public static String lg_three_pit = "";
 
+    public static String lg_catcher ="";
+    public static String lg_firstbase ="";
+    public static String lg_secondbase ="";
+    public static String lg_thirdbase ="";
+    public static String lg_shortstop ="";
+    public static String lg_leftfielder ="";
+    public static String lg_centerfielder ="";
+    public static String lg_rightfielder ="";
+
     public static String nc_one = "";
     public static String nc_two = "";
     public static String nc_three = "";
@@ -102,6 +148,15 @@ public class StartList extends AppCompatActivity {
     public static String nc_one_pit = "";
     public static String nc_two_pit = "";
     public static String nc_three_pit = "";
+
+    public static String nc_catcher ="";
+    public static String nc_firstbase ="";
+    public static String nc_secondbase ="";
+    public static String nc_thirdbase ="";
+    public static String nc_shortstop ="";
+    public static String nc_leftfielder ="";
+    public static String nc_centerfielder ="";
+    public static String nc_rightfielder ="";
 
     public static String dusan_one = "";
     public static String dusan_two = "";
@@ -117,6 +172,15 @@ public class StartList extends AppCompatActivity {
     public static String dusan_two_pit = "";
     public static String dusan_three_pit = "";
 
+    public static String dusan_catcher ="";
+    public static String dusan_firstbase ="";
+    public static String dusan_secondbase ="";
+    public static String dusan_thirdbase ="";
+    public static String dusan_shortstop ="";
+    public static String dusan_leftfielder ="";
+    public static String dusan_centerfielder ="";
+    public static String dusan_rightfielder ="";
+
     public static String ssg_one = "";
     public static String ssg_two = "";
     public static String ssg_three = "";
@@ -130,6 +194,15 @@ public class StartList extends AppCompatActivity {
     public static String ssg_one_pit = "";
     public static String ssg_two_pit = "";
     public static String ssg_three_pit = "";
+
+    public static String ssg_catcher ="";
+    public static String ssg_firstbase ="";
+    public static String ssg_secondbase ="";
+    public static String ssg_thirdbase ="";
+    public static String ssg_shortstop ="";
+    public static String ssg_leftfielder ="";
+    public static String ssg_centerfielder ="";
+    public static String ssg_rightfielder ="";
 
     public static String lotte_one = "";
     public static String lotte_two = "";
@@ -145,6 +218,15 @@ public class StartList extends AppCompatActivity {
     public static String lotte_two_pit = "";
     public static String lotte_three_pit = "";
 
+    public static String lotte_catcher ="";
+    public static String lotte_firstbase ="";
+    public static String lotte_secondbase ="";
+    public static String lotte_thirdbase ="";
+    public static String lotte_shortstop ="";
+    public static String lotte_leftfielder ="";
+    public static String lotte_centerfielder ="";
+    public static String lotte_rightfielder ="";
+
     public static String kia_one = "";
     public static String kia_two = "";
     public static String kia_three = "";
@@ -158,6 +240,15 @@ public class StartList extends AppCompatActivity {
     public static String kia_one_pit = "";
     public static String kia_two_pit = "";
     public static String kia_three_pit = "";
+
+    public static String kia_catcher ="";
+    public static String kia_firstbase ="";
+    public static String kia_secondbase ="";
+    public static String kia_thirdbase ="";
+    public static String kia_shortstop ="";
+    public static String kia_leftfielder ="";
+    public static String kia_centerfielder ="";
+    public static String kia_rightfielder ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,7 +267,18 @@ public class StartList extends AppCompatActivity {
         final Spinner hitter7 = (Spinner) findViewById(R.id.hitter_7_spinner);
         final Spinner hitter8 = (Spinner) findViewById(R.id.hitter_8_spinner);
         final Spinner hitter9 = (Spinner) findViewById(R.id.hitter_9_spinner);
+
         final Spinner pitcher = (Spinner) findViewById(R.id.pitcher_spinner);
+
+        final Spinner def0 = (Spinner) findViewById(R.id.catcher_spinner);
+        final Spinner def1 = (Spinner) findViewById(R.id.firstbaseman_spinner);
+        final Spinner def4 = (Spinner) findViewById(R.id.secondbaseman_spinner);
+        final Spinner def3 = (Spinner) findViewById(R.id.thirdbaseman_spinner);
+        final Spinner def2 = (Spinner) findViewById(R.id.shortstop_spinner);
+        final Spinner def5 = (Spinner) findViewById(R.id.leftfielder_spinner);
+        final Spinner def6 = (Spinner) findViewById(R.id.centerfielder_spinner);
+        final Spinner def7 = (Spinner) findViewById(R.id.rightfielder_spinner);
+
 
 
         SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
@@ -336,6 +438,140 @@ public class StartList extends AppCompatActivity {
                 public void onNothingSelected(AdapterView<?> adapterView) {
                 }
             });
+
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_catcher = def0.getSelectedItem().toString();
+                    editor.putString("hanhwa_catcher", hanhwa_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("hanhwa_firstbase", hanhwa_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("hanhwa_secondbase", hanhwa_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("hanhwa_thirdbase", hanhwa_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("hanhwa_shortstop", hanhwa_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("hanhwa_leftfielder", hanhwa_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("hanhwa_centerfielder", hanhwa_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.hanhwa_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    hanhwa_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("hanhwa_rightfielder", hanhwa_rightfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+
+
+
+
+
         }
         if (UserID.equals("direcnex")) {
             teamname.setText("넥센");
@@ -492,6 +728,134 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_catcher = def0.getSelectedItem().toString();
+                    editor.putString("nexen_catcher", nexen_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("nexen_firstbase", nexen_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("nexen_secondbase", nexen_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("nexen_thirdbase", nexen_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("nexen_shortstop", nexen_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("nexen_leftfielder", nexen_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("nexen_centerfielder", nexen_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.nexen_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nexen_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("nexen_rightfielder", nexen_rightfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direckt")) {
             teamname.setText("KT");
@@ -639,6 +1003,134 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kt_one_pit = pitcher.getSelectedItem().toString();
                     editor.putString("kt_one_pit", kt_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_catcher = def0.getSelectedItem().toString();
+                    editor.putString("kt_catcher", kt_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("kt_firstbase", kt_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("kt_secondbase", kt_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("kt_thirdbase", kt_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("kt_shortstop", kt_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("kt_leftfielder", kt_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("kt_centerfielder", kt_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.kt_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kt_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("kt_rightfielder", kt_rightfielder);
                     editor.commit();
                 }
 
@@ -803,6 +1295,134 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_catcher = def0.getSelectedItem().toString();
+                    editor.putString("samsung_catcher", samsung_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("samsung_firstbase", samsung_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("samsung_secondbase", samsung_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("samsung_thirdbase", samsung_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("samsung_shortstop", samsung_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("samsung_leftfielder", samsung_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("samsung_centerfielder", samsung_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.samsung_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    samsung_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("samsung_rightfielder", samsung_rightfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direclg")) {
             teamname.setText("엘지");
@@ -958,6 +1578,133 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_catcher = def0.getSelectedItem().toString();
+                    editor.putString("lg_catcher", lg_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("lg_firstbase", lg_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("lg_secondbase", lg_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("lg_thirdbase", lg_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("lg_shortstop", lg_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("lg_leftfielder", lg_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("lg_centerfielder", lg_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.lg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lg_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("lg_rightfielder", lg_rightfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
         }
         if (UserID.equals("direcnc")) {
             teamname.setText("NC");
@@ -1105,6 +1852,134 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     nc_one_pit = pitcher.getSelectedItem().toString();
                     editor.putString("nc_one_pit", nc_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_catcher = def0.getSelectedItem().toString();
+                    editor.putString("nc_catcher", nc_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("nc_firstbase", nc_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("nc_secondbase", nc_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("nc_thirdbase", nc_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("nc_shortstop", nc_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("nc_leftfielder", nc_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("nc_centerfielder", nc_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.nc_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    nc_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("nc_rightfielder", nc_rightfielder);
                     editor.commit();
                 }
 
@@ -1268,6 +2143,134 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_catcher = def0.getSelectedItem().toString();
+                    editor.putString("dusan_catcher", dusan_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("dusan_firstbase", dusan_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("dusan_secondbase", dusan_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("dusan_thirdbase", dusan_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("dusan_shortstop", dusan_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("dusan_leftfielder", dusan_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("dusan_centerfielder", dusan_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.dusan_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    dusan_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("dusan_rightfielder", dusan_rightfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direcssg")) {
             teamname.setText("SSG");
@@ -1415,6 +2418,134 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     ssg_one_pit = pitcher.getSelectedItem().toString();
                     editor.putString("ssg_one_pit", ssg_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_catcher = def0.getSelectedItem().toString();
+                    editor.putString("ssg_catcher", ssg_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("ssg_firstbase", ssg_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("ssg_secondbase", ssg_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("ssg_thirdbase", ssg_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("ssg_shortstop", ssg_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("ssg_leftfielder", ssg_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("ssg_centerfielder", ssg_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.ssg_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    ssg_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("ssg_rightfielder", ssg_rightfielder);
                     editor.commit();
                 }
 
@@ -1577,6 +2708,134 @@ public class StartList extends AppCompatActivity {
                 }
             });
 
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_catcher = def0.getSelectedItem().toString();
+                    editor.putString("lotte_catcher", lotte_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("lotte_firstbase", lotte_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("lotte_secondbase", lotte_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("lotte_thirdbase", lotte_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("lotte_shortstop", lotte_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("lotte_leftfielder", lotte_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("lotte_centerfielder", lotte_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.lotte_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    lotte_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("lotte_rightfielder", lotte_rightfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
         }
         if (UserID.equals("direckia")) {
             teamname.setText("KIA");
@@ -1724,6 +2983,134 @@ public class StartList extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     kia_one_pit = pitcher.getSelectedItem().toString();
                     editor.putString("kia_one_pit", kia_one_pit);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef0 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def0.setAdapter(addef0);
+            def0.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_catcher = def0.getSelectedItem().toString();
+                    editor.putString("kia_catcher", kia_catcher);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef1 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def1.setAdapter(addef1);
+            def1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_firstbase = def1.getSelectedItem().toString();
+                    editor.putString("kia_firstbase", kia_firstbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef4 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def4.setAdapter(addef4);
+            def4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_secondbase = def4.getSelectedItem().toString();
+                    editor.putString("kia_secondbase", kia_secondbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef3 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def3.setAdapter(addef3);
+            def3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_thirdbase = def3.getSelectedItem().toString();
+                    editor.putString("kia_thirdbase", kia_thirdbase);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef2 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def2.setAdapter(addef2);
+            def2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_shortstop = def2.getSelectedItem().toString();
+                    editor.putString("kia_shortstop", kia_shortstop);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef5 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def5.setAdapter(addef5);
+            def5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_leftfielder = def5.getSelectedItem().toString();
+                    editor.putString("kia_leftfielder", kia_leftfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef6 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def6.setAdapter(addef6);
+            def6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_centerfielder = def6.getSelectedItem().toString();
+                    editor.putString("kia_centerfielder", kia_centerfielder);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
+            });
+
+            addef7 = ArrayAdapter.createFromResource(StartList.this, R.array.kia_player, android.R.layout.simple_spinner_dropdown_item);
+            addef7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            def7.setAdapter(addef7);
+            def7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    kia_rightfielder = def7.getSelectedItem().toString();
+                    editor.putString("kia_rightfielder", kia_rightfielder);
                     editor.commit();
                 }
 

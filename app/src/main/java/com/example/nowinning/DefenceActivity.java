@@ -16,7 +16,26 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.btn_SBO;
+import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.BSOActivity.layout_field;
+import static com.example.nowinning.start.away_catcher;
+import static com.example.nowinning.start.away_centerfielder;
+import static com.example.nowinning.start.away_firstbase;
+import static com.example.nowinning.start.away_leftfielder;
+import static com.example.nowinning.start.away_pitcher;
+import static com.example.nowinning.start.away_rightfielder;
+import static com.example.nowinning.start.away_secondbase;
+import static com.example.nowinning.start.away_shortstop;
+import static com.example.nowinning.start.away_thirdbase;
+import static com.example.nowinning.start.home_catcher;
+import static com.example.nowinning.start.home_centerfielder;
+import static com.example.nowinning.start.home_firstbase;
+import static com.example.nowinning.start.home_leftfielder;
+import static com.example.nowinning.start.home_pitcher;
+import static com.example.nowinning.start.home_rightfielder;
+import static com.example.nowinning.start.home_secondbase;
+import static com.example.nowinning.start.home_shortstop;
+import static com.example.nowinning.start.home_thirdbase;
 
 public class DefenceActivity extends Fragment implements View.OnTouchListener {
 
@@ -25,6 +44,8 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
     int lastAction;
     public static FrameLayout layout_defence;
     public static ConstraintLayout layout_def_field;
+
+    public static Button btn_catcher, btn_firstbase, btn_secondbase, btn_thirdbase, btn_shortstop, btn_leftfielder, btn_centerfielder, btn_rightfielder, btn_pitcher;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +78,40 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
 
         final View dragView8 = v.findViewById(R.id.def8);
         dragView8.setOnTouchListener(this);
+
+        btn_catcher = (Button)v.findViewById(R.id.def0);
+        btn_firstbase = (Button)v.findViewById(R.id.def1);
+        btn_secondbase = (Button)v.findViewById(R.id.def4);
+        btn_thirdbase = (Button)v.findViewById(R.id.def3);
+        btn_shortstop = (Button)v.findViewById(R.id.def2);
+        btn_leftfielder = (Button)v.findViewById(R.id.def5);
+        btn_centerfielder = (Button)v.findViewById(R.id.def6);
+        btn_rightfielder = (Button)v.findViewById(R.id.def7);
+        btn_pitcher = (Button)v.findViewById(R.id.def8);
+
+        if(ini_num%2==1) {
+            btn_catcher.setText(away_catcher);
+            btn_firstbase.setText(away_firstbase);
+            btn_secondbase.setText(away_secondbase);
+            btn_thirdbase.setText(away_thirdbase);
+            btn_shortstop.setText(away_shortstop);
+            btn_leftfielder.setText(away_leftfielder);
+            btn_centerfielder.setText(away_centerfielder);
+            btn_rightfielder.setText(away_rightfielder);
+            btn_pitcher.setText(away_pitcher);
+        }
+
+        if(ini_num%2==0) {
+            btn_catcher.setText(home_catcher);
+            btn_firstbase.setText(home_firstbase);
+            btn_secondbase.setText(home_secondbase);
+            btn_thirdbase.setText(home_thirdbase);
+            btn_shortstop.setText(home_shortstop);
+            btn_leftfielder.setText(home_leftfielder);
+            btn_centerfielder.setText(home_centerfielder);
+            btn_rightfielder.setText(home_rightfielder);
+            btn_pitcher.setText(home_pitcher);
+        }
 
         layout_defence = (FrameLayout) v.findViewById(R.id.layout_defence);
 

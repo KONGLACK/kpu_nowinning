@@ -22,6 +22,15 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.nowinning.start.away_catcher;
+import static com.example.nowinning.start.away_centerfielder;
+import static com.example.nowinning.start.away_firstbase;
+import static com.example.nowinning.start.away_leftfielder;
+import static com.example.nowinning.start.away_pitcher;
+import static com.example.nowinning.start.away_rightfielder;
+import static com.example.nowinning.start.away_secondbase;
+import static com.example.nowinning.start.away_shortstop;
+import static com.example.nowinning.start.away_thirdbase;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
 import static com.example.nowinning.start.away_player1;
@@ -34,6 +43,11 @@ import static com.example.nowinning.start.away_player7;
 import static com.example.nowinning.start.away_player8;
 import static com.example.nowinning.start.away_player9;
 
+import static com.example.nowinning.start.home_catcher;
+import static com.example.nowinning.start.home_centerfielder;
+import static com.example.nowinning.start.home_firstbase;
+import static com.example.nowinning.start.home_leftfielder;
+import static com.example.nowinning.start.home_pitcher;
 import static com.example.nowinning.start.home_player1;
 import static com.example.nowinning.start.home_player2;
 import static com.example.nowinning.start.home_player3;
@@ -43,6 +57,10 @@ import static com.example.nowinning.start.home_player6;
 import static com.example.nowinning.start.home_player7;
 import static com.example.nowinning.start.home_player8;
 import static com.example.nowinning.start.home_player9;
+import static com.example.nowinning.start.home_rightfielder;
+import static com.example.nowinning.start.home_secondbase;
+import static com.example.nowinning.start.home_shortstop;
+import static com.example.nowinning.start.home_thirdbase;
 
 public class BSOActivity extends AppCompatActivity {
 
@@ -169,6 +187,7 @@ public class BSOActivity extends AppCompatActivity {
         layout_field = (ConstraintLayout) findViewById(R.id.layout_field);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 
+
         et_hscore.setText("홈      " + choice_home + " 0");
         et_ascore.setText("원정   " + choice_away + " 0");
 //        btn_away.setText(choice_away);
@@ -236,10 +255,12 @@ public class BSOActivity extends AppCompatActivity {
 
                 btn_b.setOnClickListener(new View.OnClickListener() {
 
+
                     @Override
                     public void onClick(View v) {
                         if (ini_num % 2 == 1) {
                             away_ball++;
+
 
                             et_ball.setText(et_ball.getText().toString() + "*"); // 별 찍음
                             ballCnt++; //스트라이크 카운트 세기 위해
@@ -957,6 +978,8 @@ public class BSOActivity extends AppCompatActivity {
                 transaction2.replace(R.id.frame2, Defence_fragment);
                 transaction2.commit();
                 layout_field.setVisibility(View.INVISIBLE);
+
+
             }
         });
 
