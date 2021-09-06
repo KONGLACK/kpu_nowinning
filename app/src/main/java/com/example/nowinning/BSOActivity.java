@@ -273,6 +273,11 @@ public class BSOActivity extends AppCompatActivity {
                                     }
                                 }, 500);
 
+                                PithcerReqeust_BB_Home PithcerReqeust_BB_Home = new PithcerReqeust_BB_Home(choice_away, choice_home, home_pitcher, responseListener);
+                                RequestQueue queue6 = Volley.newRequestQueue(BSOActivity.this);
+                                queue6.add(PithcerReqeust_BB_Home);
+
+
                                 if (runCnt == 0) { // 주자의 현재 위치
                                     a++;
                                     if(a>8) {
@@ -415,6 +420,11 @@ public class BSOActivity extends AppCompatActivity {
                                     ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
                                     RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
                                     queue1.add(ScoreRequest_away);
+
+                                    PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                                    RequestQueue queue2 = Volley.newRequestQueue(BSOActivity.this);
+                                    queue2.add(PithcerReqeust_ER_Home);
+
                                     a++;
                                     if(a>8) {
                                         a=0;
@@ -457,6 +467,10 @@ public class BSOActivity extends AppCompatActivity {
                                         ballCnt = 0;
                                     }
                                 }, 500);
+
+                                PithcerReqeust_BB_Away PithcerReqeust_BB_Away = new PithcerReqeust_BB_Away(choice_away, choice_home, away_pitcher, responseListener);
+                                RequestQueue queue6 = Volley.newRequestQueue(BSOActivity.this);
+                                queue6.add(PithcerReqeust_BB_Away);
 
                                 if (runCnt == 0) { // 주자의 현재 위치
                                     h++;
@@ -597,6 +611,10 @@ public class BSOActivity extends AppCompatActivity {
                                     ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_home, choice_home, (String) img3.getText(), responseListener);
                                     RequestQueue queue1 = Volley.newRequestQueue(BSOActivity.this);
                                     queue1.add(ScoreRequest_home);
+
+                                    PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                                    RequestQueue queue2 = Volley.newRequestQueue(BSOActivity.this);
+                                    queue2.add(PithcerReqeust_ER_Away);
                                 h++;
                                 if(h>8) {
                                     h=0;
@@ -648,6 +666,10 @@ public class BSOActivity extends AppCompatActivity {
 
                                     Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
                                 }
+                                PithcerReqeust_Ining_Home PithcerReqeust_Ining_Home = new PithcerReqeust_Ining_Home(choice_away, choice_home, home_pitcher, responseListener);
+                                RequestQueue queue6 = Volley.newRequestQueue(BSOActivity.this);
+                                queue6.add(PithcerReqeust_Ining_Home);
+
 
                                 a++;//away 값 ++
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
@@ -710,6 +732,9 @@ public class BSOActivity extends AppCompatActivity {
 
                                     Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
                                 }
+                                PithcerReqeust_Ining_Away PithcerReqeust_Ining_Away = new PithcerReqeust_Ining_Away(choice_away, choice_home, away_pitcher, responseListener);
+                                RequestQueue queue6 = Volley.newRequestQueue(BSOActivity.this);
+                                queue6.add(PithcerReqeust_Ining_Away);
 
                                 h++;//home 값 ++
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이

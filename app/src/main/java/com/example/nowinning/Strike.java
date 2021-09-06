@@ -13,6 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.Others.btn_OutOthers;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_h;
@@ -22,6 +30,10 @@ import static com.example.nowinning.BSOActivity.et_out;
 import static com.example.nowinning.BSOActivity.et_strike;
 import static com.example.nowinning.BSOActivity.outCnt;
 import static com.example.nowinning.BSOActivity.stkCnt;
+import static com.example.nowinning.start.away_pitcher;
+import static com.example.nowinning.start.choice_away;
+import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.home_pitcher;
 
 public class Strike extends Fragment {
 
@@ -42,6 +54,18 @@ public class Strike extends Fragment {
 
         Handler handler = new Handler();
 
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
 
 
         btn_Swing.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +86,17 @@ public class Strike extends Fragment {
                             btn_o.performClick();
                         }
                     }, 500);
+
+                    if(ini_num%2==1) {
+                        PithcerReqeust_SO_Home PithcerReqeust_SO_Home = new PithcerReqeust_SO_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                        queue6.add(PithcerReqeust_SO_Home);
+                    }
+                    if(ini_num%2==0) {
+                        PithcerReqeust_SO_Away PithcerReqeust_SO_Away = new PithcerReqeust_SO_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue7 = Volley.newRequestQueue(getContext());
+                        queue7.add(PithcerReqeust_SO_Away);
+                    }
                 }
 
                 btn_SBO.setVisibility(View.VISIBLE);
@@ -87,6 +122,16 @@ public class Strike extends Fragment {
                             btn_o.performClick();
                         }
                     }, 500);
+                    if(ini_num%2==1) {
+                        PithcerReqeust_SO_Home PithcerReqeust_SO_Home = new PithcerReqeust_SO_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                        queue6.add(PithcerReqeust_SO_Home);
+                    }
+                    if(ini_num%2==0) {
+                        PithcerReqeust_SO_Away PithcerReqeust_SO_Away = new PithcerReqeust_SO_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue7 = Volley.newRequestQueue(getContext());
+                        queue7.add(PithcerReqeust_SO_Away);
+                    }
                 }
 
                 btn_SBO.setVisibility(View.VISIBLE);

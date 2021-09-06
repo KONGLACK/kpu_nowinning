@@ -28,8 +28,10 @@ import static com.example.nowinning.BSOActivity.btn_s;
 import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.BSOActivity.runCnt;
+import static com.example.nowinning.start.away_pitcher;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
+import static com.example.nowinning.start.home_pitcher;
 
 public class Inplay2 extends Fragment {
 
@@ -78,12 +80,15 @@ public class Inplay2 extends Fragment {
                 if(ini_num%2==1) {
 
 
+
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     SDT_select sdt_select = new SDT_select();
                     transaction.replace(R.id.frame, sdt_select);
                     transaction.commit(); // 저장
                 }
                 if(ini_num%2==0) {
+
+
 
 
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

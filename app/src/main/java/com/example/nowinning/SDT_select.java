@@ -36,10 +36,12 @@ import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.hscore;
 import static com.example.nowinning.BSOActivity.ascore;
 import static com.example.nowinning.BSOActivity.stkCnt;
+import static com.example.nowinning.start.away_pitcher;
 import static com.example.nowinning.start.choice_home;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.BSOActivity.a;
 import static com.example.nowinning.BSOActivity.away_arr;
+import static com.example.nowinning.start.home_pitcher;
 
 public class SDT_select extends Fragment {
 
@@ -87,6 +89,10 @@ public class SDT_select extends Fragment {
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
                 if (ini_num % 2 == 1) {
+                    PithcerReqeust_Hits_Home PithcerReqeust_Hits_Home = new PithcerReqeust_Hits_Home(choice_away, choice_home, home_pitcher, responseListener);
+                    RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                    queue6.add(PithcerReqeust_Hits_Home);
+
                     if (runCnt == 0) { // 주자의 현재 위치
                         BatterRequest_One_away batterRequestOne = new BatterRequest_One_away(choice_away, choice_home, away_arr[a], responseListener);
                         RequestQueue queue = Volley.newRequestQueue(getContext());
@@ -172,6 +178,10 @@ public class SDT_select extends Fragment {
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
 
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
+
                         a++;
                         if(a>8) {
                             a=0;
@@ -236,6 +246,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -277,6 +291,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -318,6 +336,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -356,6 +378,9 @@ public class SDT_select extends Fragment {
 
 
                 if(ini_num%2==0) {
+                    PithcerReqeust_Hits_Away PithcerReqeust_Hits_Away = new PithcerReqeust_Hits_Away(choice_away, choice_home, away_pitcher, responseListener);
+                    RequestQueue queue7 = Volley.newRequestQueue(getContext());
+                    queue7.add(PithcerReqeust_Hits_Away);
                     if (runCnt == 0) { // 주자의 현재 위치
                         BatterRequest_One_home batterRequestOne = new BatterRequest_One_home(choice_away, choice_home, home_arr[h], responseListener);
                         RequestQueue queue = Volley.newRequestQueue(getContext());
@@ -438,6 +463,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -504,6 +533,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -545,6 +578,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -586,6 +623,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -627,7 +668,9 @@ public class SDT_select extends Fragment {
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
                 if (ini_num % 2 == 1) {
-
+                    PithcerReqeust_Hits_Home PithcerReqeust_Hits_Home = new PithcerReqeust_Hits_Home(choice_away, choice_home, home_pitcher, responseListener);
+                    RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                    queue6.add(PithcerReqeust_Hits_Home);
 
                     if (runCnt == 0) { // 주자의 현재 위치
                         BatterRequest_Two_away batterRequestTwo = new BatterRequest_Two_away(choice_away, choice_home, away_arr[a], responseListener);
@@ -688,6 +731,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -729,6 +776,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -768,6 +819,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -806,6 +861,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away,  choice_home, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
                         }
 
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
@@ -857,6 +916,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
                         if(a>8) {
                             a=0;
@@ -895,6 +958,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away,  choice_home, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
                         }
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
@@ -939,6 +1006,9 @@ public class SDT_select extends Fragment {
 
                 }
                 else if (ini_num % 2 == 0) {
+                    PithcerReqeust_Hits_Away PithcerReqeust_Hits_Away = new PithcerReqeust_Hits_Away(choice_away, choice_home, away_pitcher, responseListener);
+                    RequestQueue queue7 = Volley.newRequestQueue(getContext());
+                    queue7.add(PithcerReqeust_Hits_Away);
                     if (runCnt == 0) { // 주자의 현재 위치
                         BatterRequest_Two_home batterRequestTwo = new BatterRequest_Two_home(choice_away, choice_home, home_arr[h], responseListener);
                         RequestQueue queue = Volley.newRequestQueue(getContext());
@@ -998,6 +1068,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -1039,6 +1113,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -1078,6 +1156,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -1116,6 +1198,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
                         }
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
@@ -1167,6 +1253,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
                         if(h>8) {
                             h=0;
@@ -1205,6 +1295,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
                         }
 
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img2.getText(), responseListener);
@@ -1253,6 +1347,9 @@ public class SDT_select extends Fragment {
             @Override
             public void onClick(View v) {
                 if (ini_num % 2 == 1) {
+                    PithcerReqeust_Hits_Home PithcerReqeust_Hits_Home = new PithcerReqeust_Hits_Home(choice_away, choice_home, home_pitcher, responseListener);
+                    RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                    queue6.add(PithcerReqeust_Hits_Home);
                     if (runCnt == 0) { // 주자의 현재 위치
                         BatterRequest_Three_away batterRequestThree = new BatterRequest_Three_away(choice_away, choice_home, away_arr[a], responseListener);
                         RequestQueue queue = Volley.newRequestQueue(getContext());
@@ -1285,6 +1382,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1323,6 +1424,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1361,6 +1466,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
                         a++;
 
                         img3.setText(img0.getText());
@@ -1397,6 +1506,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
                         }
 
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
@@ -1441,6 +1554,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away,  choice_home, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
                         }
 
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
@@ -1486,6 +1603,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
                         }
 
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
@@ -1534,6 +1655,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away,  choice_home, away_arr[a], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                            queue5.add(PithcerReqeust_ER_Home);
                         }
 
                         ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
@@ -1577,6 +1702,9 @@ public class SDT_select extends Fragment {
 
                     }
                 } else if (ini_num % 2 == 0) {
+                    PithcerReqeust_Hits_Away PithcerReqeust_Hits_Away = new PithcerReqeust_Hits_Away(choice_away, choice_home, away_pitcher, responseListener);
+                    RequestQueue queue7 = Volley.newRequestQueue(getContext());
+                    queue7.add(PithcerReqeust_Hits_Away);
                     if (runCnt == 0) {
                         BatterRequest_Three_home batterRequestThree = new BatterRequest_Three_home(choice_away, choice_home, home_arr[h], responseListener);
                         RequestQueue queue = Volley.newRequestQueue(getContext());
@@ -1609,6 +1737,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img1.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
 
                         h++;
 
@@ -1648,6 +1780,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img2.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1686,6 +1822,10 @@ public class SDT_select extends Fragment {
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img3.getText(), responseListener);
                         RequestQueue queue2 = Volley.newRequestQueue(getContext());
                         queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
                         h++;
 
                         img3.setText(img0.getText());
@@ -1721,6 +1861,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
                         }
 
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img1.getText(), responseListener);
@@ -1765,6 +1909,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
                         }
 
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img2.getText(), responseListener);
@@ -1810,6 +1958,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[i], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
                         }
 
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img1.getText(), responseListener);
@@ -1857,6 +2009,10 @@ public class SDT_select extends Fragment {
                             RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home,  home_arr[h], responseListener);
                             RequestQueue queue1 = Volley.newRequestQueue(getContext());
                             queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                            queue5.add(PithcerReqeust_ER_Away);
                         }
 
                         ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home, (String) img1.getText(), responseListener);
