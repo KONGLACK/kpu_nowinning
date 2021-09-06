@@ -37,11 +37,11 @@ public class Inplay extends Fragment {
         btn_Ground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"임시 페이지로 이동", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"임시 페이지로 이동", Toast.LENGTH_SHORT).show();
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Inplay_Bunt inplay_bunt = new Inplay_Bunt();
-                transaction.replace(R.id.frame, inplay_bunt);
+                Inplay2 inplay2 = new Inplay2();
+                transaction.replace(R.id.frame, inplay2);
                 transaction.commit(); // 저장
 
             }
@@ -50,11 +50,11 @@ public class Inplay extends Fragment {
         btn_Hground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"임시 페이지로 이동", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"임시 페이지로 이동", Toast.LENGTH_SHORT).show();
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Inplay_Bunt inplay_bunt = new Inplay_Bunt();
-                transaction.replace(R.id.frame, inplay_bunt);
+                Inplay_Hgrnd inplay_hgrnd = new Inplay_Hgrnd();
+                transaction.replace(R.id.frame, inplay_hgrnd);
                 transaction.commit(); // 저장
             }
         });

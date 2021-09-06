@@ -50,7 +50,7 @@ public class Inplay2 extends Fragment {
 
         layout_inplay2 = (LinearLayout) v.findViewById(R.id.layout_inplay2);
 
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
+        /*Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -61,36 +61,32 @@ public class Inplay2 extends Fragment {
                 }
 
             }
-        };
+        };*/
 
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_o.performClick();
+                /*btn_o.performClick();
+
                 layout_inplay2.setVisibility(View.INVISIBLE);
-                btn_SBO.setVisibility(View.VISIBLE);
+                btn_SBO.setVisibility(View.VISIBLE);*/
+
+                FragmentTransaction transaction2= getActivity().getSupportFragmentManager().beginTransaction();
+                DefenceActivity Defence_fragment = new DefenceActivity();
+                transaction2.replace(R.id.frame2, Defence_fragment);
+                transaction2.commit();
+
+                layout_inplay2.setVisibility(View.INVISIBLE);
             }
         });
 
         btn_Hit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ini_num%2==1) {
-
-
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    SDT_select sdt_select = new SDT_select();
-                    transaction.replace(R.id.frame, sdt_select);
-                    transaction.commit(); // 저장
-                }
-                if(ini_num%2==0) {
-
-
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    SDT_select sdt_select = new SDT_select();
-                    transaction.replace(R.id.frame, sdt_select);
-                    transaction.commit(); // 저장
-                }
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                SDT_select sdt_select = new SDT_select();
+                transaction.replace(R.id.frame, sdt_select);
+                transaction.commit(); // 저장
             }
         });
 
@@ -117,13 +113,13 @@ public class Inplay2 extends Fragment {
             }
         });
 
-        btn_Bfoul.setOnClickListener(new View.OnClickListener() {
+        /*btn_Bfoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"추가 예정", Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
 
 
         return v;

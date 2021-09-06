@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import static com.example.nowinning.BSOActivity.btn_SBO;
+import static com.example.nowinning.BSOActivity.btn_o;
 import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.BSOActivity.layout_field;
 import static com.example.nowinning.start.away_catcher;
@@ -159,9 +160,13 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
 
             case MotionEvent.ACTION_UP:
                 //if (lastAction == MotionEvent.ACTION_DOWN)
+                btn_o.performClick();
                 Toast.makeText(getActivity(), dX+", "+dY, Toast.LENGTH_SHORT).show();
                 layout_defence.setVisibility(View.INVISIBLE);
                 layout_field.setVisibility(View.VISIBLE);
+
+                btn_SBO.setVisibility(View.VISIBLE);
+
                 break;
 
             default:
