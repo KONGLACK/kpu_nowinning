@@ -91,18 +91,6 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
         btn_pitcher = (Button)v.findViewById(R.id.def8);
 
         if(ini_num%2==1) {
-            btn_catcher.setText(away_catcher);
-            btn_firstbase.setText(away_firstbase);
-            btn_secondbase.setText(away_secondbase);
-            btn_thirdbase.setText(away_thirdbase);
-            btn_shortstop.setText(away_shortstop);
-            btn_leftfielder.setText(away_leftfielder);
-            btn_centerfielder.setText(away_centerfielder);
-            btn_rightfielder.setText(away_rightfielder);
-            btn_pitcher.setText(away_pitcher);
-        }
-
-        if(ini_num%2==0) {
             btn_catcher.setText(home_catcher);
             btn_firstbase.setText(home_firstbase);
             btn_secondbase.setText(home_secondbase);
@@ -112,6 +100,18 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
             btn_centerfielder.setText(home_centerfielder);
             btn_rightfielder.setText(home_rightfielder);
             btn_pitcher.setText(home_pitcher);
+        }
+
+        if(ini_num%2==0) {
+            btn_catcher.setText(away_catcher);
+            btn_firstbase.setText(away_firstbase);
+            btn_secondbase.setText(away_secondbase);
+            btn_thirdbase.setText(away_thirdbase);
+            btn_shortstop.setText(away_shortstop);
+            btn_leftfielder.setText(away_leftfielder);
+            btn_centerfielder.setText(away_centerfielder);
+            btn_rightfielder.setText(away_rightfielder);
+            btn_pitcher.setText(away_pitcher);
         }
 
         layout_defence = (FrameLayout) v.findViewById(R.id.layout_defence);

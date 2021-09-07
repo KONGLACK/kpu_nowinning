@@ -1,7 +1,9 @@
 package com.example.nowinning;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -173,7 +175,21 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         ArrayAdapter<CharSequence> adhome, adaway;
 
-        SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
+        Context otherAppContext = null;
+
+        try {
+            otherAppContext =  createPackageContext("com.example.nowinning",0);
+
+        }catch(PackageManager.NameNotFoundException e){
+
+            // log
+
+            e.printStackTrace();
+
+        }
+
+        SharedPreferences sharedPreferences = otherAppContext.getSharedPreferences("save", Context.MODE_WORLD_READABLE | Context.MODE_MULTI_PROCESS);
+
 
 
 
