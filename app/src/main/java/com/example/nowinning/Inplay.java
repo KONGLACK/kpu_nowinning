@@ -52,7 +52,7 @@ public class Inplay extends Fragment {
             public void onClick(View v) {
                 //Toast.makeText(getActivity(),"임시 페이지로 이동", Toast.LENGTH_SHORT).show();
 
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();ㅋ
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Inplay_Hgrnd inplay_hgrnd = new Inplay_Hgrnd();
                 transaction.replace(R.id.frame, inplay_hgrnd);
                 transaction.commit(); // 저장
