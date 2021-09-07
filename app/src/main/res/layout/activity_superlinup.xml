@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="144dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    //1번째 줄
+
+    //2번째 줄
+
+    //3번째 줄
+
+    //4번째 줄
+
+    //5번째 줄
+
+    //5번째 줄
+
+    //6번째 줄
+
+    //7번째 줄
+
+    //8번째 줄
+
+    <Button
+        android:id="@+id/away_button"
+        android:layout_width="128dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="356dp"
+        android:text="어웨이"
+        android:textColor="#1C315E"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#F47D30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></Button>
+
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="128dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="136dp"
+        android:text="등록완료"
+        android:textColor="#1C315E"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#F47D30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></Button>
+
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="122dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="356dp"
+        android:text="홈"
+        android:textColor="#1C315E"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#F47D30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

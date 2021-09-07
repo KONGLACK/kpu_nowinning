@@ -185,10 +185,15 @@ public class start extends AppCompatActivity {
             // log
 
             e.printStackTrace();
+            try {
+                throw e;
+            } catch (PackageManager.NameNotFoundException nameNotFoundException) {
+                nameNotFoundException.printStackTrace();
+            }
 
         }
 
-        SharedPreferences sharedPreferences = otherAppContext.getSharedPreferences("save", Context.MODE_WORLD_READABLE | Context.MODE_MULTI_PROCESS);
+        SharedPreferences sharedPreferences = otherAppContext.getSharedPreferences("save", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
 
 
 
