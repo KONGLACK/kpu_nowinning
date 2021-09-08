@@ -9,14 +9,14 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layout_flyout"
+            android:id="@+id/layout_buntout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_flyout"
+                android:id="@+id/btn_buntout"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:text="아웃"
@@ -26,20 +26,20 @@
                 android:textColor="#1C315E"/>
 
             <Button
-                android:id="@+id/btn_flyout_foul"
+                android:id="@+id/btn_buntout_foul"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                android:text="파울 플라이 아웃"
+                android:text="파울 번트 아웃"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"
                 android:textColor="#1C315E"/>
 
             <Button
-                android:id="@+id/btn_flyout_sac"
+                android:id="@+id/btn_buntout_sac"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                android:text="희생플라이"
+                android:text="희생번트"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"

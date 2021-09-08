@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -30,8 +29,12 @@ import static com.example.nowinning.BSOActivity.away_ball;
 import static com.example.nowinning.BSOActivity.away_outout;
 import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.ballCnt;
+import static com.example.nowinning.BSOActivity.btn_SBO;
+import static com.example.nowinning.BSOActivity.btn_o;
 import static com.example.nowinning.BSOActivity.et_ball;
 import static com.example.nowinning.BSOActivity.et_ini;
+import static com.example.nowinning.BSOActivity.et_out;
+import static com.example.nowinning.BSOActivity.et_strike;
 import static com.example.nowinning.BSOActivity.h;
 import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.home_ball;
@@ -45,56 +48,64 @@ import static com.example.nowinning.BSOActivity.img3;
 import static com.example.nowinning.BSOActivity.ini;
 import static com.example.nowinning.BSOActivity.iniCnt;
 import static com.example.nowinning.BSOActivity.ini_num;
-import static com.example.nowinning.BSOActivity.runCnt;
-import static com.example.nowinning.Others.btn_OutOthers;
-import static com.example.nowinning.BSOActivity.btn_SBO;
-import static com.example.nowinning.BSOActivity.btn_h;
-import static com.example.nowinning.BSOActivity.btn_o;
-import static com.example.nowinning.BSOActivity.btn_other;
-import static com.example.nowinning.BSOActivity.et_out;
-import static com.example.nowinning.BSOActivity.et_strike;
 import static com.example.nowinning.BSOActivity.outCnt;
+import static com.example.nowinning.BSOActivity.runCnt;
 import static com.example.nowinning.BSOActivity.stkCnt;
 import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
 
-public class Flyout extends Fragment {
 
-    public static Button btn_flyout, btn_flyout_sac;
-    public static int flyout_sac_Cnt; // 희생 플라이 판별
-    public static LinearLayout layout_flyout; // 플라이아웃 프래그먼트
+public class Buntout extends Fragment {
+
+    public static Button btn_buntout, btn_buntout_sac, btn_buntout_foul;
+    public static int buntout_sac_Cnt, buntout_foul; // 희생 플라이, 파울 아웃 판별
+    public static LinearLayout layout_buntout; // 플라이아웃 프래그먼트
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.activity_flyout, container, false);
+        View v = inflater.inflate(R.layout.activity_buntout, container, false);
 
-        btn_flyout = (Button) v.findViewById(R.id.btn_flyout);
-        btn_flyout_sac = (Button) v.findViewById(R.id.btn_flyout_sac);
+        btn_buntout = (Button) v.findViewById(R.id.btn_buntout);
+        btn_buntout_sac = (Button) v.findViewById(R.id.btn_buntout_sac);
+        btn_buntout_foul = (Button) v.findViewById(R.id.btn_buntout_foul);
 
-        layout_flyout=(LinearLayout) v.findViewById(R.id.layout_flyout);
+
+        layout_buntout=(LinearLayout) v.findViewById(R.id.layout_buntout);
 
         Handler handler = new Handler();
 
 
-        btn_flyout.setOnClickListener(new View.OnClickListener() {
+        btn_buntout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 btn_o.performClick();
 
                 btn_SBO.setVisibility(View.VISIBLE);
-                layout_flyout.setVisibility(View.INVISIBLE);
+                layout_buntout.setVisibility(View.INVISIBLE);
 
             }
         });
 
-        if(runCnt<1){
-            btn_flyout_sac.setVisibility(View.INVISIBLE);
+        btn_buntout_foul.setOnClickListener(new View.OnClickListener() { //파울 번트 아웃 추가
+            @Override
+            public void onClick(View v) {
+
+                btn_o.performClick();
+
+                btn_SBO.setVisibility(View.VISIBLE);
+                layout_buntout.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
+        if(runCnt<1){ // 주자가 없으면 희생 번트가 될 수 없음
+            btn_buntout_sac.setVisibility(View.INVISIBLE);
         }
 
-        btn_flyout_sac.setOnClickListener(new View.OnClickListener() { // 타자는 아웃 됐지만 진루가 됨
+        btn_buntout_sac.setOnClickListener(new View.OnClickListener() { // 타자는 아웃 됐지만 진루가 됨
             @Override
             public void onClick(View v) {
                 if (ini_num%2==1) {
@@ -111,7 +122,7 @@ public class Flyout extends Fragment {
                     outCnt++;   //아웃 카운트 세기 위해
 
                     //----------------------------------------------
-                    flyout_sac_Cnt++; //여기가 희생 플라이 카운터
+                    buntout_sac_Cnt++; //여기가 희생 플라이 카운터
                     //-----------------------------------------------
 
                     et_strike.setText("S "); //스트라이크 초기화
@@ -178,7 +189,7 @@ public class Flyout extends Fragment {
                     outCnt++; //스트라이크 카운트 세기 위해
 
                     //----------------------------------------------
-                    flyout_sac_Cnt++; //여기가 희생 플라이 카운터
+                    buntout_sac_Cnt++; //여기가 희생 플라이 카운터
                     //-----------------------------------------------
 
                     et_strike.setText("S ");
@@ -235,7 +246,7 @@ public class Flyout extends Fragment {
                 }
 
                 btn_SBO.setVisibility(View.VISIBLE);
-                layout_flyout.setVisibility(View.INVISIBLE);
+                layout_buntout.setVisibility(View.INVISIBLE);
             }
         });
 
