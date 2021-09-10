@@ -97,6 +97,7 @@ public class BSOActivity extends AppCompatActivity {
             away_player6, away_player7, away_player8, away_player9};
     public static String[] home_arr = {home_player1, home_player2, home_player3, home_player4, home_player5,
             home_player6, home_player7, home_player8, home_player9};
+    public static String[] fly_sac = {};
     public static int[] away_hitCount = new int[9];
     public static int[] home_hitCount = new int[9];
     public static String[] ini = {"말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말", "초", "말",

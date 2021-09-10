@@ -36,10 +36,6 @@ public class HitActivity2 extends Fragment {
     private int i;
     public static LinearLayout layout_HIT2;
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,7 +58,7 @@ public class HitActivity2 extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE);  // 주자 3루로 이동
+                    img3.setVisibility(View.INVISIBLE);
 
                     runCnt = 0; //주자 2,3루
                     btn_o.performClick();
@@ -78,7 +74,7 @@ public class HitActivity2 extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.VISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE);// 주자 1,2,3루로 이동
+                    img3.setVisibility(View.INVISIBLE);
 
                     runCnt = 1;
                     btn_o.performClick();
@@ -93,7 +89,7 @@ public class HitActivity2 extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+                    img3.setVisibility(View.VISIBLE);
 
                     runCnt = 3;
                     btn_o.performClick();
@@ -108,7 +104,7 @@ public class HitActivity2 extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
+                    img3.setVisibility(View.VISIBLE);
 
                     runCnt = 6;
                     btn_o.performClick();
@@ -131,7 +127,7 @@ public class HitActivity2 extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 1루로 이동
+                    img3.setVisibility(View.VISIBLE);
 
                     runCnt = 3; //주자 2,3루
 
@@ -146,7 +142,7 @@ public class HitActivity2 extends Fragment {
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.VISIBLE);
                     img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);// 주자 1,2,3루로 이동
+                    img3.setVisibility(View.VISIBLE);
 
                     runCnt = 6;
 
@@ -165,7 +161,7 @@ public class HitActivity2 extends Fragment {
 
 
                 else if (runCnt == 7) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
 
                     layout_HIT2.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);

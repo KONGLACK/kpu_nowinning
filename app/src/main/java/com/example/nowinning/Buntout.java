@@ -98,6 +98,8 @@ public class Buntout extends Fragment {
                 btn_SBO.setVisibility(View.VISIBLE);
                 layout_buntout.setVisibility(View.INVISIBLE);
 
+                buntout_foul++; // 파울 번트 아웃 수치 필요하면 추가
+
             }
         });
 
@@ -123,6 +125,18 @@ public class Buntout extends Fragment {
 
                     //----------------------------------------------
                     buntout_sac_Cnt++; //여기가 희생 플라이 카운터
+
+                    switch (runCnt){
+                        case 1: runCnt = 3;
+                            // runcnt가 3일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 2: runCnt = 5;
+                            // runcnt가 5일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 3: runCnt = 6;
+                            // runcnt가 6일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 4: runCnt = 7;
+                            // runcnt가 7일때 1명이 진루하여 득점하는 상황을 넣어야함
+
+                    }
                     //-----------------------------------------------
 
                     et_strike.setText("S "); //스트라이크 초기화

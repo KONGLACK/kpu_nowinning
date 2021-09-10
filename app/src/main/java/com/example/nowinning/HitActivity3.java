@@ -45,10 +45,6 @@ public class HitActivity3 extends Fragment {
     private int i;
     public static LinearLayout layout_HIT3;
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

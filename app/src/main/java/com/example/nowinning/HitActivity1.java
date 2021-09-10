@@ -40,10 +40,6 @@ public class HitActivity1 extends Fragment {
     private int i;
     public static LinearLayout layout_HIT1;
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,23 +47,19 @@ public class HitActivity1 extends Fragment {
         View hv1 = inflater.inflate(R.layout.hitter1, container, false);
         btn_HitOut1 = (Button) hv1.findViewById(R.id.btn_HitOut1);
         btn_HitRun1 = (Button) hv1.findViewById(R.id.btn_HitRun1);
-        btn_HitBack1 = (Button) hv1.findViewById(R.id.btn_HitBack1);
 
         layout_HIT1 = (LinearLayout) hv1.findViewById(R.id.layout_HIT1);
         Handler handler = new Handler();
+
+
 
         btn_HitOut1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
 
-                if (runCnt == 0) { // 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 실행할 수 없습니다.", Toast.LENGTH_SHORT).show();
-                    layout_HIT1.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
 
-                else if (runCnt == 1) {// 주자의 현재 위치
+                if (runCnt == 1) {// 주자의 현재 위치
                     img0.setVisibility(View.VISIBLE);
                     img1.setVisibility(View.INVISIBLE);
                     img2.setVisibility(View.INVISIBLE);
@@ -79,20 +71,6 @@ public class HitActivity1 extends Fragment {
                     layout_HIT1.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
-                }
-
-                else if (runCnt == 2) { // 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 실행할 수 없습니다.", Toast.LENGTH_SHORT).show();
-
-                    layout_HIT1.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
-
-                else if (runCnt == 3) { // 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 실행할 수 없습니다.", Toast.LENGTH_SHORT).show();
-
-                    layout_HIT1.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
                 }
 
 
@@ -109,13 +87,6 @@ public class HitActivity1 extends Fragment {
                     layout_HIT1.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
-                }
-
-                else if (runCnt == 5) { // 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 실행할 수 없습니다.", Toast.LENGTH_SHORT).show();
-
-                    layout_HIT1.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
                 }
 
 
@@ -243,24 +214,12 @@ public class HitActivity1 extends Fragment {
                 }
 
                 else if (runCnt == 7) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
 
-        btn_HitBack1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (runCnt == 0) { // 주자의 현재 위치
-                    Toast.makeText(getActivity(),"주자가 없습니다.", Toast.LENGTH_SHORT).show();
-                }
-
-                else {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 퇴루할 수 없습니다.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
 
         return hv1;

@@ -35,15 +35,7 @@
                 android:textColor="#1C315E"
                 />
 
-            <Button
-                android:id="@+id/btn_HitBack1"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:text="퇴루"
-                android:textStyle="bold"
-                app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"
-                />
+
         </LinearLayout>
 
     </RelativeLayout>
