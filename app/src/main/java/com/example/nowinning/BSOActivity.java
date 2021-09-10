@@ -644,17 +644,19 @@ public class BSOActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (ini_num%2==1) {
+                            outCnt++;
                             a++;
                             if(a>8) {
                                 a=0;
                             }
-                            img0.setText(away_arr[a]);
+                            if(outCnt < 3) {
+                                img0.setText(away_arr[a]);
+                            }
                             away_outout++;
                             Log.d("어웨이아웃값", away_outout+"");
 
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
-                            outCnt++; //스트라이크 카운트 세기 위해
                             et_strike.setText("S ");
                             stkCnt = 0;
                             et_ball.setText("B ");
@@ -675,6 +677,9 @@ public class BSOActivity extends AppCompatActivity {
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
+                                        if(iniCnt > 1) {
+                                            h = h - 1;
+                                        }
                                         et_out.setText("O ");
                                         outCnt = 0;
                                         img0.setText(home_arr[h]);
@@ -712,15 +717,17 @@ public class BSOActivity extends AppCompatActivity {
                         }
 
                         else if(ini_num%2==0) {
+                            outCnt++;
                             h++;
                             if(h>8) {
                                 h=0;
                             }
                             home_outout++;
-                            img0.setText(home_arr[h]);
+                            if(outCnt < 3) {
+                                img0.setText(home_arr[h]);
+                            }
 
                             et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
-                            outCnt++; //스트라이크 카운트 세기 위해
                             et_strike.setText("S ");
                             stkCnt = 0;
                             et_ball.setText("B ");
@@ -740,6 +747,9 @@ public class BSOActivity extends AppCompatActivity {
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                     @Override
                                     public void run() {
+                                        if(iniCnt > 1) {
+                                            a = a - 1;
+                                        }
                                         et_out.setText("O ");
                                         outCnt = 0;
                                         img0.setText(away_arr[a]);
