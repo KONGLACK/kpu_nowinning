@@ -175,25 +175,9 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         ArrayAdapter<CharSequence> adhome, adaway;
 
-        Context otherAppContext = null;
 
-        try {
-            otherAppContext =  createPackageContext("com.example.nowinning",0);
 
-        }catch(PackageManager.NameNotFoundException e){
-
-            // log
-
-            e.printStackTrace();
-            try {
-                throw e;
-            } catch (PackageManager.NameNotFoundException nameNotFoundException) {
-                nameNotFoundException.printStackTrace();
-            }
-
-        }
-
-        SharedPreferences sharedPreferences = otherAppContext.getSharedPreferences("save", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
+        SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
 
 
 
