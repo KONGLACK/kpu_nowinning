@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import static com.example.nowinning.BSOActivity.fly_sac;
+import static com.example.nowinning.BSOActivity.bat_select;
 
 public class Inplay extends Fragment {
 
@@ -39,7 +39,7 @@ public class Inplay extends Fragment {
         btn_Ground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fly_sac[0] = "ground";
+                bat_select[0] = 0; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Inplay2 inplay2 = new Inplay2();
@@ -52,7 +52,7 @@ public class Inplay extends Fragment {
         btn_Hground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fly_sac[0] = "hground";
+                bat_select[0] = 1; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Inplay_Hgrnd inplay_hgrnd = new Inplay_Hgrnd();
@@ -64,7 +64,7 @@ public class Inplay extends Fragment {
         btn_Bunt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fly_sac[0] = "bunt";
+                bat_select[0] = 2; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Inplay_Bunt inplay_bunt = new Inplay_Bunt();
                 transaction.replace(R.id.frame, inplay_bunt);
@@ -82,7 +82,7 @@ public class Inplay extends Fragment {
         btn_Fly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fly_sac[0] = "fly";
+                bat_select[0] = 3; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Inplay_Fly inplay_fly = new Inplay_Fly();
                 transaction.replace(R.id.frame, inplay_fly);
@@ -93,7 +93,7 @@ public class Inplay extends Fragment {
         btn_Pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fly_sac[0] = "pop";
+                bat_select[0] = 4; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Inplay_Pop inplay_pop = new Inplay_Pop();
                 transaction.replace(R.id.frame, inplay_pop);

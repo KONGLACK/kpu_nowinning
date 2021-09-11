@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_layout_hit2_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_hit2_back1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="진루하지 않음"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+            <Button
+                android:id="@+id/btn_hit2_back2"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="야수 선택"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>

@@ -32,7 +32,7 @@ import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.ballCnt;
 import static com.example.nowinning.BSOActivity.et_ball;
 import static com.example.nowinning.BSOActivity.et_ini;
-import static com.example.nowinning.BSOActivity.fly_sac;
+import static com.example.nowinning.BSOActivity.bat_select;
 import static com.example.nowinning.BSOActivity.h;
 import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.home_ball;

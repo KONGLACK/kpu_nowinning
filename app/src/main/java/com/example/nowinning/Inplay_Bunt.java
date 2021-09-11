@@ -46,19 +46,15 @@ public class Inplay_Bunt extends Fragment {
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(outCnt<2) {
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    Buntout buntout = new Buntout();
-                    transaction.replace(R.id.frame, buntout);
-                    transaction.commit(); // 저장
-                }
-                else if(outCnt>=2){ // 2아웃 이상일 땐 바로 아웃
-                    btn_o.performClick();
+
+                    FragmentTransaction transaction2= getActivity().getSupportFragmentManager().beginTransaction();
+                    DefenceActivity Defence_fragment = new DefenceActivity();
+                    transaction2.replace(R.id.frame2, Defence_fragment);
+                    transaction2.commit();
 
                     btn_SBO.setVisibility(View.VISIBLE);
                     layout_Bunt.setVisibility(View.INVISIBLE);
                 }
-            }
         });
 
         btn_Hit.setOnClickListener(new View.OnClickListener() {

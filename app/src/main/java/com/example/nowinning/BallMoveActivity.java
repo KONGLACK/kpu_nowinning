@@ -37,12 +37,12 @@ import static com.example.nowinning.start.home_secondbase;
 import static com.example.nowinning.start.home_shortstop;
 import static com.example.nowinning.start.home_thirdbase;
 
-public class DefenceActivity extends Fragment implements View.OnTouchListener {
+public class BallMoveActivity extends Fragment implements View.OnTouchListener {//공이 떨어지는 곳을 표시하기 위한 기능
 
     float dX;
     float dY;
     int lastAction;
-    public static FrameLayout layout_defence;
+    public static FrameLayout layout_ballmove;
     public static ConstraintLayout layout_def_field;
 
     public static Button btn_catcher, btn_firstbase, btn_secondbase, btn_thirdbase, btn_shortstop, btn_leftfielder, btn_centerfielder, btn_rightfielder, btn_pitcher;
@@ -115,7 +115,7 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
             btn_pitcher.setText(away_pitcher);
         }
 
-        layout_defence = (FrameLayout) v.findViewById(R.id.layout_defence);
+        layout_ballmove = (FrameLayout) v.findViewById(R.id.layout_ballmove);
 
         return  v;
     }
@@ -163,7 +163,7 @@ public class DefenceActivity extends Fragment implements View.OnTouchListener {
                 //if (lastAction == MotionEvent.ACTION_DOWN)
                 btn_o.performClick();
                 Toast.makeText(getActivity(), dX+", "+dY, Toast.LENGTH_SHORT).show();
-                layout_defence.setVisibility(View.INVISIBLE);
+                layout_ballmove.setVisibility(View.INVISIBLE);
                 layout_field.setVisibility(View.VISIBLE);
 
                 btn_SBO.setVisibility(View.VISIBLE);
