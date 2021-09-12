@@ -9,32 +9,41 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layout_HIT1"
+            android:id="@+id/layout_hit1_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_HitOut1"
+                android:id="@+id/btn_hit1_out1"
                 android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:text="아웃"
+                android:layout_height="100dp"
+                android:text="견제사"
+                android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"
-                />
+                android:textColor="#1C315E"/>
 
             <Button
-                android:id="@+id/btn_HitRun1"
+                android:id="@+id/btn_hit1_out2"
                 android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:text="진루"
+                android:layout_height="100dp"
+                android:text="수비 성공"
+                android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"
-                />
+                android:textColor="#1C315E"/>
 
+            <Button
+                android:id="@+id/btn_hit1_out3"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:text="기타 사유"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
 
         </LinearLayout>
 

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -45,10 +46,6 @@ public class HitActivity3 extends Fragment {
     private int i;
     public static LinearLayout layout_HIT3;
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,6 +61,11 @@ public class HitActivity3 extends Fragment {
         btn_HitOut3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                HitActivity3_Out hitActivity3_out = new HitActivity3_Out();
+                transaction.replace(R.id.frame, hitActivity3_out);
+                transaction.commit();
                 // 추후 1루타 정보로 수정
 
                 if (runCnt == 3) {// 주자의 현재 위치
@@ -144,6 +146,12 @@ public class HitActivity3 extends Fragment {
             @Override
             public void onClick(View v) {
                 // 추후 1루타 정보로 수정
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                HitActivity3_Run hitActivity3_run = new HitActivity3_Run();
+                transaction.replace(R.id.frame, hitActivity3_run);
+                transaction.commit();
+
                 if(iniCnt % 2 == 1) {
                     if (runCnt == 3) {// 주자의 현재 위치
                         img0.setVisibility(View.VISIBLE);
@@ -370,6 +378,11 @@ public class HitActivity3 extends Fragment {
         btn_HitBack3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                HitActivity3_Back hitActivity3_back = new HitActivity3_Back();
+                transaction.replace(R.id.frame, hitActivity3_back);
+                transaction.commit();
 
                 if (runCnt == 3) {// 주자의 현재 위치
                     img2.setText(img3.getText());

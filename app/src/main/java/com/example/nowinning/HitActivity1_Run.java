@@ -29,6 +29,7 @@ import static com.example.nowinning.BSOActivity.away_ball;
 import static com.example.nowinning.BSOActivity.away_outout;
 import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.ballCnt;
+import static com.example.nowinning.BSOActivity.bat_select;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_o;
 import static com.example.nowinning.BSOActivity.et_ball;
@@ -55,57 +56,233 @@ import static com.example.nowinning.start.choice_away;
 import static com.example.nowinning.start.choice_home;
 
 
-public class Buntout extends Fragment {
+public class HitActivity1_Run extends Fragment {
 
-    public static Button btn_buntout, btn_buntout_sac, btn_buntout_foul;
-    public static int buntout_sac_Cnt, buntout_foul; // 희생 플라이, 파울 아웃 판별
-    public static LinearLayout layout_buntout; // 플라이아웃 프래그먼트
+    public static Button btn_hit1_run1, btn_hit1_run2, btn_hit1_run3, btn_hit1_run4;// 도루, 태그업, 희생 번트, 수비 에러
+    public static int hit1_run1, hit1_run2, hit1_run3, hit1_run4; // 도루, 태그업, 희생 번트, 수비 에러 각각 카운터
+    public static LinearLayout layout_hit1_run; // 플라이아웃 프래그먼트
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.activity_buntout, container, false);
+        View v = inflater.inflate(R.layout.hitter1_run, container, false);
 
-        btn_buntout = (Button) v.findViewById(R.id.btn_buntout);
-        btn_buntout_sac = (Button) v.findViewById(R.id.btn_buntout_sac);
-        btn_buntout_foul = (Button) v.findViewById(R.id.btn_buntout_foul);
+        btn_hit1_run1 = (Button) v.findViewById(R.id.btn_hit1_run1);
+        btn_hit1_run2 = (Button) v.findViewById(R.id.btn_hit1_run2);
+        btn_hit1_run3 = (Button) v.findViewById(R.id.btn_hit1_run3);
+        btn_hit1_run4 = (Button) v.findViewById(R.id.btn_hit1_run4);
 
-
-        layout_buntout=(LinearLayout) v.findViewById(R.id.layout_buntout);
+        layout_hit1_run = (LinearLayout) v.findViewById(R.id.layout_hit1_run);
 
         Handler handler = new Handler();
 
-
-        btn_buntout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                btn_o.performClick();
-
-                btn_SBO.setVisibility(View.VISIBLE);
-                layout_buntout.setVisibility(View.INVISIBLE);
-
-            }
-        });
-
-        btn_buntout_foul.setOnClickListener(new View.OnClickListener() { //파울 번트 아웃 추가
-            @Override
-            public void onClick(View v) {
-
-                btn_o.performClick();
-
-                btn_SBO.setVisibility(View.VISIBLE);
-                layout_buntout.setVisibility(View.INVISIBLE);
-
-            }
-        });
-
-        if(runCnt<1){ // 주자가 없으면 희생 번트가 될 수 없음
-            btn_buntout_sac.setVisibility(View.INVISIBLE);
+        if (bat_select[0] != 2) { //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
+            btn_hit1_run3.setVisibility(View.GONE);
         }
 
-        btn_buntout_sac.setOnClickListener(new View.OnClickListener() { // 타자는 아웃 됐지만 진루가 됨
+        if (bat_select[0] != 3) { //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
+            btn_hit1_run2.setVisibility(View.GONE);
+        }
+
+
+        btn_hit1_run1.setOnClickListener(new View.OnClickListener() {//도루
+            @Override
+            public void onClick(View v) {
+
+                if (runCnt == 1) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                    runCnt = 2; // 주자 2루
+
+                    hit1_run1++; //주자, 투수 도루++
+
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 4) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                else if (runCnt == 6) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);  // 주자 2,3루로 이동
+
+                    runCnt = 5;
+                    hit1_run1++; //주자, 투수 도루++
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 7) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+        btn_hit1_run2.setOnClickListener(new View.OnClickListener() {//태그업 bat_select가 fly여야지 작동
+            @Override
+            public void onClick(View v) {
+
+                if (runCnt == 1) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                    runCnt = 2; // 주자 2루
+                    hit1_run2++; //주자, 투수 태그업++
+
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 4) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                else if (runCnt == 6) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                    runCnt = 5;
+                    hit1_run2++; //주자, 투수 태그업++
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 7) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+        btn_hit1_run3.setOnClickListener(new View.OnClickListener() {//희생 번트 bat_select가 bunt여야지 작동
+            @Override
+            public void onClick(View v) {
+
+                if (runCnt == 1) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                    runCnt = 2; // 주자 2루
+
+                    hit1_run3++; //타자, 투수 희생번트++
+
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 4) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                else if (runCnt == 6) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                    runCnt = 5;
+                    hit1_run1++; //타자, 투수 도루++
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 7) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+        btn_hit1_run4.setOnClickListener(new View.OnClickListener() {//에러
+            @Override
+            public void onClick(View v) {
+
+                if (runCnt == 1) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+
+                    runCnt = 2; // 주자 2루
+                    hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
+
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 4) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                else if (runCnt == 6) {// 주자의 현재 위치
+                    img2.setText(img1.getText());
+                    img0.setVisibility(View.VISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.VISIBLE);
+                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+
+                    runCnt = 5;
+                    hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
+
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
+                    btn_SBO.setVisibility(View.VISIBLE);
+
+                }
+
+                else if (runCnt == 7) {// 주자의 현재 위치
+                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+
+
+       /* btn_buntout_sac.setOnClickListener(new View.OnClickListener() { // 타자는 아웃 됐지만 진루가 됨
             @Override
             public void onClick(View v) {
                 if (ini_num%2==1) {
@@ -123,6 +300,18 @@ public class Buntout extends Fragment {
 
                     //----------------------------------------------
                     buntout_sac_Cnt++; //여기가 희생 플라이 카운터
+
+                    switch (runCnt){
+                        case 1: runCnt = 3;
+                            // runcnt가 3일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 2: runCnt = 5;
+                            // runcnt가 5일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 3: runCnt = 6;
+                            // runcnt가 6일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 4: runCnt = 7;
+                            // runcnt가 7일때 1명이 진루하여 득점하는 상황을 넣어야함
+
+                    }
                     //-----------------------------------------------
 
                     et_strike.setText("S "); //스트라이크 초기화
@@ -252,7 +441,8 @@ public class Buntout extends Fragment {
 
 
         return v;
+    }*/
+
+        return v;
     }
-
-
 }

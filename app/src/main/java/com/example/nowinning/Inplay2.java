@@ -85,19 +85,12 @@ public class Inplay2 extends Fragment {
             @Override
             public void onClick(View v) {
                 if(ini_num%2==1) {
-
-
-
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     SDT_select sdt_select = new SDT_select();
                     transaction.replace(R.id.frame, sdt_select);
                     transaction.commit(); // 저장
                 }
                 if(ini_num%2==0) {
-
-
-
-
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     SDT_select sdt_select = new SDT_select();
                     transaction.replace(R.id.frame, sdt_select);

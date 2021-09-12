@@ -32,6 +32,7 @@ import static com.example.nowinning.BSOActivity.away_strike;
 import static com.example.nowinning.BSOActivity.ballCnt;
 import static com.example.nowinning.BSOActivity.et_ball;
 import static com.example.nowinning.BSOActivity.et_ini;
+import static com.example.nowinning.BSOActivity.bat_select;
 import static com.example.nowinning.BSOActivity.h;
 import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.home_ball;
@@ -81,7 +82,6 @@ public class Flyout extends Fragment {
         btn_flyout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 btn_o.performClick();
 
                 btn_SBO.setVisibility(View.VISIBLE);
@@ -112,6 +112,18 @@ public class Flyout extends Fragment {
 
                     //----------------------------------------------
                     flyout_sac_Cnt++; //여기가 희생 플라이 카운터
+
+                    switch (runCnt){
+                        case 1: runCnt = 3;
+                            // runcnt가 3일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 2: runCnt = 5;
+                            // runcnt가 5일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 3: runCnt = 6;
+                            // runcnt가 6일때 1명이 진루하여 득점하는 상황을 넣어야함
+                        case 4: runCnt = 7;
+                            // runcnt가 7일때 1명이 진루하여 득점하는 상황을 넣어야함
+
+                    }
                     //-----------------------------------------------
 
                     et_strike.setText("S "); //스트라이크 초기화

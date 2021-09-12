@@ -9,41 +9,34 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layout_buntout"
+            android:id="@+id/layout_layout_hit3_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_buntout"
+                android:id="@+id/btn_hit3_back1"
                 android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:text="아웃"
+                android:layout_height="50dp"
+                android:text="진루하지 않음"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"
                 android:textColor="#1C315E"/>
 
             <Button
-                android:id="@+id/btn_buntout_foul"
+                android:id="@+id/btn_hit3_back2"
                 android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:text="파울 번트 아웃"
+                android:layout_height="50dp"
+                android:text="야수 선택"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"
                 android:textColor="#1C315E"/>
 
-            <Button
-                android:id="@+id/btn_buntout_sac"
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:text="희생번트"
-                android:layout_marginBottom="16dp"
-                android:textStyle="bold"
-                app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"/>
+
+
         </LinearLayout>
 
     </RelativeLayout>

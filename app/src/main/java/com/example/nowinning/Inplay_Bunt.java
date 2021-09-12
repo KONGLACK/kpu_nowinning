@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_o;
 import static com.example.nowinning.BSOActivity.btn_s;
+import static com.example.nowinning.BSOActivity.outCnt;
 import static com.example.nowinning.BSOActivity.runCnt;
 
 public class Inplay_Bunt extends Fragment {
@@ -45,11 +46,15 @@ public class Inplay_Bunt extends Fragment {
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_o.performClick();
 
-                layout_Bunt.setVisibility(View.INVISIBLE);
-                btn_SBO.setVisibility(View.VISIBLE);
-            }
+                    FragmentTransaction transaction2= getActivity().getSupportFragmentManager().beginTransaction();
+                    DefenceActivity Defence_fragment = new DefenceActivity();
+                    transaction2.replace(R.id.frame2, Defence_fragment);
+                    transaction2.commit();
+
+                    btn_SBO.setVisibility(View.VISIBLE);
+                    layout_Bunt.setVisibility(View.INVISIBLE);
+                }
         });
 
         btn_Hit.setOnClickListener(new View.OnClickListener() {

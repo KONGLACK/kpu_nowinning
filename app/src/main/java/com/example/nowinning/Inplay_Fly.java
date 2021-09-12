@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.btn_o;
+import static com.example.nowinning.BSOActivity.outCnt;
 import static com.example.nowinning.BSOActivity.runCnt;
 
 public class Inplay_Fly extends Fragment {
@@ -45,10 +46,13 @@ public class Inplay_Fly extends Fragment {
         btn_Out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Flyout flyout = new Flyout();
-                transaction.replace(R.id.frame, flyout);
-                transaction.commit(); // 저장
+                FragmentTransaction transaction2= getActivity().getSupportFragmentManager().beginTransaction();
+                DefenceActivity Defence_fragment = new DefenceActivity();
+                transaction2.replace(R.id.frame2, Defence_fragment);
+                transaction2.commit();
+
+                btn_SBO.setVisibility(View.VISIBLE);
+                layout_Fly.setVisibility(View.INVISIBLE);
             }
         });
 

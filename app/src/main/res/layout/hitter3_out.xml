@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_hit3_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_hit3_out1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="견제사"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+            <Button
+                android:id="@+id/btn_hit3_out2"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="수비 성공"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+            <Button
+                android:id="@+id/btn_hit3_out3"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="병살"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+            <Button
+                android:id="@+id/btn_hit3_out4"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="도루 실패"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+            <Button
+                android:id="@+id/btn_hit3_out5"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="야수 선택"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+
+            <Button
+                android:id="@+id/btn_hit3_out6"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="기타 사유"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>
