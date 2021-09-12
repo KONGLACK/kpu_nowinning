@@ -45,7 +45,7 @@ import static com.example.nowinning.start.home_pitcher;
 
 public class SDT_select extends Fragment {
 
-    public static Button btn_Single, btn_Double, btn_Triple;
+    public static Button btn_Single, btn_Double, btn_Triple, btn_Homerun;
     public static int a_SingleCount=0, a_DoubleCount=0, a_TripleCount=0;
     public static int h_SingleCount=0, h_DoubleCount=0, h_TripleCount=0;
     private int i;
@@ -67,6 +67,7 @@ public class SDT_select extends Fragment {
         btn_Single = (Button) v.findViewById(R.id.btn_Single);
         btn_Double = (Button) v.findViewById(R.id.btn_Double);
         btn_Triple = (Button) v.findViewById(R.id.btn_Triple);
+        btn_Homerun = (Button) v.findViewById(R.id.btn_Homerun);
 
         layout_SDT = (LinearLayout) v.findViewById(R.id.layout_SDT);
         Handler handler = new Handler();
@@ -2043,6 +2044,902 @@ public class SDT_select extends Fragment {
                                 public void run() {
                                     hscore++;
                                     et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+
+        });
+
+        btn_Homerun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ini_num % 2 == 1) {
+                    PithcerReqeust_Hits_Home PithcerReqeust_Hits_Home = new PithcerReqeust_Hits_Home(choice_away, choice_home, home_pitcher, responseListener);
+                    RequestQueue queue8 = Volley.newRequestQueue(getContext());
+                    queue8.add(PithcerReqeust_Hits_Home);
+
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+
+                        RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away,  choice_home, away_arr[a], responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(RBIRequest_away);
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Home);
+
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); // 주자 3루로 이동
+
+                          handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                ascore++;
+                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                away_ining++;
+                            }
+                        }, 500);
+
+                        runCnt = 0;
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(i=0; i<2; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away ScoreRequest_away1 = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(ScoreRequest_away1);
+
+
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 3루로 이동
+
+                        runCnt = 0; // 주자 3루
+
+                        for(i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(i=0; i<2; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away ScoreRequest_away1 = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(ScoreRequest_away1);
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for(i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(i=0; i<2; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away ScoreRequest_away1 = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(ScoreRequest_away1);
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+
+                        for(i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(int i=0; i<3; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away scoreRequestAway1 = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequestAway1);
+
+                        ScoreRequest_away scoreRequestAway2 = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequestAway2);
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(int i=0; i<3; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away scoreRequestAway1 = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequestAway1);
+
+                        ScoreRequest_away scoreRequestAway2 = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequestAway2);
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(int i=0; i<3; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away scoreRequestAway1 = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequestAway1);
+
+                        ScoreRequest_away scoreRequestAway2 = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequestAway2);
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        BatterRequest_Homerun_away BatterRequest_Homerun_away = new BatterRequest_Homerun_away(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_away);
+
+                        PitcherRequest_Homerun_home PitcherRequest_Homerun_home = new PitcherRequest_Homerun_home(choice_away, choice_home, away_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue9.add(PitcherRequest_Homerun_home);
+
+                        for(int i=0; i<4; i++) {
+                            RBIRequest_away RBIRequest_away = new RBIRequest_away(choice_away, choice_home, away_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_away);
+
+                            PithcerReqeust_ER_Home PithcerReqeust_ER_Home = new PithcerReqeust_ER_Home(choice_away, choice_home, home_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Home);
+                        }
+
+                        ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_away);
+
+                        ScoreRequest_away scoreRequestAway1 = new ScoreRequest_away(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequestAway1);
+
+                        ScoreRequest_away scoreRequestAway2 = new ScoreRequest_away(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequestAway2);
+
+                        ScoreRequest_away scoreRequestAway3 = new ScoreRequest_away(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                        queue6.add(scoreRequestAway3);
+
+                        a++;
+
+                        img0.setText(away_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 4; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    ascore++;
+                                    et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                    away_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    }
+                } else if (ini_num % 2 == 0) {
+                    PithcerReqeust_Hits_Away PithcerReqeust_Hits_Away = new PithcerReqeust_Hits_Away(choice_away, choice_home, away_pitcher, responseListener);
+                    RequestQueue queue8 = Volley.newRequestQueue(getContext());
+                    queue8.add(PithcerReqeust_Hits_Away);
+
+                    if (runCnt == 0) { // 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away,  choice_home, home_arr[a], responseListener);
+                        RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                        queue1.add(RBIRequest_home);
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(PithcerReqeust_ER_Away);
+
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE); // 주자 3루로 이동
+
+                        handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                            @Override
+                            public void run() {
+                                hscore++;
+                                et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                home_ining++;
+                            }
+                        }, 500);
+
+                        runCnt = 0;
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 1) {// 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(i=0; i<2; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home ScoreRequest_home1 = new ScoreRequest_home(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(ScoreRequest_home1);
+
+
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);   // 주자 3루로 이동
+
+                        runCnt = 0; // 주자 3루
+
+                        for(i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 2) { // 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(i=0; i<2; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home ScoreRequest_home1 = new ScoreRequest_home(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(ScoreRequest_home1);
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for(i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 3) {// 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(i=0; i<2; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home ScoreRequest_home1 = new ScoreRequest_home(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(ScoreRequest_home1);
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+
+                        for(i=0; i<2; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(int i=0; i<3; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home scoreRequesthome1 = new ScoreRequest_home(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequesthome1);
+
+                        ScoreRequest_home scoreRequesthome2 = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequesthome2);
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 5) {// 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(int i=0; i<3; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home scoreRequesthome1 = new ScoreRequest_home(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequesthome1);
+
+                        ScoreRequest_home scoreRequesthome2 = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequesthome2);
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 6) {// 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(int i=0; i<3; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home scoreRequesthome1 = new ScoreRequest_home(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequesthome1);
+
+                        ScoreRequest_home scoreRequesthome2 = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequesthome2);
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 3; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                    home_ining++;
+                                }
+                            }, 500);
+                        }
+
+                        stkCnt = 0;
+                        ballCnt = 0;
+
+                        layout_SDT.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        BatterRequest_Homerun_home BatterRequest_Homerun_home = new BatterRequest_Homerun_home(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(BatterRequest_Homerun_home);
+
+                        PitcherRequest_Homerun_away PitcherRequest_Homerun_away = new PitcherRequest_Homerun_away(choice_away, choice_home, home_arr[a], responseListener);
+                        RequestQueue queue9 = Volley.newRequestQueue(getContext());
+                        queue.add(PitcherRequest_Homerun_away);
+
+                        for(int i=0; i<4; i++) {
+                            RBIRequest_home RBIRequest_home = new RBIRequest_home(choice_away, choice_home, home_arr[a], responseListener);
+                            RequestQueue queue1 = Volley.newRequestQueue(getContext());
+                            queue1.add(RBIRequest_home);
+
+                            PithcerReqeust_ER_Away PithcerReqeust_ER_Away = new PithcerReqeust_ER_Away(choice_away, choice_home, away_pitcher, responseListener);
+                            RequestQueue queue4 = Volley.newRequestQueue(getContext());
+                            queue4.add(PithcerReqeust_ER_Away);
+                        }
+
+                        ScoreRequest_home ScoreRequest_home = new ScoreRequest_home(choice_away, choice_home,  (String) img1.getText(), responseListener);
+                        RequestQueue queue2 = Volley.newRequestQueue(getContext());
+                        queue2.add(ScoreRequest_home);
+
+                        ScoreRequest_home scoreRequesthome1 = new ScoreRequest_home(choice_away, choice_home,  (String) img2.getText(), responseListener);
+                        RequestQueue queue3 = Volley.newRequestQueue(getContext());
+                        queue3.add(scoreRequesthome1);
+
+                        ScoreRequest_home scoreRequesthome2 = new ScoreRequest_home(choice_away, choice_home,  (String) img3.getText(), responseListener);
+                        RequestQueue queue5 = Volley.newRequestQueue(getContext());
+                        queue5.add(scoreRequesthome2);
+
+                        ScoreRequest_home scoreRequesthome3 = new ScoreRequest_home(choice_away, choice_home,  (String) img0.getText(), responseListener);
+                        RequestQueue queue6 = Volley.newRequestQueue(getContext());
+                        queue6.add(scoreRequesthome3);
+
+                        a++;
+
+                        img0.setText(home_arr[a]);
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.INVISIBLE);// 주자 3루로 이동
+
+                        runCnt = 0; //주자 2,3루
+
+                        for (int i = 0; i < 4; i++) {
+                            handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                @Override
+                                public void run() {
+                                    hscore++;
+                                    et_hscore.setText("원정   " + choice_home + Integer.toString(hscore));
                                     home_ining++;
                                 }
                             }, 500);

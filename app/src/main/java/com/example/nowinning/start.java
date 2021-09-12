@@ -661,7 +661,7 @@ public class start extends AppCompatActivity {
                 CreateTable_Request_pitcher CreateTable_Request_pitcher = new CreateTable_Request_pitcher(choice_away, choice_home,
                         away_pitcher, home_pitcher, responseListener);
                 RequestQueue queue6 = Volley.newRequestQueue(start.this);
-                queue5.add(CreateTable_Request_pitcher);
+                queue6.add(CreateTable_Request_pitcher);
 
 
                 away_ball = 0;
