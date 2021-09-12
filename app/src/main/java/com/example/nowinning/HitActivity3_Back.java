@@ -39,7 +39,7 @@ public class HitActivity3_Back extends Fragment {
         btn_hit1_run3 = (Button) v.findViewById(R.id.btn_hit1_run3);
         btn_hit1_run4 = (Button) v.findViewById(R.id.btn_hit1_run4);
 
-        layout_layout_hit1_run = (LinearLayout) v.findViewById(R.id.layout_layout_hit1_run);
+        layout_layout_hit1_run = (LinearLayout) v.findViewById(R.id.layout_hit1_run);
 
         Handler handler = new Handler();
 
