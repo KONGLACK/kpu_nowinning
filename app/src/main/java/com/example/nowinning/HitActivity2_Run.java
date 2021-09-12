@@ -41,7 +41,7 @@ public class HitActivity2_Run extends Fragment {
     public static Button btn_hit2_run1, btn_hit2_run2, btn_hit2_run3, btn_hit2_run4, btn_hit2_run5;// 도루, 태그업, 희생 번트, 수비 에러
     public static int hit2_run1, hit2_run2, hit2_run3, hit2_run4; // 도루, 태그업, 희생 번트, 수비 에러 각각 카운터
     public static LinearLayout layout_hit2_run; // 플라이아웃 프래그먼트
-
+// .
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
