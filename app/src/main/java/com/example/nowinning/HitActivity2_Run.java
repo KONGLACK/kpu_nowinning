@@ -13,19 +13,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.nowinning.BSOActivity.a;
+import static com.example.nowinning.BSOActivity.away_arr;
 import static com.example.nowinning.BSOActivity.bat_select;
 import static com.example.nowinning.BSOActivity.btn_SBO;
+import static com.example.nowinning.BSOActivity.h;
+import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.img0;
 import static com.example.nowinning.BSOActivity.img1;
 import static com.example.nowinning.BSOActivity.img2;
 import static com.example.nowinning.BSOActivity.img3;
+import static com.example.nowinning.BSOActivity.ini_num;
 import static com.example.nowinning.BSOActivity.runCnt;
+import static com.example.nowinning.start.choice_away;
+import static com.example.nowinning.start.choice_home;
 
 
 public class HitActivity2_Run extends Fragment {
 
-    public static Button btn_hit2_run1, btn_hit2_run2, btn_hit2_run3, btn_hit2_run4;// 도루, 태그업, 희생 번트, 수비 에러
-    public static int hit1_run1, hit1_run2, hit1_run3, hit1_run4; // 도루, 태그업, 희생 번트, 수비 에러 각각 카운터
+    public static Button btn_hit2_run1, btn_hit2_run2, btn_hit2_run3, btn_hit2_run4, btn_hit2_run5;// 도루, 태그업, 희생 번트, 수비 에러
+    public static int hit2_run1, hit2_run2, hit2_run3, hit2_run4; // 도루, 태그업, 희생 번트, 수비 에러 각각 카운터
     public static LinearLayout layout_hit2_run; // 플라이아웃 프래그먼트
 
     @Nullable
@@ -38,6 +52,7 @@ public class HitActivity2_Run extends Fragment {
         btn_hit2_run2 = (Button) v.findViewById(R.id.btn_hit2_run2);
         btn_hit2_run3 = (Button) v.findViewById(R.id.btn_hit2_run3);
         btn_hit2_run4 = (Button) v.findViewById(R.id.btn_hit2_run4);
+        btn_hit2_run5 = (Button) v.findViewById(R.id.btn_hit2_run5);
 
         layout_hit2_run = (LinearLayout) v.findViewById(R.id.layout_hit2_run);
 
@@ -49,53 +64,109 @@ public class HitActivity2_Run extends Fragment {
 
         if (bat_select[0] != 3) { //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
             btn_hit2_run2.setVisibility(View.GONE);
+            btn_hit2_run5.setVisibility(View.GONE);
         }
+
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
 
 
         btn_hit2_run1.setOnClickListener(new View.OnClickListener() {//도루
             @Override
             public void onClick(View v) {
 
-                if (runCnt == 1) {// 주자의 현재 위치
-                    img2.setText(img1.getText());
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+                if (ini_num % 2 == 1) {
+                    BatterRequest_sb_away BatterRequest_sb_away = new BatterRequest_sb_away(choice_away, choice_home, (String) img2.getText(), responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(BatterRequest_sb_away);
 
-                    runCnt = 2; // 주자 2루
+                    if (runCnt == 2) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
-                    hit1_run1++; //주자, 투수 도루++
+                        runCnt = 3; // 주자 2루
+
+                        hit2_run1++; //주자, 투수 도루++
 
 
-                    layout_hit2_run.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+
+                        runCnt = 6; // 주자 2루
+
+                        hit2_run1++; //주자, 투수 도루++
+
+
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if(runCnt == 5) {
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                    }
 
                 }
 
-                else if (runCnt == 4) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if (ini_num % 2 == 0) {
+                    BatterRequest_sb_home BatterRequest_sb_home = new BatterRequest_sb_home(choice_away, choice_home, (String) img2.getText(), responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(BatterRequest_sb_home);
+                    if (runCnt == 2) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
-                }
+                        runCnt = 3; // 주자 2루
+
+                        hit2_run1++; //주자, 투수 도루++
 
 
-                else if (runCnt == 6) {// 주자의 현재 위치
-                    img2.setText(img1.getText());
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);  // 주자 2,3루로 이동
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    runCnt = 5;
-                    hit1_run1++; //주자, 투수 도루++
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
-                    layout_hit2_run.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        runCnt = 6; // 주자 2루
 
-                }
+                        hit2_run1++; //주자, 투수 도루++
 
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if(runCnt == 5) {
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                    }
 
                 }
 
@@ -113,7 +184,7 @@ public class HitActivity2_Run extends Fragment {
                     img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
 
                     runCnt = 2; // 주자 2루
-                    hit1_run2++; //주자, 투수 태그업++
+                    hit2_run2++; //주자, 투수 태그업++
 
 
                     layout_hit2_run.setVisibility(View.INVISIBLE);
@@ -135,7 +206,7 @@ public class HitActivity2_Run extends Fragment {
                     img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
 
                     runCnt = 5;
-                    hit1_run2++; //주자, 투수 태그업++
+                    hit2_run2++; //주자, 투수 태그업++
 
                     layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
@@ -153,47 +224,88 @@ public class HitActivity2_Run extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (runCnt == 1) {// 주자의 현재 위치
-                    img2.setText(img1.getText());
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
+                if(ini_num%2==1) {
+                    BatterRequest_sh_away BatterRequest_sh_away = new BatterRequest_sh_away(choice_away, choice_home, away_arr[a-1], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(BatterRequest_sh_away);
 
-                    runCnt = 2; // 주자 2루
+                    if (runCnt == 2) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
-                    hit1_run3++; //타자, 투수 희생번트++
+                        runCnt = 3; // 주자 2루
+
+                        hit2_run3++; //주자, 투수 도루++
 
 
-                    layout_hit2_run.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+
+                        runCnt = 6; // 주자 2루
+
+                        hit2_run3++; //주자, 투수 도루++
+
+
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if(runCnt == 5) {
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
 
-                else if (runCnt == 4) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 진루할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if(ini_num%2==0) {
+                    BatterRequest_sh_home BatterRequest_sh_home = new BatterRequest_sh_home(choice_away, choice_home, home_arr[h-1], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(BatterRequest_sh_home);
 
-                }
+                    if (runCnt == 2) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
+
+                        runCnt = 3; // 주자 2루
+
+                        hit2_run3++; //주자, 투수 도루++
 
 
-                else if (runCnt == 6) {// 주자의 현재 위치
-                    img2.setText(img1.getText());
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.VISIBLE);
-                    img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
 
-                    runCnt = 5;
-                    hit1_run1++; //타자, 투수 도루++
+                    } else if (runCnt == 4) {// 주자의 현재 위치
+                        img3.setText(img2.getText());
+                        img0.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                        img3.setVisibility(View.VISIBLE);   // 주자 2루로 이동
 
-                    layout_hit2_run.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
+                        runCnt = 6; // 주자 2루
 
-                }
+                        hit2_run3++; //주자, 투수 도루++
 
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
 
+                        layout_hit2_run.setVisibility(View.INVISIBLE);
+                        btn_SBO.setVisibility(View.VISIBLE);
+                    } else if(runCnt == 5) {
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+                    } else if (runCnt == 7) {// 주자의 현재 위치
+                        Toast.makeText(getActivity(), "others의 전체 진루버튼 활용", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
 
             }
@@ -210,7 +322,7 @@ public class HitActivity2_Run extends Fragment {
                     img3.setVisibility(View.INVISIBLE);   // 주자 2루로 이동
 
                     runCnt = 2; // 주자 2루
-                    hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
+                    hit2_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
 
 
                     layout_hit2_run.setVisibility(View.INVISIBLE);
@@ -232,7 +344,7 @@ public class HitActivity2_Run extends Fragment {
                     img3.setVisibility(View.VISIBLE);  // 주자 1루로 이동
 
                     runCnt = 5;
-                    hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
+                    hit2_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
 
                     layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
@@ -244,6 +356,18 @@ public class HitActivity2_Run extends Fragment {
 
                 }
 
+            }
+        });
+
+        btn_hit2_run5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ini_num%2==1) {
+
+                }
+                if(ini_num%2==0) {
+
+                }
             }
         });
 

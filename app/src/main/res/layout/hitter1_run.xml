@@ -55,6 +55,16 @@
                 app:backgroundTint="#F47D30"
                 android:textColor="#1C315E"/>
 
+            <Button
+                android:id="@+id/btn_hit1_run5"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="희생 플라이"
+                android:layout_marginBottom="16dp"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30"
+                android:textColor="#1C315E"/>
+
         </LinearLayout>
 
     </RelativeLayout>
