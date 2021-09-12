@@ -24,35 +24,35 @@ import static com.example.nowinning.BSOActivity.runCnt;
 
 public class HitActivity2_Run extends Fragment {
 
-    public static Button btn_hit1_run1, btn_hit1_run2, btn_hit1_run3, btn_hit1_run4;// 도루, 태그업, 희생 번트, 수비 에러
+    public static Button btn_hit2_run1, btn_hit2_run2, btn_hit2_run3, btn_hit2_run4;// 도루, 태그업, 희생 번트, 수비 에러
     public static int hit1_run1, hit1_run2, hit1_run3, hit1_run4; // 도루, 태그업, 희생 번트, 수비 에러 각각 카운터
-    public static LinearLayout layout_layout_hit1_run; // 플라이아웃 프래그먼트
+    public static LinearLayout layout_hit2_run; // 플라이아웃 프래그먼트
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.hitter1_run, container, false);
+        View v = inflater.inflate(R.layout.hitter2_run, container, false);
 
-        btn_hit1_run1 = (Button) v.findViewById(R.id.btn_hit1_run1);
-        btn_hit1_run2 = (Button) v.findViewById(R.id.btn_hit1_run2);
-        btn_hit1_run3 = (Button) v.findViewById(R.id.btn_hit1_run3);
-        btn_hit1_run4 = (Button) v.findViewById(R.id.btn_hit1_run4);
+        btn_hit2_run1 = (Button) v.findViewById(R.id.btn_hit2_run1);
+        btn_hit2_run2 = (Button) v.findViewById(R.id.btn_hit2_run2);
+        btn_hit2_run3 = (Button) v.findViewById(R.id.btn_hit2_run3);
+        btn_hit2_run4 = (Button) v.findViewById(R.id.btn_hit2_run4);
 
-        layout_layout_hit1_run = (LinearLayout) v.findViewById(R.id.layout_layout_hit1_run);
+        layout_hit2_run = (LinearLayout) v.findViewById(R.id.layout_hit2_run);
 
         Handler handler = new Handler();
 
         if (bat_select[0] != 2) { //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
-            btn_hit1_run3.setVisibility(View.GONE);
+            btn_hit2_run3.setVisibility(View.GONE);
         }
 
         if (bat_select[0] != 3) { //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
-            btn_hit1_run2.setVisibility(View.GONE);
+            btn_hit2_run2.setVisibility(View.GONE);
         }
 
 
-        btn_hit1_run1.setOnClickListener(new View.OnClickListener() {//도루
+        btn_hit2_run1.setOnClickListener(new View.OnClickListener() {//도루
             @Override
             public void onClick(View v) {
 
@@ -68,7 +68,7 @@ public class HitActivity2_Run extends Fragment {
                     hit1_run1++; //주자, 투수 도루++
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -89,7 +89,7 @@ public class HitActivity2_Run extends Fragment {
                     runCnt = 5;
                     hit1_run1++; //주자, 투수 도루++
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -101,7 +101,7 @@ public class HitActivity2_Run extends Fragment {
 
             }
         });
-        btn_hit1_run2.setOnClickListener(new View.OnClickListener() {//태그업 bat_select가 fly여야지 작동
+        btn_hit2_run2.setOnClickListener(new View.OnClickListener() {//태그업 bat_select가 fly여야지 작동
             @Override
             public void onClick(View v) {
 
@@ -116,7 +116,7 @@ public class HitActivity2_Run extends Fragment {
                     hit1_run2++; //주자, 투수 태그업++
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -137,7 +137,7 @@ public class HitActivity2_Run extends Fragment {
                     runCnt = 5;
                     hit1_run2++; //주자, 투수 태그업++
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -149,7 +149,7 @@ public class HitActivity2_Run extends Fragment {
 
             }
         });
-        btn_hit1_run3.setOnClickListener(new View.OnClickListener() {//희생 번트 bat_select가 bunt여야지 작동
+        btn_hit2_run3.setOnClickListener(new View.OnClickListener() {//희생 번트 bat_select가 bunt여야지 작동
             @Override
             public void onClick(View v) {
 
@@ -165,7 +165,7 @@ public class HitActivity2_Run extends Fragment {
                     hit1_run3++; //타자, 투수 희생번트++
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -186,7 +186,7 @@ public class HitActivity2_Run extends Fragment {
                     runCnt = 5;
                     hit1_run1++; //타자, 투수 도루++
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -198,7 +198,7 @@ public class HitActivity2_Run extends Fragment {
 
             }
         });
-        btn_hit1_run4.setOnClickListener(new View.OnClickListener() {//에러
+        btn_hit2_run4.setOnClickListener(new View.OnClickListener() {//에러
             @Override
             public void onClick(View v) {
 
@@ -213,7 +213,7 @@ public class HitActivity2_Run extends Fragment {
                     hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -234,7 +234,7 @@ public class HitActivity2_Run extends Fragment {
                     runCnt = 5;
                     hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit2_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }

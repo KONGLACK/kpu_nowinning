@@ -60,7 +60,7 @@ public class HitActivity1_Run extends Fragment {
 
     public static Button btn_hit1_run1, btn_hit1_run2, btn_hit1_run3, btn_hit1_run4;// 도루, 태그업, 희생 번트, 수비 에러
     public static int hit1_run1, hit1_run2, hit1_run3, hit1_run4; // 도루, 태그업, 희생 번트, 수비 에러 각각 카운터
-    public static LinearLayout layout_layout_hit1_run; // 플라이아웃 프래그먼트
+    public static LinearLayout layout_hit1_run; // 플라이아웃 프래그먼트
 
     @Nullable
     @Override
@@ -73,7 +73,7 @@ public class HitActivity1_Run extends Fragment {
         btn_hit1_run3 = (Button) v.findViewById(R.id.btn_hit1_run3);
         btn_hit1_run4 = (Button) v.findViewById(R.id.btn_hit1_run4);
 
-        layout_layout_hit1_run = (LinearLayout) v.findViewById(R.id.layout_layout_hit1_run);
+        layout_hit1_run = (LinearLayout) v.findViewById(R.id.layout_hit1_run);
 
         Handler handler = new Handler();
 
@@ -102,7 +102,7 @@ public class HitActivity1_Run extends Fragment {
                     hit1_run1++; //주자, 투수 도루++
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -123,7 +123,7 @@ public class HitActivity1_Run extends Fragment {
                     runCnt = 5;
                     hit1_run1++; //주자, 투수 도루++
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -150,7 +150,7 @@ public class HitActivity1_Run extends Fragment {
                     hit1_run2++; //주자, 투수 태그업++
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -171,7 +171,7 @@ public class HitActivity1_Run extends Fragment {
                     runCnt = 5;
                     hit1_run2++; //주자, 투수 태그업++
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -199,7 +199,7 @@ public class HitActivity1_Run extends Fragment {
                     hit1_run3++; //타자, 투수 희생번트++
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -220,7 +220,7 @@ public class HitActivity1_Run extends Fragment {
                     runCnt = 5;
                     hit1_run1++; //타자, 투수 도루++
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -247,7 +247,7 @@ public class HitActivity1_Run extends Fragment {
                     hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
 
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }
@@ -268,7 +268,7 @@ public class HitActivity1_Run extends Fragment {
                     runCnt = 5;
                     hit1_run4++; //선택 수비수 에러++ -> 수비수 선택 프라그먼트 필요
 
-                    layout_layout_hit1_run.setVisibility(View.INVISIBLE);
+                    layout_hit1_run.setVisibility(View.INVISIBLE);
                     btn_SBO.setVisibility(View.VISIBLE);
 
                 }

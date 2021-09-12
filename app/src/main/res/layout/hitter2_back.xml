@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layout_layout_hit2_back"
+            android:id="@+id/layout_hit2_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
