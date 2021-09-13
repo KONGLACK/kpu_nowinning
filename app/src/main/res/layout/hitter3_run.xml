@@ -45,8 +45,8 @@
                 app:backgroundTint="#F47D30"
                 android:textColor="#1C315E"/>
 
-            <Button
-                android:id="@+id/btn_hit3_run5"
+           <!-- <Button
+                android:id="@+id/btn_hit3_run4"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:text="폭투"
@@ -56,17 +56,17 @@
                 android:textColor="#1C315E"/>
 
             <Button
-                android:id="@+id/btn_hit3_run6"
+                android:id="@+id/btn_hit3_run5"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:text="패스트 볼(포수 공 놓침)"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 app:backgroundTint="#F47D30"
-                android:textColor="#1C315E"/>
+                android:textColor="#1C315E"/>-->
 
             <Button
-                android:id="@+id/btn_hit3_run7"
+                android:id="@+id/btn_hit3_run6"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:text="수비 에러"
