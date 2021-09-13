@@ -67,6 +67,7 @@ public class HitActivity3 extends Fragment {
                 transaction.replace(R.id.frame, hitActivity3_out);
                 transaction.commit();
 
+
             }
         });
 
