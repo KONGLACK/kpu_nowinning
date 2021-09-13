@@ -27,6 +27,7 @@ import static com.example.nowinning.BSOActivity.away_ining;
 import static com.example.nowinning.BSOActivity.bat_select;
 import static com.example.nowinning.BSOActivity.btn_SBO;
 import static com.example.nowinning.BSOActivity.et_ascore;
+import static com.example.nowinning.BSOActivity.et_hscore;
 import static com.example.nowinning.BSOActivity.h;
 import static com.example.nowinning.BSOActivity.home_arr;
 import static com.example.nowinning.BSOActivity.hscore;
@@ -208,8 +209,8 @@ public class HitActivity3_Run extends Fragment {
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                               hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -230,8 +231,8 @@ public class HitActivity3_Run extends Fragment {
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -251,8 +252,8 @@ public class HitActivity3_Run extends Fragment {
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -272,8 +273,8 @@ public class HitActivity3_Run extends Fragment {
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -290,13 +291,13 @@ public class HitActivity3_Run extends Fragment {
             public void onClick(View v) {
 
                 if (ini_num % 2 == 1) {
-                    BatterRequest_sb_away BatterRequest_sb_away = new BatterRequest_sb_away(choice_away, choice_home, (String) img3.getText(), responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(getContext());
-                    queue.add(BatterRequest_sb_away);
-
                     ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
                     RequestQueue queue1 = Volley.newRequestQueue(getContext());
                     queue1.add(ScoreRequest_away);
+
+                    BatterRequest_sf_away BatterRequest_sf_away = new BatterRequest_sf_away(choice_away, choice_home, away_arr[a-1], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(BatterRequest_sf_away);
 
                     if (runCnt == 3) {// 주자의 현재 위치
                         img0.setVisibility(View.VISIBLE);
@@ -306,7 +307,7 @@ public class HitActivity3_Run extends Fragment {
 
                         runCnt = 0; // 주자 2루
 
-                        hit3_run1++; //타자, 투수 희생번트++
+                        hit3_run2++; //타자, 투수 희생번트++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
@@ -328,7 +329,7 @@ public class HitActivity3_Run extends Fragment {
                         img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
 
                         runCnt = 2;
-                        hit3_run1++; //타자, 투수 도루++
+                        hit3_run2++; //타자, 투수 도루++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
@@ -349,7 +350,7 @@ public class HitActivity3_Run extends Fragment {
                         img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
 
                         runCnt = 1;
-                        hit3_run1++; //타자, 투수 도루++
+                        hit3_run2++; //타자, 투수 도루++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
@@ -370,7 +371,7 @@ public class HitActivity3_Run extends Fragment {
                         img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
 
                         runCnt = 4;
-                        hit3_run1++; //타자, 투수 도루++
+                        hit3_run2++; //타자, 투수 도루++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
@@ -387,13 +388,14 @@ public class HitActivity3_Run extends Fragment {
 
                 }
                 if (ini_num % 2 == 0) {
-                    BatterRequest_sb_home BatterRequest_sb_home = new BatterRequest_sb_home(choice_away, choice_home, (String) img3.getText(), responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(getContext());
-                    queue.add(BatterRequest_sb_home);
+
                     ScoreRequest_away ScoreRequest_away = new ScoreRequest_away(choice_away, choice_home, (String) img3.getText(), responseListener);
                     RequestQueue queue1 = Volley.newRequestQueue(getContext());
                     queue1.add(ScoreRequest_away);
 
+                    BatterRequest_sf_home BatterRequest_sf_home = new BatterRequest_sf_home(choice_away, choice_home, home_arr[h-1], responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(BatterRequest_sf_home);
                     if (runCnt == 3) {// 주자의 현재 위치
                         img0.setVisibility(View.VISIBLE);
                         img1.setVisibility(View.INVISIBLE);
@@ -402,13 +404,13 @@ public class HitActivity3_Run extends Fragment {
 
                         runCnt = 0; // 주자 2루
 
-                        hit3_run1++; //타자, 투수 희생번트++
+                        hit3_run2++; //타자, 투수 희생번트++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -424,13 +426,13 @@ public class HitActivity3_Run extends Fragment {
                         img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
 
                         runCnt = 2;
-                        hit3_run1++; //타자, 투수 도루++
+                        hit3_run2++; //타자, 투수 도루++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -445,13 +447,13 @@ public class HitActivity3_Run extends Fragment {
                         img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
 
                         runCnt = 1;
-                        hit3_run1++; //타자, 투수 도루++
+                        hit3_run2++; //타자, 투수 도루++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -466,13 +468,13 @@ public class HitActivity3_Run extends Fragment {
                         img3.setVisibility(View.INVISIBLE);  // 주자 1루로 이동
 
                         runCnt = 4;
-                        hit3_run1++; //타자, 투수 도루++
+                        hit3_run2++; //타자, 투수 도루++
 
                         handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                             @Override
                             public void run() {
-                                ascore++;
-                                et_ascore.setText("원정   " + choice_away + Integer.toString(ascore));
+                                hscore++;
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -608,7 +610,7 @@ public class HitActivity3_Run extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_ascore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -630,7 +632,7 @@ public class HitActivity3_Run extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_ascore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -651,7 +653,7 @@ public class HitActivity3_Run extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_ascore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -672,7 +674,7 @@ public class HitActivity3_Run extends Fragment {
                             @Override
                             public void run() {
                                 hscore++;
-                                et_ascore.setText("원정   " + choice_home + Integer.toString(hscore));
+                                et_hscore.setText("홈   " + choice_home + Integer.toString(hscore));
                                 away_ining++;
                             }
                         }, 500);
@@ -684,6 +686,7 @@ public class HitActivity3_Run extends Fragment {
                 }
             }
         });
+        /*
         btn_hit3_run6.setOnClickListener(new View.OnClickListener() {//희생 번트 bat_select가 bunt여야지 작동
             @Override
             public void onClick(View v) {
@@ -883,6 +886,8 @@ public class HitActivity3_Run extends Fragment {
                 }
             }
         });
+
+         */
 
         /*
         btn_hit1_run4.setOnClickListener(new View.OnClickListener() {//에러

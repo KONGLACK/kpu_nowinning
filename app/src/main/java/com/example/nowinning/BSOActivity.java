@@ -445,8 +445,8 @@ public class BSOActivity extends AppCompatActivity {
                                     handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
                                         @Override
                                         public void run() {
-                                            hscore++;
-                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                            ascore++;
+                                            et_ascore.setText("원정      " + choice_away + Integer.toString(ascore));
                                         }
                                     }, 500);
                                     stkCnt = 0;
@@ -631,6 +631,14 @@ public class BSOActivity extends AppCompatActivity {
                                 img3.setVisibility(View.VISIBLE);   // 주자 1루로 이동
 
                                     runCnt = 7;
+
+                                    handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
+                                        @Override
+                                        public void run() {
+                                            hscore++;
+                                            et_hscore.setText("홈      " + choice_home + Integer.toString(hscore));
+                                        }
+                                    }, 500);
 
                                 stkCnt = 0;
                                 ballCnt = 0;
