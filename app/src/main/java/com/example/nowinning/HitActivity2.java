@@ -84,50 +84,6 @@ public class HitActivity2 extends Fragment {
                 transaction.replace(R.id.frame, hitActivity2_back);
                 transaction.commit();
 
-
-                if (runCnt == 2) { // 주자의 현재 위치
-                    img1.setText(img2.getText());
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.INVISIBLE);// 주자 1루로 이동
-
-                    runCnt = 1; //주자 2,3루
-
-                    layout_HIT2.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 4) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(),"현재 상황에서 퇴루할 수 없습니다.", Toast.LENGTH_SHORT).show();
-
-                    layout_HIT2.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-                else if (runCnt == 5) {// 주자의 현재 위치
-                    img1.setText(img2.getText());
-                    img0.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.VISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
-                    img3.setVisibility(View.VISIBLE);
-
-                    runCnt = 6;
-
-                    layout_HIT2.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-
-                }
-
-
-                else if (runCnt == 7) {// 주자의 현재 위치
-                    Toast.makeText(getActivity(), "현재 상황에서 퇴루할 수 없습니다.", Toast.LENGTH_SHORT).show();
-
-                    layout_HIT2.setVisibility(View.INVISIBLE);
-                    btn_SBO.setVisibility(View.VISIBLE);
-                }
             }
         });
 

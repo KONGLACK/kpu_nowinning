@@ -32,7 +32,7 @@ public class HitActivity2_Back extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.hitter1_run, container, false);
+        View v = inflater.inflate(R.layout.hitter2_back, container, false);
 
         btn_hit2_back1 = (Button) v.findViewById(R.id.btn_hit2_back1);
         btn_hit2_back2 = (Button) v.findViewById(R.id.btn_hit2_back2);
