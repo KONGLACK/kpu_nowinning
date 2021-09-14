@@ -11,207 +11,283 @@
         <item>SSG</item>
         <item>두산</item>
         <item>롯데</item>
-        <item>KIA</item>
     </string-array>
 
     <string-array name="hanhwa_player">
         <item>선택</item>
-        <item>노원우</item>
-        <item>최강선</item>
-        <item>배상아</item>
-        <item>류경은</item>
-        <item>권시안</item>
-        <item>성기하</item>
-        <item>안현영</item>
-        <item>표종진</item>
-        <item>강준민</item>
+        <item>박창용</item>
+        <item>손형주</item>
+        <item>김웅기</item>
+        <item>김형구</item>
+        <item>강성민</item>
+        <item>구자혁</item>
+        <item>이성진</item>
+        <item>신원상</item>
+        <item>김계형</item>
+        <item>반동환</item>
+        <item>양준식</item>
+        <item>김병일</item>
+        <item>선광현</item>
+        <item>김태훈</item>
+        <item>김민석</item>
+        <item>유성동</item>
     </string-array>
 
     <string-array name="hanhwa_player_pit">
         <item>선택</item>
-        <item>hp1</item>
-        <item>hp2</item>
-        <item>hp3</item>
+        <item>유성동</item>
+        <item>이성진</item>
+        <item>김지훈</item>
     </string-array>
 
     <string-array name="nexen_player">
         <item>선택</item>
-        <item>풍은석</item>
-        <item>허혜정</item>
-        <item>허경은</item>
-        <item>탁대혁</item>
-        <item>풍영호</item>
-        <item>김진주</item>
-        <item>정광현</item>
-        <item>안상준</item>
-        <item>송현아</item>
+        <item>차정국</item>
+        <item>안준석</item>
+        <item>전승환</item>
+        <item>홍지훈</item>
+        <item>안인철</item>
+        <item>고국진</item>
+        <item>김도학</item>
+        <item>박준희</item>
+        <item>임현준</item>
+        <item>손성진</item>
+        <item>이우국</item>
+        <item>권하균</item>
+        <item>김성남</item>
+        <item>권혁래</item>
+        <item>최용범</item>
+        <item>강명완</item>
+        <item>김양은</item>
+        <item>최진용</item>
+        <item>양혁준</item>
+        <item>오태환</item>
+
     </string-array>
 
     <string-array name="nexen_player_pit">
         <item>선택</item>
-        <item>np1</item>
-        <item>np2</item>
-        <item>np3</item>
+        <item>권하균</item>
+        <item>안인철</item>
     </string-array>
 
     <string-array name="kt_player">
         <item>선택</item>
-        <item>kt1</item>
-        <item>kt2</item>
-        <item>kt3</item>
-        <item>kt4</item>
-        <item>kt5</item>
-        <item>kt6</item>
-        <item>kt7</item>
-        <item>kt8</item>
-        <item>kt9</item>
+        <item>박혁규</item>
+        <item>김현중</item>
+        <item>이동희</item>
+        <item>박황훈</item>
+        <item>김승옥</item>
+        <item>김병호</item>
+        <item>김관수</item>
+        <item>황정식</item>
+        <item>이성용</item>
+        <item>한상현</item>
+        <item>한지성</item>
+        <item>이진호</item>
+        <item>김석</item>
+        <item>김상준</item>
+        <item>이창원</item>
+        <item>권정열</item>
+        <item>신동명</item>
+
     </string-array>
 
     <string-array name="kt_player_pit">
         <item>선택</item>
-        <item>kp1</item>
-        <item>kp2</item>
-        <item>kp3</item>
+        <item>한상현</item>
+        <item>한지성</item>
+        <item>권정열</item>
     </string-array>
 
     <string-array name="samsung_player">
         <item>선택</item>
-        <item>sam1</item>
-        <item>sam2</item>
-        <item>sam3</item>
-        <item>sam4</item>
-        <item>sam5</item>
-        <item>sam6</item>
-        <item>sam7</item>
-        <item>sam8</item>
-        <item>sam9</item>
+        <item>최용태</item>
+        <item>송문규</item>
+        <item>최인성</item>
+        <item>박형진</item>
+        <item>오이석</item>
+        <item>황건우</item>
+        <item>이준필</item>
+        <item>서재홍</item>
+        <item>곽장식</item>
+        <item>이승우</item>
+        <item>박영식</item>
+        <item>황인중</item>
+        <item>김현빈</item>
+        <item>허동호</item>
+        <item>서승원</item>
+        <item>오승민</item>
+        <item>노병주</item>
+
     </string-array>
 
     <string-array name="samsung_player_pit">
         <item>선택</item>
-        <item>sp1</item>
-        <item>sp2</item>
-        <item>sp3</item>
+        <item>황인중</item>
+        <item>서재홍</item>
+        <item>박태희</item>
+        <item>허동호</item>
+        <item>강문수</item>
+        <item>김현빈</item>
+        <item>박형진</item>
     </string-array>
 
     <string-array name="lg_player">
         <item>선택</item>
-        <item>lg1</item>
-        <item>lg2</item>
-        <item>lg3</item>
-        <item>lg4</item>
-        <item>lg5</item>
-        <item>lg6</item>
-        <item>lg7</item>
-        <item>lg8</item>
-        <item>lg9</item>
+        <item>최강재</item>
+        <item>김대성</item>
+        <item>이영재</item>
+        <item>김대웅</item>
+        <item>박치남</item>
+        <item>이용진</item>
+        <item>김천수</item>
+        <item>김지현</item>
+        <item>김기동</item>
+        <item>박동수</item>
+        <item>이상재</item>
+        <item>이우상</item>
+        <item>오준석</item>
+        <item>김성준</item>
+        <item>최재생</item>
     </string-array>
 
     <string-array name="lg_player_pit">
         <item>선택</item>
-        <item>lp1</item>
-        <item>lp2</item>
-        <item>lp3</item>
+        <item>김기동</item>
+        <item>김왕철</item>
+        <item>박치남</item>
+        <item>이우상</item>
+        <item>김성준</item>
     </string-array>
 
     <string-array name="nc_player">
         <item>선택</item>
-        <item>nc1</item>
-        <item>nc2</item>
-        <item>nc3</item>
-        <item>nc4</item>
-        <item>nc5</item>
-        <item>nc6</item>
-        <item>nc7</item>
-        <item>nc8</item>
-        <item>nc9</item>
+        <item>이정운</item>
+        <item>이광현</item>
+        <item>김형섭</item>
+        <item>김다운</item>
+        <item>이영승</item>
+        <item>박동석</item>
+        <item>조일</item>
+        <item>김재홍</item>
+        <item>서동민</item>
+        <item>신진섭</item>
+        <item>김형록</item>
+        <item>김쌍환</item>
+        <item>소재완</item>
+        <item>김동률</item>
+        <item>유승규</item>
+        <item>박규호</item>
+        <item>박준민</item>
+        <item>허웅</item>
+        <item>신성욱</item>
+        <item>박성준</item>
+        <item>조경민</item>
+        <item>이영훈</item>
+        <item>이두환</item>
+        <item>장성범</item>
     </string-array>
 
     <string-array name="nc_player_pit">
         <item>선택</item>
-        <item>ncp1</item>
-        <item>ncp2</item>
-        <item>ncp3</item>
+        <item>김형섭</item>
+        <item>서시원</item>
+        <item>김재홍</item>
+        <item>유승규</item>
+        <item>윤지섭</item>
+        <item>강동현</item>
     </string-array>
 
     <string-array name="ssg_player">
         <item>선택</item>
-        <item>ssg1</item>
-        <item>ssg2</item>
-        <item>ssg3</item>
-        <item>ssg4</item>
-        <item>ssg5</item>
-        <item>ssg6</item>
-        <item>ssg7</item>
-        <item>ssg8</item>
-        <item>ssg9</item>
+        <item>전유길</item>
+        <item>민건웅</item>
+        <item>박상호</item>
+        <item>조재영</item>
+        <item>원주연</item>
+        <item>고중희</item>
+        <item>김태광</item>
+        <item>정용호</item>
+        <item>조정호</item>
+        <item>김학용</item>
+        <item>김용일</item>
+        <item>이웅</item>
+        <item>이병철</item>
+        <item>최선호</item>
+        <item>하성기</item>
     </string-array>
 
     <string-array name="ssg_player_pit">
         <item>선택</item>
-        <item>sgp1</item>
-        <item>sgp2</item>
-        <item>sgp3</item>
+        <item>조재영</item>
+        <item>김용일</item>
+        <item>민건웅</item>
+        <item>하성기</item>
     </string-array>
 
     <string-array name="dusan_player">
         <item>선택</item>
-        <item>dus1</item>
-        <item>dus2</item>
-        <item>dus3</item>
-        <item>dus4</item>
-        <item>dus5</item>
-        <item>dus6</item>
-        <item>dus7</item>
-        <item>dus8</item>
-        <item>dus9</item>
+        <item>한기성</item>
+        <item>배수근</item>
+        <item>김성환</item>
+        <item>오영민</item>
+        <item>배수일</item>
+        <item>김동준</item>
+        <item>오훈</item>
+        <item>어원중</item>
+        <item>김사무엘</item>
+        <item>차오환</item>
+        <item>김대승</item>
+        <item>김동훈</item>
+        <item>김택우</item>
+        <item>한훈희</item>
+        <item>이주호</item>
+        <item>최형섭</item>
+        <item>이현중</item>
+        <item>탁용준</item>
+        <item>한병진</item>
     </string-array>
 
     <string-array name="dusan_player_pit">
         <item>선택</item>
-        <item>dp1</item>
-        <item>dp2</item>
-        <item>dp3</item>
+        <item>이주호</item>
+        <item>이현중</item>
     </string-array>
 
     <string-array name="lotte_player">
         <item>선택</item>
-        <item>lot1</item>
-        <item>lot2</item>
-        <item>lot3</item>
-        <item>lot4</item>
-        <item>lot5</item>
-        <item>lot6</item>
-        <item>lot7</item>
-        <item>lot8</item>
-        <item>lot9</item>
+        <item>서보민</item>
+        <item>김주연</item>
+        <item>송양관</item>
+        <item>김유찬</item>
+        <item>방성열</item>
+        <item>권지훈</item>
+        <item>조용혁</item>
+        <item>김성현</item>
+        <item>김선우</item>
+        <item>김정현</item>
+        <item>서경인</item>
+        <item>김종우</item>
+        <item>류재희</item>
+        <item>문장균</item>
+        <item>조용오</item>
+        <item>조정혁</item>
+        <item>권형석</item>
+        <item>최규홍</item>
+        <item>장학수</item>
+        <item>김두한</item>
+        <item>장영철</item>
+        <item>방기현</item>
+        <item>손국헌</item>
     </string-array>
 
     <string-array name="lotte_player_pit">
         <item>선택</item>
-        <item>ltp1</item>
-        <item>ltp2</item>
-        <item>ltp3</item>
-    </string-array>
-
-    <string-array name="kia_player">
-        <item>선택</item>
-        <item>kia1</item>
-        <item>kia2</item>
-        <item>kia3</item>
-        <item>kia4</item>
-        <item>kia5</item>
-        <item>kia6</item>
-        <item>kia7</item>
-        <item>kia8</item>
-        <item>kia9</item>
-    </string-array>
-
-    <string-array name="kia_player_pit">
-        <item>선택</item>
-        <item>kip1</item>
-        <item>kip2</item>
-        <item>kip3</item>
+        <item>손국헌</item>
+        <item>장학수</item>
+        <item>김정현</item>
+        <item>김주연</item>
     </string-array>
 
 

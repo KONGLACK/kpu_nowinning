@@ -69,6 +69,8 @@ public class BSOActivity extends AppCompatActivity {
     public static Button img1, img2, img3, img0;
     public static Button img4, img5, img6, img7;
     public static String WINNER, LOSER;
+    public static int ascore_1, ascore_2, ascore_3, ascore_4, ascore_5, ascore_6, ascore_7, ascore_8, ascore_9;
+    public static int hscore_1, hscore_2, hscore_3, hscore_4, hscore_5, hscore_6, hscore_7, hscore_8, hscore_9;
 
     public static LinearLayout btn_SBO;
     public static ConstraintLayout layout_field;
@@ -671,15 +673,37 @@ public class BSOActivity extends AppCompatActivity {
                             et_ball.setText("B ");
                             ballCnt = 0;
                             if (outCnt == 3) {
-                                if (iniCnt>=9&&ascore!=hscore) {
-                                    Intent intent = new Intent(BSOActivity.this, GameSet.class);
-                                    startActivity(intent);
-
-                                    Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
-                                }
                                 PithcerReqeust_Ining_Home PithcerReqeust_Ining_Home = new PithcerReqeust_Ining_Home(choice_away, choice_home, home_pitcher, responseListener);
                                 RequestQueue queue6 = Volley.newRequestQueue(BSOActivity.this);
                                 queue6.add(PithcerReqeust_Ining_Home);
+
+                                if(iniCnt==1 && ini_num%2==1) {
+                                    ascore_1 = ascore;
+                                }
+                                if(iniCnt==2 && ini_num%2==1) {
+                                    ascore_2 = ascore-ascore_1;
+                                }
+                                if(iniCnt==3 && ini_num%2==1) {
+                                    ascore_3 = ascore-ascore_1-ascore_2;
+                                }
+                                if(iniCnt==4 && ini_num%2==1) {
+                                    ascore_4 = ascore-ascore_1-ascore_2-ascore_3;
+                                }
+                                if(iniCnt==5 && ini_num%2==1) {
+                                    ascore_5 = ascore-ascore_1-ascore_2-ascore_3-ascore_4;
+                                }
+                                if(iniCnt==6 && ini_num%2==1) {
+                                    ascore_6 = ascore-ascore_1-ascore_2-ascore_3-ascore_4-ascore_5;
+                                }
+                                if(iniCnt==7 && ini_num%2==1) {
+                                    ascore_7 = ascore-ascore_1-ascore_2-ascore_3-ascore_4-ascore_5-ascore_6;
+                                }
+                                if(iniCnt==8 && ini_num%2==1) {
+                                    ascore_8 = ascore-ascore_1-ascore_2-ascore_3-ascore_4-ascore_5-ascore_6-ascore_7;
+                                }
+                                if(iniCnt==9 && ini_num%2==1) {
+                                    ascore_9 = ascore-ascore_1-ascore_2-ascore_3-ascore_4-ascore_5-ascore_6-ascore_7-ascore_8;
+                                }
 
 
                                 a++;//away 값 ++
@@ -701,9 +725,7 @@ public class BSOActivity extends AppCompatActivity {
                                         Toast.makeText(BSOActivity.this, choice_home + " 공격", Toast.LENGTH_SHORT).show();
                                     }
                                 }, 500);
-                                if(ini_num%2==0) {
-                                    iniCnt++; // 주루 카운트 ++
-                                }
+
                                 ini_num++;
                                 et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
                             }
@@ -743,7 +765,26 @@ public class BSOActivity extends AppCompatActivity {
                             ballCnt = 0;
                             if (outCnt == 3) {
                                 if (iniCnt>=9&&ascore!=hscore) {
-                                    Intent intent = new Intent(BSOActivity.this, GameSet.class);
+                                    Log.d("a1", ascore_1+"");
+                                    Log.d("a2", ascore_2+"");
+                                    Log.d("a3", ascore_3+"");
+                                    Log.d("a4", ascore_4+"");
+                                    Log.d("a5", ascore_5+"");
+                                    Log.d("a6", ascore_6+"");
+                                    Log.d("a7", ascore_7+"");
+                                    Log.d("a8", ascore_8+"");
+                                    Log.d("a9", ascore_9+"");
+
+                                    Log.d("h1", hscore_1+"");
+                                    Log.d("h2", hscore_2+"");
+                                    Log.d("h3", hscore_3+"");
+                                    Log.d("h4", hscore_4+"");
+                                    Log.d("h5", hscore_5+"");
+                                    Log.d("h6", hscore_6+"");
+                                    Log.d("h7", hscore_7+"");
+                                    Log.d("h8", hscore_8+"");
+                                    Log.d("h9", hscore_9+"");
+                                    Intent intent = new Intent(BSOActivity.this, ReusltActivity.class);
                                     startActivity(intent);
 
                                     Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
@@ -751,6 +792,34 @@ public class BSOActivity extends AppCompatActivity {
                                 PithcerReqeust_Ining_Away PithcerReqeust_Ining_Away = new PithcerReqeust_Ining_Away(choice_away, choice_home, away_pitcher, responseListener);
                                 RequestQueue queue6 = Volley.newRequestQueue(BSOActivity.this);
                                 queue6.add(PithcerReqeust_Ining_Away);
+
+                                if(iniCnt==1 && ini_num%2==0) {
+                                    hscore_1 = hscore;
+                                }
+                                if(iniCnt==2 && ini_num%2==0) {
+                                    hscore_2 = hscore-hscore_1;
+                                }
+                                if(iniCnt==3 && ini_num%2==0) {
+                                    hscore_3 = hscore-hscore_1-hscore_2;
+                                }
+                                if(iniCnt==4 && ini_num%2==0) {
+                                    hscore_4 = hscore-hscore_1-hscore_2-hscore_3;
+                                }
+                                if(iniCnt==5 && ini_num%2==0) {
+                                    hscore_5 = hscore-hscore_1-hscore_2-hscore_3-hscore_4;
+                                }
+                                if(iniCnt==6 && ini_num%2==0) {
+                                    hscore_6 = hscore-hscore_1-hscore_2-hscore_3-hscore_4-hscore_5;
+                                }
+                                if(iniCnt==7 && ini_num%2==0) {
+                                    hscore_7 = hscore-hscore_1-hscore_2-hscore_3-hscore_4-hscore_5-hscore_6;
+                                }
+                                if(iniCnt==8 && ini_num%2==0) {
+                                    hscore_8 = hscore-hscore_1-hscore_2-hscore_3-hscore_4-hscore_5-hscore_6-hscore_7;
+                                }
+                                if(iniCnt==9 && ini_num%2==0) {
+                                    hscore_9 = hscore-hscore_1-hscore_2-hscore_3-hscore_4-hscore_5-hscore_6-hscore_7-hscore_8;
+                                }
 
                                 h++;//home 값 ++
                                 handler.postDelayed(new Runnable() { // 별이 바로 없어지면 아쉬워서 0.5초 딜레이
@@ -772,9 +841,9 @@ public class BSOActivity extends AppCompatActivity {
                                 }, 500);
 
 
-                                if(ini_num%2==0) {
-                                    iniCnt++; // 주루 카운트 ++
-                                }
+
+                                iniCnt++; // 주루 카운트 ++
+
                                 ini_num++;
                                 et_ini.setText(Integer.toString(iniCnt) + "이닝    " + ini[ini_num]);
                             }
@@ -1012,6 +1081,12 @@ public class BSOActivity extends AppCompatActivity {
                 win_score = ascore;
                 los_score = hscore;
             }
+
+
+
+
+
+
 
 
         btn_Undo.setOnClickListener(new View.OnClickListener() {

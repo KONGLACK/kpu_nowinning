@@ -380,26 +380,7 @@ public class start extends AppCompatActivity {
                     home_rightfielder = sharedPreferences.getString("lotte_rightfielder", "오류");
 
                 }
-                if(choice_home.equals("KIA")) {
-                    home_player1 = sharedPreferences.getString("kia_one", "오류");
-                    home_player2 = sharedPreferences.getString("kia_two", "오류");
-                    home_player3 = sharedPreferences.getString("kia_three", "오류");
-                    home_player4 = sharedPreferences.getString("kia_four", "오류");
-                    home_player5 = sharedPreferences.getString("kia_five", "오류");
-                    home_player6 = sharedPreferences.getString("kia_six", "오류");
-                    home_player7 = sharedPreferences.getString("kia_seven", "오류");
-                    home_player8 = sharedPreferences.getString("kia_eight", "오류");
-                    home_player9 = sharedPreferences.getString("kia_nine", "오류");
-                    home_pitcher = sharedPreferences.getString("kia_one_pit", "오류");
-                    home_catcher = sharedPreferences.getString("kia_catcher", "오류");
-                    home_firstbase = sharedPreferences.getString("kia_firstbase", "오류");
-                    home_secondbase = sharedPreferences.getString("kia_secondbase", "오류");
-                    home_thirdbase = sharedPreferences.getString("kia_thirdbase", "오류");
-                    home_shortstop = sharedPreferences.getString("kia_shortstop", "오류");
-                    home_leftfielder = sharedPreferences.getString("kia_leftfielder", "오류");
-                    home_centerfielder = sharedPreferences.getString("kia_centerfielder", "오류");
-                    home_rightfielder = sharedPreferences.getString("kia_rightfielder", "오류");
-                }
+
             }
 
 
@@ -599,26 +580,7 @@ public class start extends AppCompatActivity {
                     away_centerfielder = sharedPreferences.getString("lotte_centerfielder", "오류");
                     away_rightfielder = sharedPreferences.getString("lotte_rightfielder", "오류");
                 }
-                if(choice_away.equals("KIA")) {
-                    away_player1 = sharedPreferences.getString("kia_one", "오류");
-                    away_player2 = sharedPreferences.getString("kia_two", "오류");
-                    away_player3 = sharedPreferences.getString("kia_three", "오류");
-                    away_player4 = sharedPreferences.getString("kia_four", "오류");
-                    away_player5 = sharedPreferences.getString("kia_five", "오류");
-                    away_player6 = sharedPreferences.getString("kia_six", "오류");
-                    away_player7 = sharedPreferences.getString("kia_seven", "오류");
-                    away_player8 = sharedPreferences.getString("kia_eight", "오류");
-                    away_player9 = sharedPreferences.getString("kia_nine", "오류");
-                    away_pitcher = sharedPreferences.getString("kia_one_pit", "오류");
-                    away_catcher = sharedPreferences.getString("kia_catcher", "오류");
-                    away_firstbase = sharedPreferences.getString("kia_firstbase", "오류");
-                    away_secondbase = sharedPreferences.getString("kia_secondbase", "오류");
-                    away_thirdbase = sharedPreferences.getString("kia_thirdbase", "오류");
-                    away_shortstop = sharedPreferences.getString("kia_shortstop", "오류");
-                    away_leftfielder = sharedPreferences.getString("kia_leftfielder", "오류");
-                    away_centerfielder = sharedPreferences.getString("kia_centerfielder", "오류");
-                    away_rightfielder = sharedPreferences.getString("kia_rightfielder", "오류");
-                }
+
             }
 
             @Override
