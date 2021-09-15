@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="185dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="55dp"
         android:layout_marginRight="55dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
@@ -29,7 +29,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="55dp"
         android:layout_marginRight="55dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
@@ -58,75 +58,6 @@
         app:layout_constraintEnd_toEndOf="@+id/pw_edittext"
         app:layout_constraintStart_toStartOf="@+id/pw_edittext"
         app:layout_constraintTop_toBottomOf="@+id/pw_edittext"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/keeplogin_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginEnd="261dp"
-        android:layout_marginRight="261dp"
-        android:text="로그인 상태 유지"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pw_edittext"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/findid_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:text="아이디 찾기"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:textSize="10dp"
-        app:backgroundTint="#000FFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/findpw_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        style="?android:attr/borderlessButtonStyle"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/findpw_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:text="비밀번호 찾기"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:textSize="10dp"
-        app:backgroundTint="#000FFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/signup_button"
-        app:layout_constraintStart_toEndOf="@+id/findid_button"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        style="?android:attr/borderlessButtonStyle"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/signup_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:text="회원가입"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:textSize="10dp"
-        app:backgroundTint="#000FFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/findpw_button"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        style="?android:attr/borderlessButtonStyle"
         tools:ignore="MissingConstraints" />
 
     <ImageView

@@ -186,7 +186,7 @@ public class BSOActivity extends AppCompatActivity {
         btn_h = (Button) findViewById(R.id.hit_button);
 
         btn_SBO = (LinearLayout) findViewById(R.id.btn_SBO);
-        btn_Undo =(Button) findViewById(R.id.btn_Undo);
+//        btn_Undo =(Button) findViewById(R.id.btn_Undo);
         layout_field = (ConstraintLayout) findViewById(R.id.layout_field);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 

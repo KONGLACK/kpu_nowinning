@@ -50,29 +50,29 @@
                 <Button
                     android:id="@+id/btn3"
                     android:layout_width="180dp"
-                    android:layout_height="80dp"
+                    android:layout_height="240dp"
                     android:text="Bunt"
                     android:textStyle="bold"
                     app:backgroundTint="#FF3333"
                     android:textColor="#1C315E"/>
 
-                <Button
-                    android:id="@+id/btn4"
-                    android:layout_width="180dp"
-                    android:layout_height="80dp"
-                    android:text="H.ground"
-                    android:textStyle="bold"
-                    app:backgroundTint="#FF3333"
-                    android:textColor="#1C315E"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btn4"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:text="H.ground"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:backgroundTint="#FF3333"-->
+<!--                    android:textColor="#1C315E"/>-->
 
-                <Button
-                    android:id="@+id/btn5"
-                    android:layout_width="180dp"
-                    android:layout_height="80dp"
-                    android:text="Pop fly"
-                    android:textStyle="bold"
-                    app:backgroundTint="#FF3333"
-                    android:textColor="#1C315E"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btn5"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:text="Pop fly"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:backgroundTint="#FF3333"-->
+<!--                    android:textColor="#1C315E"/>-->
 
                 <!--<Button
                     android:id="@+id/btn_Line"

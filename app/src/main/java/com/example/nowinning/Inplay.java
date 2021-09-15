@@ -27,11 +27,11 @@ public class Inplay extends Fragment {
         View v = inflater.inflate(R.layout.inplay, container, false);
 
         btn_Ground = (Button) v.findViewById(R.id.btn_Ground);
-        btn_Hground = (Button) v.findViewById(R.id.btn_Hground);
+//        btn_Hground = (Button) v.findViewById(R.id.btn_Hground);
         btn_Bunt = (Button) v.findViewById(R.id.btn_Bunt);
         //btn_Line = (Button) v.findViewById(R.id.btn_Line);
         btn_Fly = (Button) v.findViewById(R.id.btn_Fly);
-        btn_Pop = (Button) v.findViewById(R.id.btn_Pop);
+//        btn_Pop = (Button) v.findViewById(R.id.btn_Pop);
 
         layout_Inplay = (LinearLayout)v.findViewById(R.id.layout_Inplay);
 

@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         pwdtext = (EditText) findViewById(R.id.pw_edittext);
 
         login_btn = findViewById(R.id.login_button);
-        find_id_btn = findViewById(R.id.findid_button);
-        find_pw_btn = findViewById(R.id.findpw_button);
+//        find_id_btn = findViewById(R.id.findid_button);
+//        find_pw_btn = findViewById(R.id.findpw_button);
         signup_btn = findViewById(R.id.signup_button);
 
 

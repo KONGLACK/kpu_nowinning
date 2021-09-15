@@ -50,29 +50,29 @@
                 <Button
                     android:id="@+id/btn_Bunt"
                     android:layout_width="180dp"
-                    android:layout_height="80dp"
+                    android:layout_height="240dp"
                     android:text="Bunt"
                     android:textStyle="bold"
                     app:backgroundTint="#F47D30"
                     android:textColor="#1C315E"/>
 
-                <Button
-                    android:id="@+id/btn_Hground"
-                    android:layout_width="180dp"
-                    android:layout_height="80dp"
-                    android:text="H.ground"
-                    android:textStyle="bold"
-                    app:backgroundTint="#F47D30"
-                    android:textColor="#1C315E"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btn_Hground"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:text="H.ground"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:backgroundTint="#F47D30"-->
+<!--                    android:textColor="#1C315E"/>-->
 
-                <Button
-                    android:id="@+id/btn_Pop"
-                    android:layout_width="180dp"
-                    android:layout_height="80dp"
-                    android:text="Pop fly"
-                    android:textStyle="bold"
-                    app:backgroundTint="#F47D30"
-                    android:textColor="#1C315E"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btn_Pop"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:text="Pop fly"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:backgroundTint="#F47D30"-->
+<!--                    android:textColor="#1C315E"/>-->
 
                 <!--<Button
                     android:id="@+id/btn_Line"
