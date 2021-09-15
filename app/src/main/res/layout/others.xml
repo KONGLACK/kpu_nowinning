@@ -16,6 +16,34 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btn_9ini"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="9ini"
+                android:textColor="#1C315E"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="저장하기"
+                android:textColor="#1C315E"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30" />
+
+            <Button
+                android:id="@+id/btn_get"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="불러오기"
+                android:textColor="#1C315E"
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30" />
+
+
+            <Button
                 android:id="@+id/btn_test"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
@@ -70,10 +98,11 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:text="Put on Base"
-                android:textStyle="bold"
-                app:backgroundTint="#F47D30"
                 android:textColor="#1C315E"
-                />
+                android:textStyle="bold"
+                app:backgroundTint="#F47D30" />
+
+
 
 
         </LinearLayout>
