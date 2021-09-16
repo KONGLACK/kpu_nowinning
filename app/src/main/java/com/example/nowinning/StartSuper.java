@@ -35,8 +35,7 @@ public class StartSuper extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(StartSuper.this,"선수 기록을 확인할 수 있는 버튼입니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(StartSuper.this, StartRecorder.class);
+                Intent intent = new Intent(StartSuper.this, BatRecord.class);
                 startActivity(intent);
 
             }

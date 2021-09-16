@@ -99,6 +99,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".BatRecord"></activity>
+
+        <activity android:name=".PitRecord"></activity>
+
 
 
 
