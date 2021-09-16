@@ -42,25 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/community_button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="324dp"
-        android:text="커뮤니티"
-        android:textColor="#1C315E"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:backgroundTint="#F47D30"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.993"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/record_button"
@@ -70,7 +51,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
-        android:layout_marginBottom="175dp"
+        android:layout_marginBottom="324dp"
         android:text="선수기록"
         android:textColor="#1C315E"
         android:textSize="18dp"
@@ -78,27 +59,7 @@
         app:backgroundTint="#F47D30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/vs_button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="175dp"
-        android:text="선수비교"
-        android:textColor="#1C315E"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:backgroundTint="#F47D30"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.993"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 

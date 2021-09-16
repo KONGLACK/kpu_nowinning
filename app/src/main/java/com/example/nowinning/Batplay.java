@@ -30,8 +30,6 @@ public class Batplay extends Fragment {
         btn1 = (Button) v.findViewById(R.id.btn1);
         btn2 = (Button) v.findViewById(R.id.btn2);
         btn3 = (Button) v.findViewById(R.id.btn3);
-        btn4 = (Button) v.findViewById(R.id.btn4);
-        btn5 = (Button) v.findViewById(R.id.btn5);
 
         layout_batplay = (LinearLayout)v.findViewById(R.id.layout_batplay);
 

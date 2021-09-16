@@ -186,7 +186,6 @@ public class BSOActivity extends AppCompatActivity {
         btn_h = (Button) findViewById(R.id.hit_button);
 
         btn_SBO = (LinearLayout) findViewById(R.id.btn_SBO);
-        btn_Undo =(Button) findViewById(R.id.btn_Undo);
         layout_field = (ConstraintLayout) findViewById(R.id.layout_field);
         //oCnt = (Button)findViewById(R.id.cnt_button);
 
@@ -769,6 +768,8 @@ public class BSOActivity extends AppCompatActivity {
                                     Intent intent = new Intent(BSOActivity.this, ReusltActivity.class);
                                     startActivity(intent);
 
+                                    finish();
+
                                     Toast.makeText(BSOActivity.this,"게임 종료", Toast.LENGTH_SHORT).show();
                                 }
                                 PithcerReqeust_Ining_Away PithcerReqeust_Ining_Away = new PithcerReqeust_Ining_Away(choice_away, choice_home, away_pitcher, responseListener);
@@ -1071,18 +1072,7 @@ public class BSOActivity extends AppCompatActivity {
 
 
 
-        btn_Undo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction2= getSupportFragmentManager().beginTransaction();
-                DefenceActivity Defence_fragment = new DefenceActivity();
-                transaction2.replace(R.id.frame2, Defence_fragment);
-                transaction2.commit();
-                layout_field.setVisibility(View.INVISIBLE);
 
-
-            }
-        });
 
 
 

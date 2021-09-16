@@ -27,11 +27,9 @@ public class Inplay extends Fragment {
         View v = inflater.inflate(R.layout.inplay, container, false);
 
         btn_Ground = (Button) v.findViewById(R.id.btn_Ground);
-        btn_Hground = (Button) v.findViewById(R.id.btn_Hground);
         btn_Bunt = (Button) v.findViewById(R.id.btn_Bunt);
         //btn_Line = (Button) v.findViewById(R.id.btn_Line);
         btn_Fly = (Button) v.findViewById(R.id.btn_Fly);
-        btn_Pop = (Button) v.findViewById(R.id.btn_Pop);
 
         layout_Inplay = (LinearLayout)v.findViewById(R.id.layout_Inplay);
 
@@ -49,17 +47,7 @@ public class Inplay extends Fragment {
             }
         });
 
-        btn_Hground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bat_select[0] = 1; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
 
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Inplay_Hgrnd inplay_hgrnd = new Inplay_Hgrnd();
-                transaction.replace(R.id.frame, inplay_hgrnd);
-                transaction.commit(); // 저장
-            }
-        });
 
         btn_Bunt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,16 +78,7 @@ public class Inplay extends Fragment {
             }
         });
 
-        btn_Pop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bat_select[0] = 4; //(ground:0/ hground:1/ bunt:2/ fly:3/ pop: 4)
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Inplay_Pop inplay_pop = new Inplay_Pop();
-                transaction.replace(R.id.frame, inplay_pop);
-                transaction.commit(); // 저장
-            }
-        });
+
         return v;
     }
 }

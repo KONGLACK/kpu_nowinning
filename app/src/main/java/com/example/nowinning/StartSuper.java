@@ -18,8 +18,6 @@ public class StartSuper extends AppCompatActivity {
 
         lineup_button = (Button) findViewById(R.id.lineup_button);
         record_button = (Button) findViewById(R.id.record_button);
-        community_button = (Button) findViewById(R.id.community_button);
-        vs_button = (Button) findViewById(R.id.vs_button);
 
         lineup_button.setOnClickListener(new View.OnClickListener() { // 라인업 등록
             @Override
@@ -41,27 +39,9 @@ public class StartSuper extends AppCompatActivity {
             }
         });
 
-        community_button.setOnClickListener(new View.OnClickListener() { // 커뮤니티
-            @Override
-            public void onClick(View v) {
 
-                Toast.makeText(StartSuper.this,"커뮤니티에 접근할 수 있는 버튼입니다.", Toast.LENGTH_SHORT).show();
-                /*Intent intent = new Intent(StartRecorder.this, 여기에 클래스 입력.class);
-                startActivity(intent);*/
 
-            }
-        });
 
-        vs_button.setOnClickListener(new View.OnClickListener() { // 상대 전적
-            @Override
-            public void onClick(View v) {
-
-                //Toast.makeText(StartRecorder.this,"선택한 선수의 역대 전적을 확인할 수 있는 버튼입니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(StartSuper.this, StartVs.class);
-                startActivity(intent);
-
-            }
-        });
 
     }
 }

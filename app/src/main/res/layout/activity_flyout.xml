@@ -18,7 +18,7 @@
             <Button
                 android:id="@+id/btn_flyout"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:text="아웃"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
@@ -28,7 +28,7 @@
             <Button
                 android:id="@+id/btn_flyout_foul"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:text="파울 플라이 아웃"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
@@ -38,7 +38,7 @@
             <Button
                 android:id="@+id/btn_flyout_sac"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:text="희생플라이"
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
