@@ -765,25 +765,7 @@ public class BSOActivity extends AppCompatActivity {
                             ballCnt = 0;
                             if (outCnt == 3) {
                                 if (iniCnt>=9&&ascore!=hscore) {
-                                    Log.d("a1", ascore_1+"");
-                                    Log.d("a2", ascore_2+"");
-                                    Log.d("a3", ascore_3+"");
-                                    Log.d("a4", ascore_4+"");
-                                    Log.d("a5", ascore_5+"");
-                                    Log.d("a6", ascore_6+"");
-                                    Log.d("a7", ascore_7+"");
-                                    Log.d("a8", ascore_8+"");
-                                    Log.d("a9", ascore_9+"");
 
-                                    Log.d("h1", hscore_1+"");
-                                    Log.d("h2", hscore_2+"");
-                                    Log.d("h3", hscore_3+"");
-                                    Log.d("h4", hscore_4+"");
-                                    Log.d("h5", hscore_5+"");
-                                    Log.d("h6", hscore_6+"");
-                                    Log.d("h7", hscore_7+"");
-                                    Log.d("h8", hscore_8+"");
-                                    Log.d("h9", hscore_9+"");
                                     Intent intent = new Intent(BSOActivity.this, ReusltActivity.class);
                                     startActivity(intent);
 

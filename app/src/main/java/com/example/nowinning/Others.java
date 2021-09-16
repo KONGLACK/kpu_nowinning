@@ -600,7 +600,7 @@ public class Others extends Fragment {
                 ascore_7 = 0;
                 ascore_8 = 0;
                 ascore = 8;
-                et_ascore.setText("홈      " + choice_away + Integer.toString(ascore));
+                et_ascore.setText("원정      " + choice_away + Integer.toString(ascore));
 
                 hscore_1 = 1;
                 hscore_2 = 1;
@@ -621,6 +621,7 @@ public class Others extends Fragment {
 
                 et_out.setText(et_out.getText().toString() + "*"); // 별 찍음
                 outCnt=1;
+                h=2;
                 btn_SBO.setVisibility(View.VISIBLE);
                 layout_Others.setVisibility(View.INVISIBLE);
             }
