@@ -30,6 +30,8 @@ public class StartSuperList extends AppCompatActivity {
                 Intent intent = new Intent(StartSuperList.this, StarttSuperList_home.class);
                 startActivity(intent); //계정 조건에 따라 분기점이 필요함(감독, 선수, 기록자)
 
+
+
             }
         });
 

@@ -31,7 +31,7 @@
         android:layout_marginLeft="80dp"
         android:layout_marginTop="174dp"
         android:text="팀 선택"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/teamchoice_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
 
     <Spinner
         android:id="@+id/teamchoice_spinner"
-        android:layout_width="90dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginTop="174dp"
         android:layout_marginEnd="80dp"
@@ -53,13 +53,13 @@
 
     <TextView
         android:id="@+id/hitter_1"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="214dp"
         android:text="1번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_1_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
 
     <Spinner
         android:id="@+id/hitter_1_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
@@ -79,13 +79,13 @@
 
     <TextView
         android:id="@+id/pitcher"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="투수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/pitcher_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_1_spinner"
@@ -93,7 +93,7 @@
 
     <Spinner
         android:id="@+id/pitcher_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="214dp"
         android:layout_marginEnd="13dp"
@@ -107,13 +107,13 @@
 
     <TextView
         android:id="@+id/hitter_2"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="2번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_2_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +121,7 @@
 
     <Spinner
         android:id="@+id/hitter_2_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/catcher"
@@ -131,13 +131,13 @@
 
     <TextView
         android:id="@+id/catcher"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="포수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/catcher_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_2_spinner"
@@ -145,7 +145,7 @@
 
     <Spinner
         android:id="@+id/catcher_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
@@ -159,13 +159,13 @@
 
     <TextView
         android:id="@+id/hitter_3"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="3번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_3_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +173,7 @@
 
     <Spinner
         android:id="@+id/hitter_3_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/firstbaseman"
@@ -182,13 +182,13 @@
 
     <TextView
         android:id="@+id/firstbaseman"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="1루수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/firstbaseman_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_3_spinner"
@@ -196,7 +196,7 @@
 
     <Spinner
         android:id="@+id/firstbaseman_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
@@ -210,13 +210,13 @@
 
     <TextView
         android:id="@+id/hitter_4"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="4번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_4_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -224,7 +224,7 @@
 
     <Spinner
         android:id="@+id/hitter_4_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/secondbaseman"
@@ -233,13 +233,13 @@
 
     <TextView
         android:id="@+id/secondbaseman"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="2루수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/secondbaseman_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_4_spinner"
@@ -247,7 +247,7 @@
 
     <Spinner
         android:id="@+id/secondbaseman_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
@@ -261,13 +261,13 @@
 
     <TextView
         android:id="@+id/hitter_5"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="5번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_5_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,7 +275,7 @@
 
     <Spinner
         android:id="@+id/hitter_5_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/thirdbaseman"
@@ -284,13 +284,13 @@
 
     <TextView
         android:id="@+id/thirdbaseman"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="3루수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/thirdbaseman_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_5_spinner"
@@ -298,7 +298,7 @@
 
     <Spinner
         android:id="@+id/thirdbaseman_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
@@ -312,13 +312,13 @@
 
     <TextView
         android:id="@+id/hitter_6"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="6번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_6_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -326,7 +326,7 @@
 
     <Spinner
         android:id="@+id/hitter_6_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/shortstop"
@@ -335,13 +335,13 @@
 
     <TextView
         android:id="@+id/shortstop"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="유격수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/shortstop_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_6_spinner"
@@ -351,7 +351,7 @@
 
     <Spinner
         android:id="@+id/shortstop_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="13dp"
@@ -363,13 +363,13 @@
 
     <TextView
         android:id="@+id/hitter_7"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="7번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_7_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -377,7 +377,7 @@
 
     <Spinner
         android:id="@+id/hitter_7_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/rightfielder"
@@ -386,13 +386,13 @@
 
     <TextView
         android:id="@+id/rightfielder"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="우익수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/rightfielder_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_7_spinner"
@@ -400,7 +400,7 @@
 
     <Spinner
         android:id="@+id/rightfielder_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
@@ -414,13 +414,13 @@
 
     <TextView
         android:id="@+id/hitter_8"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:text="8번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_8_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -428,7 +428,7 @@
 
     <Spinner
         android:id="@+id/hitter_8_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/centerfielder"
@@ -437,13 +437,13 @@
 
     <TextView
         android:id="@+id/centerfielder"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="중견수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/centerfielder_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_8_spinner"
@@ -451,7 +451,7 @@
 
     <Spinner
         android:id="@+id/centerfielder_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
@@ -465,7 +465,7 @@
 
     <TextView
         android:id="@+id/hitter_9"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
@@ -473,7 +473,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:text="9번 타자"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/hitter_9_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -481,7 +481,7 @@
 
     <Spinner
         android:id="@+id/hitter_9_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/leftfielder"
@@ -490,13 +490,13 @@
 
     <TextView
         android:id="@+id/leftfielder"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="좌익수"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/leftfielder_spinner"
         app:layout_constraintStart_toEndOf="@+id/hitter_9_spinner"
@@ -504,7 +504,7 @@
 
     <Spinner
         android:id="@+id/leftfielder_spinner"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="13dp"
